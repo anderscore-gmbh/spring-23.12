@@ -1,0 +1,462 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>JPA und Spring Data</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_jpa_und_spring_data" data-state="no-title-footer"><h2>JPA und Spring Data</h2><div class="paragraph center"><p>Wie funktioniert das?</p></div></section>
+<section id="_java_persistence_api_jpa_in_stichworten"><h2>Java Persistence API (JPA) in Stichworten</h2><div class="ulist"><ul><li><p>Anbindung relationaler Datenbanken (OR-Mapping)</p></li><li><p>Maßgeblicher Einfluss: <strong>Hibernate</strong></p></li><li><p>Als <a href="https://jcp.org/en/jsr/detail?id=220">&#8594; JSR 220</a> im Jahr 2006 erstmals veröffentlicht</p></li><li><p>Aktuelle Version 3.1 ist 2022 mit <strong>Jakarta EE 10</strong>
+offiziell erschienen</p></li><li><p>Inzwischen unter der Obhut der Eclipse Foundation:
+<a href="https://projects.eclipse.org/proposals/eclipse-project-jpa">
+&#8594; Eclipse Project for JPA</a></p></li><li><p>Heute: "Jakarta Persistence"</p></li></ul></div></section>
+<section id="_java_persistence_api_jpa_in_stichworten_2"><h2>Java Persistence API (JPA) in Stichworten</h2><div class="ulist"><ul><li><p>Persistence Provider: Hibernate, EclipseLink, TopLink, OpenJPA</p></li><li><p>Referenzimplementierung: EclipseLink (früher: Hibernate)</p></li><li><p>Datenbankunabhängig</p></li><li><p>Mapping-Metadaten über Java-Annotationen (oder XML)</p></li><li><p>Abfragen über Java Persistence Query Language (JPQL) oder Criteria API</p></li></ul></div></section>
+<section id="_wichtige_jpa_annotationen"><h2>Wichtige JPA Annotationen</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Entity</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Markiert Klasse als JPA-Entity</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Table(name="CUST")</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Ordnet Datenbanktabelle zu</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Column(name="CUST_ID")</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Ordnet Spaltenname zu</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Id</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Markiert Spalte als Primärschlüssel</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@GeneratedValue</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Generiert IDs</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Enumerated(EnumType.STRING)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Enum-Namen als String speichern</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@OneToOne, @OneToMany, @ManyToOne, @ManyToMany</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Beziehungen</p></td></tr></table>
+<div class="paragraph"><p><a href="https://jakarta.ee/specifications/persistence/3.1/apidocs/jakarta.persistence/jakarta/persistence/package-summary">
+&#8594; Jakarta EE 10 API: jakarta.persistence</a></p></div></section>
+<section id="_deklaration_einer_entity"><h2>Deklaration einer Entity</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Entity</span> <span class="comment">// Objekt in eigener Datenbanktabelle speichern</span>
+<span class="annotation">@Table</span>(name = <span class="string"><span class="delimiter">&quot;</span><span class="content">TASK</span><span class="delimiter">&quot;</span></span>) <span class="comment">// Tabellename</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">TaskEntity</span> {
+    <span class="directive">public</span> <span class="type">enum</span> State {
+        OPEN, STARTED, DONE
+    }
+
+    <span class="annotation">@Id</span> <span class="comment">// Primärschlüssel</span>
+    <span class="annotation">@GeneratedValue</span> <span class="comment">// wird automatisch generiert</span>
+    <span class="annotation">@Column</span>(name = <span class="string"><span class="delimiter">&quot;</span><span class="content">TASK_ID</span><span class="delimiter">&quot;</span></span>) <span class="comment">// expliziter Spaltenname</span>
+    <span class="directive">private</span> <span class="predefined-type">Long</span> id;
+    <span class="directive">private</span> <span class="predefined-type">String</span> description;
+    <span class="directive">private</span> Instant dateDue;
+    <span class="annotation">@Enumerated</span>(EnumType.STRING) <span class="comment">// als String speichern</span>
+    <span class="directive">private</span> State state;
+
+    <span class="comment">// Getter, Setter, etc.</span>
+}</code></pre></section>
+<section><section id="_datenbankzugriff_mit_plain_jpa"><h2>Datenbankzugriff mit Plain-JPA</h2><div class="paragraph heading"><p>JPA Begriffe</p></div><div class="dlist"><dl><dt class="hdlist1">Persistence Context</dt><dd><div class="ulist"><ul><li><p>Menge persistenter (eindeutiger) Entity-Objekte (in Memory)</p></li><li><p>Managed Lebenszyklus der Entities</p></li><li><p>Ist mit einer Transaktion verknüpft</p></li></ul></div></dd><dt class="hdlist1"><code>EntityManager</code> Interface</dt><dd><div class="ulist"><ul><li><p>Schnittstelle zur Interaktion mit <em>Persistence Context</em> (CRUD)</p></li><li><p>"Generisches DAO"</p></li></ul></div></dd><dt class="hdlist1">Persistence Unit</dt><dd><div class="ulist"><ul><li><p>Menge der Entities, die vom EntityManager verwaltet werden können</p></li><li><p>Wird durch <code>EntityManagerFactory</code> repräsentiert</p></li></ul></div></dd><dt class="hdlist1">Detached Entites</dt><dd><p>Entity-Objekt, das nicht mit einem <em>Persistence Context</em> verbunden ist (nach Commit)</p></dd></dl></div></section><section id="_wie_kommt_man_an_den_entitymanager_ran"><h2>Wie kommt man an den EntityManager ran?</h2><h level="3">Java EE Umgebung (Container-managed Entity Manager)</h><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@PersistenceUnit</span>
+EntityManagerFactory emf;
+
+<span class="annotation">@PersistenceContext</span>
+ContextEntityManager em;</code></pre>
+<h level="3">Java SE (Stand-alone Java-Anwendung)</h><pre class="CodeRay listingblock"><code class="java language-java">EntityManagerFactory emf = jakarta.persistence.Persistence.createEntityManagerFactory(<span class="string"><span class="delimiter">&quot;</span><span class="content">Order</span><span class="delimiter">&quot;</span></span>);
+EntityManager em = emf.createEntityManager()</code></pre>
+<div class="paragraph"><p><a href="https://jakarta.ee/specifications/persistence/3.1/apidocs/jakarta.persistence/jakarta/persistence/package-summary">
+&#8594; jakarta.persistence Javadocs</a></p></div></section><section id="_entitymanager_erzeugen_und_datenbankabfrage_ausführen"><h2>EntityManager erzeugen und Datenbankabfrage ausführen</h2><div class="title">PlainJpaTest.java</div><pre class="CodeRay listingblock"><code class="java language-java">EntityManagerFactory factory = Persistence.createEntityManagerFactory(<span class="string"><span class="delimiter">&quot;</span><span class="content">Tasks</span><span class="delimiter">&quot;</span></span>); <span class="comment">// Name der Persistence Unit</span>
+EntityManager em = factory.createEntityManager();
+<span class="predefined-type">Query</span> query = em.createQuery(<span class="string"><span class="delimiter">&quot;</span><span class="content">select t from TaskEntity t</span><span class="delimiter">&quot;</span></span>);
+<span class="predefined-type">List</span>&lt;TaskEntity&gt; tasks = query.getResultList();
+tasks.forEach(<span class="predefined-type">System</span>.out::println);</code></pre>
+<div class="paragraph"><p>Die <em>Persistence Unit</em> wird in <code>META-INF/persistence.xml</code> definiert.</p></div></section><section id="_datenbankverbindung_und_mapping_für_plain_jpa"><h2>Datenbankverbindung und Mapping für Plain-JPA</h2><div class="title">META-INF/persistence.xml</div><pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="tag">&lt;persistence</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://xmlns.jcp.org/xml/ns/persistence</span><span class="delimiter">&quot;</span></span>
+    <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2.2</span><span class="delimiter">&quot;</span></span>
+    <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://xmlns.jcp.org/xml/ns/persistence</span>
+                        <span class="content">http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;persistence-unit</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Tasks</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">transaction-type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">RESOURCE_LOCAL</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;class&gt;</span>boot.backend.repository.TaskEntity<span class="tag">&lt;/class&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">javax.persistence.jdbc.driver</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.hsqldb.jdbc.JDBCDriver</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">javax.persistence.jdbc.url</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jdbc:hsqldb:mem:mymemdb</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">javax.persistence.jdbc.user</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sa</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">javax.persistence.jdbc.password</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hibernate.dialect</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.hibernate.dialect.HSQLDialect</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hibernate.hbm2ddl.auto</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">create</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/persistence-unit&gt;</span>
+<span class="tag">&lt;/persistence&gt;</span></code></pre>
+<div class="ulist"><ul><li><p>Datenbankverbindung hart verdrahtet</p></li><li><p>In Java EE Umgebung nicht notwendig</p></li></ul></div></section></section>
+<section><section id="_jpa_mit_spring_und_hibernate"><h2>JPA mit Spring und Hibernate</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Bean</span>
+<span class="directive">public</span> LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    LocalContainerEntityManagerFactoryBean em = <span class="keyword">new</span> LocalContainerEntityManagerFactoryBean();
+    em.setDataSource(dataSource()); <i class="conum" data-value="1"></i><b>(1)</b>
+    em.setPackagesToScan(<span class="keyword">new</span> <span class="predefined-type">String</span><span class="type">[]</span> { <span class="string"><span class="delimiter">&quot;</span><span class="content">boot.backend.repository</span><span class="delimiter">&quot;</span></span> }); <i class="conum" data-value="2"></i><b>(2)</b>
+
+    JpaVendorAdapter vendorAdapter = <span class="keyword">new</span> HibernateJpaVendorAdapter();
+    em.setJpaVendorAdapter(vendorAdapter);
+    em.setJpaProperties(additionalProperties());
+
+    <span class="keyword">return</span> em;
+}
+
+<span class="predefined-type">Properties</span> additionalProperties() {
+    <span class="predefined-type">Properties</span> properties = <span class="keyword">new</span> <span class="predefined-type">Properties</span>();
+    properties.setProperty(<span class="string"><span class="delimiter">&quot;</span><span class="content">hibernate.dialect</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">org.hibernate.dialect.HSQLDialect</span><span class="delimiter">&quot;</span></span>);
+    properties.setProperty(<span class="string"><span class="delimiter">&quot;</span><span class="content">hibernate.hbm2ddl.auto</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">create</span><span class="delimiter">&quot;</span></span>); <i class="conum" data-value="3"></i><b>(3)</b>
+    <span class="keyword">return</span> properties;
+}</code></pre><div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Datenbankverbindung über Spring-Bean (mit entsprechenden Konfigurationsmöglichkeiten)</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Angabe der Entity-Klassen, die zur der <em>Persistence Unit</em> gehören</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Automatische Schemagenierung mit Hibernate</td></tr></table></div></section><section id="_schemagenierung_mit_hibernate"><h2>Schemagenierung mit Hibernate</h2><div class="paragraph"><p>Mögliche Werte für <code>hibernate.hbm2ddl.auto</code>:</p></div>
+<table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:16.6666%"><col style="width:83.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Wert</th><th class="tableblock halign-left valign-top">Beschreibung</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Nichts tun</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">validate</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Nur Schema validieren, keine Datenbankänderungen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">update</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Schema aktualisieren</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">create</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Schema neu anlegen, löscht bestehende Daten</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">create-drop</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Wie <em>create</em>, löscht das Schema aber sobald die <code>SessionFactory</code> geschlossen wird</p></td></tr></table>
+<div class="paragraph"><p><a href="https://stackoverflow.com/questions/438146/hibernate-hbm2ddl-auto-possible-values-and-what-they-do">
+&#8594; Hibernate hbm2ddl.auto possible values and what they do?</a></p></div></section><section id="_zugriff_auf_entitymanager_in_einer_spring_anwendung"><h2>Zugriff auf EntityManager in einer Spring-Anwendung</h2><div class="title">SpringJpaTest.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@PersistenceContext</span>
+<span class="directive">private</span> EntityManager entityManager;
+
+<span class="annotation">@Test</span>
+<span class="directive">public</span> <span class="type">void</span> test() {
+    <span class="predefined-type">Query</span> query = entityManager.createQuery(<span class="string"><span class="delimiter">&quot;</span><span class="content">select t from TaskEntity t</span><span class="delimiter">&quot;</span></span>);
+    <span class="predefined-type">List</span>&lt;TaskEntity&gt; tasks = query.getResultList();
+    tasks.forEach(<span class="predefined-type">System</span>.out::println);
+}</code></pre>
+<div class="paragraph"><p>Oder alternativ über die <code>EntityManagerFactory</code>:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Autowired</span>
+<span class="directive">private</span> EntityManagerFactory entityManagerFactory;
+
+<span class="annotation">@Test</span>
+<span class="directive">public</span> <span class="type">void</span> testUsingEntityManagerFactory() {
+    EntityManager em = entityManagerFactory.createEntityManager();
+    <span class="predefined-type">Query</span> query = em.createQuery(<span class="string"><span class="delimiter">&quot;</span><span class="content">select t from TaskEntity t</span><span class="delimiter">&quot;</span></span>);
+    <span class="predefined-type">List</span>&lt;TaskEntity&gt; tasks = query.getResultList();
+    tasks.forEach(<span class="predefined-type">System</span>.out::println);
+}</code></pre>
+<div class="admonitionblock note teacherBox"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content"><code>JpaTemplate</code> und <code>JpaDaoSupport</code> sind seit Spring 3.1 deprecated.</td></tr></table></div></section></section>
+<section><section id="_jpa_hibernate_vs_plain_hibernate"><h2>JPA (+ Hibernate) vs. Plain-Hibernate</h2><div class="paragraph"><p>Konzepte sind weitgehend identisch!</p></div><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">javax.persistence</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">org.hibernate</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">EntityManagerFactory</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">SessionFactory</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">EntityManager</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Session</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">JPQL</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">HQL</p></td></tr></table></section><section id="_konfiguration"><h2>Konfiguration</h2><pre class="CodeRay listingblock"><code class="java language-java">    <span class="annotation">@Bean</span>
+    <span class="directive">public</span> LocalSessionFactoryBean sessionFactory(<span class="predefined-type">DataSource</span> dataSource) {
+        LocalSessionFactoryBean sessionFactory = <span class="keyword">new</span> LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setPackagesToScan(<span class="string"><span class="delimiter">&quot;</span><span class="content">com.anderscore.hibernate.entity</span><span class="delimiter">&quot;</span></span>);
+        sessionFactory.setHibernateProperties(hibernateProperties());
+
+        <span class="keyword">return</span> sessionFactory;
+    }
+
+    <span class="annotation">@Bean</span>
+    <span class="directive">public</span> TransactionManager txManager(SessionFactory sessionFactory) {
+        HibernateTransactionManager tx = <span class="keyword">new</span> HibernateTransactionManager();
+        tx.setSessionFactory(sessionFactory);
+        <span class="keyword">return</span> tx;
+    }
+
+    <span class="directive">private</span> <span class="predefined-type">Properties</span> hibernateProperties() {
+        <span class="predefined-type">Properties</span> props = <span class="keyword">new</span> <span class="predefined-type">Properties</span>();
+        props.setProperty(<span class="string"><span class="delimiter">&quot;</span><span class="content">hibernate.hbm2ddl.auto</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">create-drop</span><span class="delimiter">&quot;</span></span>);
+        props.setProperty(<span class="string"><span class="delimiter">&quot;</span><span class="content">hibernate.dialect</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">org.hibernate.dialect.HSQLDialect</span><span class="delimiter">&quot;</span></span>);
+
+        <span class="keyword">return</span> props;
+    }</code></pre></section></section>
+<section><section id="_aufgabe_1_jpa_und_hibernate_mit_spring_boot"><h2>Aufgabe 1: JPA und Hibernate mit Spring Boot</h2><div class="paragraph"><p>Gegeben sei folgendes Datenmodell einer Software zur Verwaltung von Trainings:</p></div><div class="imageblock" style=""><img src="images/lesson02/KlassendiagrammJPA.png" alt="KlassendiagrammJPA" height="600"></div></section><section id="_nächste_schritte"><h2>Nächste Schritte</h2><div class="olist arabic"><ol class="arabic"><li><p>Öffnen Sie das Projekt <code>lesson02-boot-jpa</code> und machen Sie sich mit den Entities, den <code>DaoTests</code> und dem
+SQL-Skript <code>init-schema.sql</code> vertraut.</p></li><li><p>Versehen Sie die Entities so mit JPA-Annotationen, dass diese zum gegebenen Datenbankschema passen.</p></li><li><p>Implementieren Sie konkrete Klassen zu den DAO-Interfaces, indem Sie den EntityManager injekten
+und entsprechend verwenden.</p></li><li><p>Deklarieren Sie Ihre DAO-Implementierungen als Spring Beans.</p></li><li><p>Aktivieren Sie die <code>DaoTests</code>.</p></li><li><p>Führen Sie ein Refactoring durch, sodass die DAOs keine Code-Duplikate mehr enthalten.</p></li><li><p>Optional: Kopieren Sie die Klasse <code>DaoTests</code>, ersetzen Sie <code>@SpringBootTest</code> durch <code>@SpringJUnitTest</code>
+und konfigurieren Sie <code>DataSource</code>, <code>LocalContainerEntityManagerFactoryBean</code> und <code>TransactionManager</code> selbst.</p></li><li><p>Optional: Ersetzen Sie JPA + Hibernate durch Plain-Hibernate.</p></li></ol></div></section></section>
+<section id="_fetchtype"><h2>FetchType</h2><div class="paragraph heading"><p>Wann abhängige Entities laden?</p></div>
+<div class="ulist"><ul><li><p><code>FetchType.EAGER</code></p><div class="ulist"><ul><li><p>Laden mit einbindender Entity</p></li><li><p>Ziel: Reduktion der Queries</p></li><li><p>Herausforderungen: ungenutzte Daten, Speicherverbrauch</p></li><li><p>Default bei <code>@OneToOne</code> und <code>@ManyToOne</code></p></li></ul></div></li><li><p><code>FetchType.LAZY</code></p><div class="ulist"><ul><li><p>Laden erst bei tatsächlichem Zugriff (Proxy)</p></li><li><p>Ziel: Reduktion der Datenmenge</p></li><li><p>Herausforderungen: Hibernate Session, n+1 Issues</p></li><li><p>Default bei <code>@OneToMany</code>, <code>@ManyToMany</code></p></li></ul></div></li><li><p>Gegenstand von Performance-Optimierungen (und Bugs&#8230;&#8203;)</p></li></ul></div></section>
+<section id="_fetchtype_2"><h2>FetchType</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Course</span> {
+
+    <span class="annotation">@OneToMany</span>(fetch = FetchType.EAGER)
+    <span class="directive">private</span> <span class="predefined-type">List</span>&lt;Training&gt; trainings;
+
+<span class="comment">// ...</span>
+}</code></pre></section>
+<section id="_attribute_converter"><h2>Attribute Converter</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Trainee</span> {
+
+    <span class="annotation">@Convert</span>(converter = TraineeNameConverter.class)
+    <span class="directive">private</span> TraineeName traineeName;
+
+    <span class="comment">// ...</span>
+}</code></pre>
+<pre class="CodeRay listingblock java"><code>@Converter
+public class TraineeNameConverter implements AttributeConverter&lt;TraineeName, String&gt; {
+
+    @Override
+    public String convertToDatabaseColumn(TraineeName traineeName) {
+    }
+
+    @Override
+    public TraineeName convertToEntityAttribute(String dbTraineeName) {
+    }
+}</code></pre>
+<div class="ulist"><ul><li><p><strong>Problem:</strong> Attribut einer Entity lässt sich nicht auf Spalte abbilden</p></li><li><p><strong>Beispiel:</strong> Vor- und Nachname getrennt vs. zusammen</p></li><li><p><strong>Lösung:</strong> Definition eines eigenen Converters</p></li></ul></div></section>
+<section><section id="_spring_data"><h2>Spring Data</h2><div class="quoteblock"><blockquote><div class="paragraph"><p>Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while
+still retaining the special traits of the underlying data store.</p></div></blockquote><div class="attribution">&#8212; Spring Data Projektseite</div></div><div class="paragraph"><p><br></p></div><div class="ulist"><div class="title">Wesentliche Features:</div><ul><li><p>Ähnliche Verwendung von SQL und NoSQL Datenbanken</p></li><li><p>Minimierung von "Boilerplate" Code</p></li></ul></div></section><section id="_definition_eines_spring_data_repositorys_für_jpa"><h2>Definition eines Spring Data Repositorys für JPA</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">interface</span> <span class="class">TaskRepository</span> <span class="directive">extends</span>
+        JpaRepository&lt;TaskEntity, <span class="predefined-type">Long</span>&gt;, <span class="comment">// Spring Data und JPQL</span>
+        JpaSpecificationExecutor&lt;TaskEntity&gt; <span class="comment">// JPA criteria API</span>
+{
+
+    <span class="predefined-type">List</span>&lt;TaskEntity&gt; findTaskEntitiesByStateOrderByDateDueDesc(TaskEntity.State state); <i class="conum" data-value="1"></i><b>(1)</b>
+
+    <span class="annotation">@Query</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">select t from TaskEntity t where t.state = :state order by t.dateDue desc</span><span class="delimiter">&quot;</span></span>) <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="predefined-type">List</span>&lt;TaskEntity&gt; findByJpaqlQuery(<span class="annotation">@Param</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>) TaskEntity.State state);
+}</code></pre>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Einfache Abfragen generiert Spring-Data direkt aus dem Methodennamen</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Alternativ kann man die JPQL Abfrage über die <code>@Query</code> Annotation angeben</td></tr></table></div>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-data/jpa/docs/2.1.6.RELEASE/reference/html/#repositories.query-methods.details">
+&#8594; Spring Data Reference: Defining Query Methods</a></p></div></section><section id="_jparepository"><h2>JpaRepository</h2><div class="paragraph"><p>Das <code>JpaRepository</code> Interface bietet bereits eine Menge vorgefertigter Abfragemethoden:</p></div>
+<div class="title">org.springframework.data.jpa.repository.JpaRepository</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@NoRepositoryBean</span>
+<span class="directive">public</span> <span class="type">interface</span> <span class="class">JpaRepository</span>&lt;T, ID&gt; <span class="directive">extends</span> PagingAndSortingRepository&lt;T, ID&gt;, QueryByExampleExecutor&lt;T&gt; {
+    <span class="predefined-type">List</span>&lt;T&gt; findAll();
+
+    <span class="predefined-type">List</span>&lt;T&gt; findAll(Sort var1);
+
+    <span class="predefined-type">List</span>&lt;T&gt; findAllById(<span class="predefined-type">Iterable</span>&lt;ID&gt; var1);
+
+    &lt;S <span class="directive">extends</span> T&gt; <span class="predefined-type">List</span>&lt;S&gt; saveAll(<span class="predefined-type">Iterable</span>&lt;S&gt; var1);
+    <span class="comment">// ...</span>
+}</code></pre>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-data/jpa/docs/2.1.6.RELEASE/api/org/springframework/data/jpa/repository/JpaRepository.html">
+&#8594; Javadocs</a></p></div></section><section id="_pagingandsortingrepository"><h2>PagingAndSortingRepository</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">interface</span> <span class="class">PagingAndSortingRepository</span>&lt;T, ID <span class="directive">extends</span> <span class="predefined-type">Serializable</span>&gt; <span class="directive">extends</span> CrudRepository&lt;T, ID&gt; {
+
+    <span class="predefined-type">Iterable</span>&lt;T&gt; findAll(Sort sort);
+
+    Page&lt;T&gt; findAll(<span class="predefined-type">Pageable</span> pageable);
+}</code></pre></section><section id="_crudrepository"><h2>CrudRepository</h2><div class="paragraph"><p>CrudRepository und PagingAndSortingRepository sind nicht auf RDBMS beschränkt!</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">interface</span> <span class="class">CrudRepository</span>&lt;T, ID <span class="directive">extends</span> <span class="predefined-type">Serializable</span>&gt; <span class="directive">extends</span> Repository&lt;T, ID&gt; {
+
+    &lt;S <span class="directive">extends</span> T&gt; S save(S entity);
+
+    T findOne(ID primaryKey);
+
+    <span class="predefined-type">Iterable</span>&lt;T&gt; findAll();
+
+    <span class="predefined-type">Long</span> count();
+
+    <span class="type">void</span> delete(T entity);
+
+    <span class="type">boolean</span> exists(ID primaryKey);
+}</code></pre></section><section id="_verwendung_von_spring_data"><h2>Verwendung von Spring Data</h2><div class="paragraph"><p>Konfiguration:</p></div>
+<div class="title">SpringDataTest.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Configuration</span>
+<span class="annotation">@EnableTransactionManagement</span>
+<span class="annotation">@EnableJpaRepositories</span>(basePackageClasses = TaskRepository.class)</code></pre>
+<div class="paragraph"><p>Zugriff auf Daten:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Autowired</span>
+<span class="directive">private</span> TaskRepository taskRepository;
+
+<span class="annotation">@Test</span>
+<span class="directive">public</span> <span class="type">void</span> testFindAll() {
+    <span class="predefined-type">List</span>&lt;TaskEntity&gt; tasks = taskRepository.findAll();
+    tasks.forEach(<span class="predefined-type">System</span>.out::println);
+}</code></pre></section><section id="_logging_von_sql_statements"><h2>Logging von SQL-Statements</h2><div class="title">application.properties</div><pre class="CodeRay listingblock"><code>spring.jpa.hibernate.show_sql=true <i class="conum" data-value="1"></i><b>(1)</b>
+spring.jpa.hibernate.format_sql=true <i class="conum" data-value="2"></i><b>(2)</b>
+
+logging.level.org.hibernate.SQL=debug <i class="conum" data-value="3"></i><b>(3)</b>
+logging.level.org.hibernate.type.descriptor.sql=trace <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Ausgabe der SQL-Statements über die <code>hibernate.show_sql</code> Property aktivieren (unabhängig vom Logger)</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>SQL-Statements formatiert ausgeben (gilt auch für Logger)</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Unabhängig davon gibt Hibernate alle SQL-Statements aus, wenn das Loglevel für <code>org.hibernate.SQL</code> auf <code>DEBUG</code> gesetzt wird.</td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td>Mit Loglevel <code>TRACE</code> für <code>org.hibernate.type.descriptor.sql</code> gibt Hibernate alle SQL-Parameter aus</td></tr></table></div></section><section id="_konfiguration_einer_datasource"><h2>Konfiguration einer Datasource</h2><div class="title">application.properties</div><pre class="CodeRay listingblock"><code>spring.datasource.url=jdbc:hsqldb:hsql://localhost:9001/xdb
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.hibernate.ddl-auto=update</code></pre></section></section>
+<section><section id="_jpa_criteria_api"><h2>JPA Criteria API</h2><div class="ulist"><ul><li><p>Über <code>JpaRepository</code> kann man nur fixe (zur Compilezeit bekannte) Abfragen ausführen</p></li><li><p>Alternativ kann man einen JPQL-String zusammensetzen und mit <code>EntityManager</code> ausführen</p></li><li><p>Die Criteria API bietet eine objektorientierte, typsichere Schnittstelle,
+um dynamisch (zur Laufzeit) JPQL-Abfragen zusammenzusetzen</p></li><li><p>Alternative: <a href="http://www.querydsl.com/">&#8594; Querydsl</a> (wird von Spring unterstützt)</p></li></ul></div></section><section id="_criteria_api_mit_plain_jpa"><h2>Criteria API mit Plain-JPA</h2><div class="title">PlainJpaTest.java</div><pre class="CodeRay listingblock"><code class="java language-java">CriteriaBuilder cb = em.getCriteriaBuilder();
+CriteriaQuery&lt;TaskEntity&gt; q = cb.createQuery(TaskEntity.class);
+Root&lt;TaskEntity&gt; from = q.from(TaskEntity.class);
+q.select(from);
+
+TypedQuery&lt;TaskEntity&gt; query = em.createQuery(q);
+<span class="predefined-type">List</span>&lt;TaskEntity&gt; tasks = query.getResultList();
+tasks.forEach(<span class="predefined-type">System</span>.out::println);</code></pre>
+<div class="paragraph"><p>Es sind zwei Schritte notwendig:</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Erstellung einer <code>CriteriaQuery</code> mittels <code>CriteriaBuilder</code></p></li><li><p>Ausführung der Abfrage mit <code>createQuery</code></p></li></ol></div></section><section id="_specification_für_eine_abfrage_mit_der_criteria_api"><h2>Specification für eine Abfrage mit der Criteria-API</h2><div class="title">TaskSearchCriteria.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">TaskSearchCriteria</span> {
+    <span class="directive">private</span> <span class="directive">final</span> State state;
+}</code></pre>
+<div class="title">TaskSpecification.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">TaskSpecification</span> <span class="directive">implements</span> Specification&lt;TaskEntity&gt; {
+
+    <span class="directive">private</span> <span class="directive">final</span> TaskSearchCriteria criteria;
+
+    <span class="directive">public</span> TaskSpecification(TaskSearchCriteria criteria) {
+        <span class="local-variable">super</span>();
+        <span class="local-variable">this</span>.criteria = criteria;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="predefined-type">Predicate</span> toPredicate(Root&lt;TaskEntity&gt; root, CriteriaQuery&lt;?&gt; query, CriteriaBuilder builder) {
+        query.orderBy(builder.desc(root.get(<span class="string"><span class="delimiter">&quot;</span><span class="content">dateDue</span><span class="delimiter">&quot;</span></span>)));
+        <span class="keyword">return</span> builder.equal(root.get(<span class="string"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>), criteria.getState());
+    }
+}</code></pre></section><section id="_abfrage_mit_einer_spring_data_specification"><h2>Abfrage mit einer Spring-Data Specification</h2><div class="title">SpringDataTest.java</div><pre class="CodeRay listingblock"><code class="java language-java">TaskSpecification spec = <span class="keyword">new</span> TaskSpecification(<span class="keyword">new</span> TaskSearchCriteria(State.STARTED));
+<span class="predefined-type">List</span>&lt;TaskEntity&gt; tasks = taskRepository.findAll(spec);
+tasks.forEach(<span class="predefined-type">System</span>.out::println);</code></pre>
+<div class="ulist"><ul><li><p>Die Suchkriterien werden normalerweise als Value-Objekt übergeben, welches
+mit den Benutzereingaben aus einem Abfrageformular befüllt ist
+(in diesem Fall <code>TaskSearchCriteria</code>)</p></li><li><p>Die <em>Specification</em> intialisiert damit eine <code>CriteriaQuery</code>, die von Spring-Data in der
+Methode <code>toPredicate</code> neben <code>CriteriaBuilder</code> und <code>Root</code> übergeben wird.</p></li></ul></div></section></section>
+<section id="_aufgabe_2_umstellung_auf_spring_data_repositories"><h2>Aufgabe 2: Umstellung auf Spring Data Repositories</h2><div class="olist arabic"><ol class="arabic"><li><p>Komplementieren Sie die DAOs aus Aufgabe 1 durch alternative Spring Data Repositories, indem Sie entsprechende
+Interfaces definieren.</p></li><li><p>Erstellen Sie eine Kopie von <code>DaoTests</code> unter dem Namen <code>RepositoryTests</code> und testen Sie die Repositories auf
+gleiche Weise.</p></li></ol></div></section>
+<section id="_aufgabe_3_verwendung_von_spring_data_repositories"><h2>Aufgabe 3: Verwendung von Spring Data Repositories</h2><div class="olist arabic"><ol class="arabic"><li><p>Bearbeiten Sie die Aufgaben und Fragen in <code>TaskRepositoryTest</code> aus dem Projekt <code>lesson02-boot-backend-rest</code>:</p><pre class="CodeRay listingblock"><code class="java language-java"><span class="comment">// Frage 1: Was bewirkt das &quot;spring.datasource.url=&quot;?</span>
+<span class="annotation">@SpringBootTest</span>(properties = <span class="string"><span class="delimiter">&quot;</span><span class="content">spring.datasource.url=</span><span class="delimiter">&quot;</span></span>)
+<span class="comment">// Frage 2: Wozu ist @Transactional notwendig?</span>
+<span class="annotation">@Transactional</span></code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="comment">// Frage 3: Warum ist kein exakter Vergleich bei 'dateDue' möglich?</span>
+assertThat(task1).isEqualToIgnoringGivenFields(task2, <span class="string"><span class="delimiter">&quot;</span><span class="content">dateDue</span><span class="delimiter">&quot;</span></span>);
+assertThat(task1.getDateDue()).isCloseTo(task2.getDateDue(), OFFSET);</code></pre></li><li><p>Konfigurieren Sie das Logging so, dass die SQL Statements ausgegeben werden.</p></li><li><p>Konfigurieren Sie über die <code>application.properties</code> eine Datenbankverbindung zu einem
+HSQLDB <strong>Server</strong>. Sie können <code>hsqldb-server</code> verwenden, um einen entsprechenden
+Server zu starten. Werfen Sie zur Verwendung einen Blick auf die <code>pom.xml</code> des Projektes.</p></li><li><p>Lassen Sie die Tests gegen diesen Server laufen und sehen Sie sich den Inhalt der <code>TASK</code> Tabelle an.</p></li><li><p>Experimentieren Sie!</p></li></ol></div>
+<div class="admonitionblock note teacherBox"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">JDBC URLs für einen HSQLDB <strong>Server</strong> haben die Form <code>jdbc:hsqldb:hsql://localhost/xdb</code></td></tr></table></div></section>
+<section><section id="_weiterführende_konzepte"><h2>Weiterführende Konzepte</h2><div class="ulist"><ul><li><p>Finder</p></li><li><p>Queries</p></li><li><p>Paging &amp; Sorting</p></li></ul></div></section><section id="_finder"><h2>Finder</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">List</span>&lt;Course&gt; findByTitleAndDuration(<span class="predefined-type">String</span> title, <span class="type">int</span> duration);
+
+<span class="predefined-type">List</span>&lt;Course&gt; findTop3ByDuration(<span class="type">int</span> duration);
+
+<span class="predefined-type">List</span>&lt;Course&gt; findByTitleLike(<span class="predefined-type">String</span> pattern);
+
+<span class="predefined-type">List</span>&lt;Course&gt; findByTitleIn(<span class="predefined-type">Set</span>&lt;<span class="predefined-type">String</span>&gt; titles);
+
+<span class="predefined-type">List</span>&lt;Course&gt; findByDurationBetween(<span class="type">int</span> startDuration, <span class="type">int</span> endDuration);
+
+<span class="predefined-type">List</span>&lt;Course&gt; findByTitleOrderByTitleAsc(<span class="predefined-type">String</span> title);</code></pre></section><section id="_queries"><h2>Queries</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Query</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">SELECT c FROM Course c WHERE c.duration = :duration</span><span class="delimiter">&quot;</span></span>)
+<span class="predefined-type">List</span>&lt;Course&gt; loadCoursesJpql(<span class="annotation">@Param</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">duration</span><span class="delimiter">&quot;</span></span>) <span class="type">int</span> duration);
+
+<span class="annotation">@Query</span>(value = <span class="string"><span class="delimiter">&quot;</span><span class="content">SELECT * FROM COURSES c WHERE c.duration = :duration</span><span class="delimiter">&quot;</span></span>, nativeQuery = <span class="predefined-constant">true</span>)
+<span class="predefined-type">List</span>&lt;Course&gt; loadCoursesNative(<span class="annotation">@Param</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">duration</span><span class="delimiter">&quot;</span></span>) <span class="type">int</span> duration);</code></pre></section><section id="_paging_sorting"><h2>Paging &amp; Sorting</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Query</span>(value = <span class="string"><span class="delimiter">&quot;</span><span class="content">SELECT c FROM Course c</span><span class="delimiter">&quot;</span></span>)
+<span class="predefined-type">List</span>&lt;Course&gt; loadCoursesSorted(Sort sort);</code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">Pageable</span> request = PageRequest.of(<span class="integer">0</span>, <span class="integer">1000</span>, Sort.by(<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>).descending().and(Sort.by(<span class="string"><span class="delimiter">&quot;</span><span class="content">duration</span><span class="delimiter">&quot;</span></span>)));
+
+Page&lt;Course&gt; page = repository.findAll(request);
+<span class="predefined-type">List</span>&lt;Course&gt; courses = page.getContent();
+
+<span class="predefined-type">Pageable</span> nextRequest = page.nextPageable();</code></pre></section></section>
+<section id="_aufgabe_4_finder_und_paging"><h2>Aufgabe 4: Finder und Paging</h2><div class="olist arabic"><ol class="arabic"><li><p>Erweitern Sie das in Aufgabe 2 erstellte <code>CourseRepository</code> um zwei zusätzliche Finder-Methoden:</p><div class="olist loweralpha"><ol class="loweralpha" type="a"><li><p>Laden aller Kurse, deren Titel einem anzugebenden Pattern entspricht.</p></li><li><p>Paginiertes Laden aller Kurse mit einer Länge zwischen einem anzugebenden Minimal- und Maximalwert.</p></li></ol></div></li><li><p>Fügen Sie den in Aufgabe 2 angelegten <code>RepositoryTests</code> eine weitere Testmethode hinzu, welche die beiden neuen Finder
+des <code>CourseRepository</code> testet. Testdaten können Sie automatisiert über das SQL-Skript <code>init-data.sql</code> einspielen.</p><div class="olist loweralpha"><ol class="loweralpha" type="a"><li><p>Laden aller Kurse, deren Titel den Begriff "Datenbanken" enthält.</p></li><li><p>Laden der ersten zwei Kurse mit einer Dauer zwischen 3 und 5 Tagen, aufsteigend sortiert nach ihrer Dauer.</p></li></ol></div></li></ol></div></section>
+<section><section id="_best_practices"><h2>Best Practices</h2><div class="ulist"><ul><li><p>JPA &amp; Hibernate</p></li><li><p>Spring</p></li><li><p>Tests</p></li></ul></div></section><section id="_jpa_hibernate"><h2>JPA &amp; Hibernate</h2><div class="ulist"><ul><li><p>Konfiguration über Spring</p></li><li><p>Connection Pool verwenden</p></li><li><p>Injection des EntityManagers</p></li><li><p>Einfache CRUD-Operationen in abstraktes DAO auslagern</p></li><li><p>Naming Conventions in Java und DB beachten</p></li><li><p>Lazy Loading bei Bedarf punktuell deaktivieren</p></li><li><p>Entities nicht an UI weitergeben</p></li></ul></div></section><section id="_spring"><h2>Spring</h2><div class="ulist"><ul><li><p>Spring Data Repositorys nutzen, sofern möglich</p></li><li><p>JPQL und Criteria API nur verwenden, wenn nötig</p></li><li><p>@Transactional richtig anwenden</p></li></ul></div></section><section id="_tests"><h2>Tests</h2><div class="ulist"><ul><li><p>Integration Tests nur für Repositorys und DAOs</p></li><li><p>Unit Tests für Services (Business Logic)</p></li><li><p>In-memory DB verwenden, sofern möglich</p></li></ul></div></section></section>
+<section id="_einführung_jpa_mit_spring_data"><h2>Einführung JPA mit Spring Data</h2><div class="paragraph heading"><p>Fragen?</p></div>
+<div class="paragraph"><p><a href="lesson0203-rest.html">&#8594; Weiter zu REST</a></p></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

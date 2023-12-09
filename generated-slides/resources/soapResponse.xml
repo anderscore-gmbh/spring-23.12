@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+               xmlns:as="http://www.anderscore.com/soap">
+
+    <soap:Header/>
+
+    <soap:Body>
+
+        <as:getCoursesResponse>
+            <as:course>
+                <as:title>Spring Power Workshop</as:title>
+                <as:tutor>Daniel Krämer</as:tutor>
+                <as:numDays>5</as:numDays>
+                <as:level>Advanced</as:level>
+            </as:course>
+        </as:getCoursesResponse>
+
+    </soap:Body>
+
+</soap:Envelope>

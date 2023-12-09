@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>spring-training</groupId>
+    <artifactId>lesson02-boot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>lesson02-boot</name>
+    <description>Todo-list application using Spring Boot</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.3</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <!-- Unittests mit JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Notwendig zur Ausfuehrung von JUnit 5 Tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Notwendig zur Ausfuehrung von JUnit 4 Tests -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>lesson02-boot-jpa</module>
+        <module>lesson02-boot-backend-rest</module>
+        <module>lesson02-boot-backend-soap</module>
+        <module>lesson02-boot-frontend</module>
+        <module>lesson02-servlet-webxml</module>
+        <module>lesson02-servlet-initializer</module>
+        <module>lesson02-servlet-annotation</module>
+        <module>lesson02-spring-rest</module>
+        <module>lesson02-boot-coffee-break-reminder</module>
+        <module>lesson02-boot-coffee-break-reminder-spring-boot-autoconfigure</module>
+        <module>lesson02-boot-coffee-break-reminder-spring-boot-starter</module>
+    </modules>
+
+</project>

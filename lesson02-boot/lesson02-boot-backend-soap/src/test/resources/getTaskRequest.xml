@@ -1,0 +1,11 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:as="http://www.anderscore.com/soap">
+    <soap:Header/>
+
+    <soap:Body>
+        <as:getTaskRequest>
+            <as:id>4711</as:id>
+        </as:getTaskRequest>
+    </soap:Body>
+
+</soap:Envelope>

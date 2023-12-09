@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Lektion 2 - Spring Boot</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_lektion_2_spring_boot" data-state="no-title-footer"><h2>Lektion 2 - Spring Boot</h2></section>
+<section><section id="_spring_boot"><h2>Spring-Boot</h2><div class="quoteblock"><blockquote><div class="paragraph"><p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications
+that you can "just run".</p></div>
+<div class="paragraph"><p>We take an opinionated<sup>*</sup>
+view of the Spring platform and third-party libraries so you can get
+started with minimum fuss. Most Spring Boot applications need very little Spring configuration.</p></div></blockquote><div class="attribution">&#8212; <a href="https://spring.io/projects/spring-boot" class="bare">https://spring.io/projects/spring-boot</a></div></div><div class="paragraph"><p><sup>*</sup>: eigensinnig, rechthaberisch</p></div></section><section id="_was_bringt_spring_boot"><h2>Was bringt Spring Boot?</h2><div class="ulist"><ul><li><p>Aufeinander abgestimmte Bibliotheksabhängigkeiten</p></li><li><p>Sinnvolle Vorgaben für automatische Konfiguration</p></li><li><p>Einheitliche Verwaltung von Einstellungen</p></li><li><p>Entwicklung und Ausführung ohne separaten Application-Server (dank <em>fat jars</em>)</p></li><li><p>Tools für Entwicklung und Monitoring</p></li></ul></div></section><section id="_woraus_besteht_spring_boot"><h2>Woraus besteht Spring Boot?</h2><div class="ulist"><ul><li><p>Große Sammlung aufeinander abgestimmter Open-Source Bibliotheksversionen</p></li><li><p>Sinnvolle Zusammenstellungen von Bibliotheken für verschiedene Anwendungsbereiche (<em>Starter</em>)</p></li><li><p>Plugins und Konfigurationseinstellungen für Gradle und Maven</p></li><li><p>Module zur automatischen Konfiguration</p></li></ul></div>
+<div class="paragraph"><p>Für den Schnelleinstieg:</p></div>
+<div class="ulist"><ul><li><p><a href="https://start.spring.io/">Spring Initializr</a></p></li><li><p><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-installing-the-cli">Spring Boot CLI</a></p></li></ul></div></section></section>
+<section><section id="_überblick_zu_den_aufgaben_dieser_lektion"><h2>Überblick zu den Aufgaben dieser Lektion</h2><div class="paragraph"><p>Wir bauen eine Aufgabenliste, bestehend aus</p></div><div class="ulist"><ul><li><p>einem Backend-Server, der eine REST-Schnittstelle bereitstellt und die
+Tasks mittels JPA in einer HSQL-Datenbank speichert</p></li><li><p>einem Frontend-Server, der eine Thymeleaf basierte Oberfläche für
+das Backend bereitstellt</p></li></ul></div><div class="paragraph"><p>Ziel ist, zu verstehen, was im Hintergrund tatsächlich passiert, also wie
+Spring Boot das Spring-Framework nutzt, um die Funktionalität bereitzustellen.</p></div></section><section id="_vorgehen"><h2>Vorgehen</h2><div class="olist arabic"><ol class="arabic"><li><p>Grundgerüst der Applikation mit Spring Initializr anlegen</p></li><li><p>Persistenzschicht implementieren</p></li><li><p>REST-Controller für Backend implementieren</p></li><li><p>Frontend implementieren</p></li></ol></div></section></section>
+<section id="_spring_initializr" class="columns"><h2>Spring Initializr</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p>Web-Anwedung, mit der man<br>
+ein ausführbares Grundgerüst<br>
+einer Spring-Boot Applikation<br>
+erstellen kann</p></li><li><p>In IDEs integriert<br>
+(Spring-Tool-Suite,<br>
+IntelliJ IDEA)</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson02/SpringInitializr.png" alt="SpringInitializr"></div></section>
+<section><section id="_aufgabe_1_grundgerüst_applikation_erstellen_und_ergründen"><h2>Aufgabe 1: Grundgerüst Applikation erstellen und ergründen</h2><div class="paragraph heading"><p>Schritt 1: Spring Initializr</p></div><div class="paragraph"><p>Erstellen Sie mit Spring Initializr (<a href="https://start.spring.io/" class="bare">https://start.spring.io/</a>) eine Spring-Boot
+Anwendung mit folgenden Einstellungen:</p></div><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:28.5714%"><col style="width:71.4286%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Einstellungen:</p></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>Java/Maven-Projekt mit Java-Version 17 (Spring 6 / Boot 3)</p></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Group:</p></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>spring-training</p></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Artifact:</p></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>lesson03-backend-rest</p></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Package:</p></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>boot.backend</p></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Dependencies:</p></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>Web, JPA, HyperSQL DB, Actuator, DevTools</p></div></div></td></tr></table><div class="admonitionblock tip teacherBox"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content"><em>"Depedencies/See all"</em> zeigt alle verfügbaren Abhängigkeiten</td></tr></table></div></section><section id="_schritt_2_applikation_ausführen"><h2>Schritt 2: Applikation ausführen</h2><div class="olist arabic"><ol class="arabic"><li><p>Packen Sie das heruntergeladene Projekt aus, bauen Sie es mit <code>mvn clean verify</code>
+und führen Sie es mit <code>mvn spring-boot:run</code> aus.</p></li><li><p>Sehen Sie sich die Logausgaben an. Welche Informationen können Sie daraus ziehen?</p></li><li><p>Öffnen Sie <a href="http://localhost:8080/" class="bare">http://localhost:8080/</a> im Browser.</p></li><li><p>Probieren Sie auch mal <a href="http://localhost:8080/actuator" class="bare">http://localhost:8080/actuator</a>. Was können Sie damit machen?</p></li></ol></div></section><section id="_schritt_3_implementierung_verstehen"><h2>Schritt 3: Implementierung verstehen</h2><div class="olist arabic"><ol class="arabic"><li><p>Beenden Sie nun die Applikation mit <strong>Strg-C</strong> und importieren Sie das Projekt in Ihre IDE.<br>
+Alternativ können Sie auch direkt das Projekt <strong>lesson02-boot-backend-rest</strong> öffnen.</p></li><li><p>Woraus besteht das Projekt?</p></li><li><p>Sehen Sie sich die <strong>pom.xml</strong> an. Welche Teile davon sind Spring-Boot spezifisch?</p></li><li><p>Öffnen Sie die <code>Lesson03BackendRestApplication</code> Klasse. Was fällt Ihnen daran auf?</p></li><li><p>Wozu nützt der <code>Lesson03BackendRestApplicationTests</code>?</p></li></ol></div></section><section id="_schritt_4_konfiguration_anpassen"><h2>Schritt 4: Konfiguration anpassen</h2><div class="paragraph"><p>Spring Boot Applikationen werden über die <code>application.properties</code> konfiguriert. Details dazu finden
+Sie im Abschnitt
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config">Externalized Configuration</a>
+des <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle">Spring Boot Reference Guide</a>. Der Anhang
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties">Common application properties</a>
+gibt einen groben Überblick über die Stellschrauben von Spring Boot.</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Tragen Sie nun <code>debug=true</code> in die <code>application.properties</code> ein und führen Sie <code>Lesson03BootBackendApplicationTests</code> aus.</p></li><li><p>In den Logausgaben erscheint jetzt ein <strong>CONDITIONS EVALUATION REPORT</strong>. Was besagt dieser Report?</p></li></ol></div>
+<div class="openblock teacherBox"><div class="content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Mit <strong>Spring Tool Suite 4</strong> funktioniert die Code-Completion nur, wenn der <strong>Spring Boot Validations Builder</strong>
+registiert ist. Andernfalls muss man <code>.project</code> um folgenden Eintrag ergänzen und einen <strong>Restart</strong> durchführen:</td></tr></table></div>
+<div class="literalblock"><div class="content"><pre>&lt;buildCommand&gt;
+    &lt;name&gt;org.springframework.ide.eclipse.boot.validation.springbootbuilder&lt;/name&gt;
+    &lt;arguments&gt;
+    &lt;/arguments&gt;
+&lt;/buildCommand&gt;</pre></div></div></div></div></section><section id="_schritt_5_actuator_endpoints_ergründen"><h2>Schritt 5: Actuator-Endpoints ergründen</h2><div class="paragraph"><p>Sie haben zuvor nur einen kleinen Teil der verfügbaren Actuator-Endpoints gesehen.</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Fügen Sie <code>management.endpoints.web.exposure.include=*</code> in die <code>application.properties</code> ein, um alle Endpoints zu sehen.</p></li><li><p>Starten Sie die Applikation und öffnen Sie erneut <a href="http://localhost:8080/actuator" class="bare">http://localhost:8080/actuator</a>.</p></li><li><p>Ergründen Sie die verschiedenen Endpunkte. Warum sind nicht standardmäßig alle Endpunkte verfügbar?</p></li><li><p>Optional: Verwenden Sie <strong>jconsole</strong>, um die Actuator JMX-Beans zu ergründen.</p></li></ol></div>
+<div class="paragraph"><p>Weitere Informationen zu Actuator finden Sie der Referenz-Doku, Abschnitt
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready">
+Spring Boot Actuator: Production-ready features</a>.</p></div>
+<div class="admonitionblock tip teacherBox"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Mit Firefox sind Links in dem zurückgegebenen JSON navigierbar.</td></tr></table></div></section><section id="_schritt_6_logausgaben_in_eine_datei_umlenken"><h2>Schritt 6: Logausgaben in eine Datei umlenken</h2><div class="paragraph"><p>Standardmäßig erscheinen bei Spring-Boot alle Logausgaben auf der Konsole.</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Lenken Sie mit <code>logging.file.path=target/app.log</code> die Logausgaben zusätzlich in eine Datei um.</p></li><li><p>Starten Sie die Applikation neu prüfen Sie den Inhalt der Logdatei.</p></li><li><p>Verwenden Sie auch den <a href="http://localhost:8080/actuator/logfile" class="bare">http://localhost:8080/actuator/logfile</a> Link.</p></li></ol></div>
+<div class="paragraph"><p>Weitere Hinweise dazu finden Sie in der Referenz-Doku, Abschnitt
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-logging-file-output">Logging/File Output</a>.</p></div></section></section>
+<section><section id="_spring_boot_features"><h2>Spring Boot Features</h2><div class="paragraph"><p>Spring-Boot bringt einige Features mit, die wir uns im folgenden genauer ansehen.<br>
+Einige davon haben wir bereits kennengelernt.</p></div></section><section id="_actuator"><h2>Actuator</h2><div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready">Actuator</a>
+bietet Features für den Betrieb:</p></div>
+<div class="ulist"><ul><li><p>Monitoring</p></li><li><p>Management</p></li><li><p>Endpoints per JMX oder REST</p></li><li><p><a href="https://micrometer.io/">Micrometer</a> Support, siehe Referenz-Doku, Abschnitt
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics">Metrics</a></p></li></ul></div></section><section id="_developer_tools_und_live_reload"><h2>Developer Tools und Live-Reload</h2><div class="paragraph"><p>Mit den <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools">Developer Tools</a>
+werden Änderungen ohne Neustart der Applikation sichtbar</p></div>
+<div class="ulist"><ul><li><p>Arbeitet mit 2. <em>ClassLoader</em> für geänderte Klassen</p></li><li><p>Führt bei Änderungen automatisch einen Restart durch, d. h. der <em>ApplicationContext</em> wird neu initialisiert,
+ohne dass alle Klassen neu geladen werden müssen</p></li><li><p>Unterstützt <a href="http://livereload.com/extensions/">LiveReload</a> (ein Browser-Plugin, welches den Klick auf den Refresh-Button erspart)</p></li><li><p>Ist kein vollwertiger Ersatz für <a href="https://jrebel.com/software/jrebel/">JRebel</a></p></li></ul></div>
+<div class="admonitionblock tip teacherBox"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Bei IntelliJ ist ein expliziter Rebuild (Ctrl-Shift-F9) notwendig, um einen Restart auszulösen</td></tr></table></div></section><section id="_parent_pom_und_dependencies"><h2>Parent-POM und Dependencies</h2><div class="paragraph"><p>Das Spring-Boot Parent-POM liefert sinnvolle Voreinstellung, Maven-Plugins und aufeinander abgestimmte
+Versionen für 3<sup>rd</sup> Party Bibliotheken:</p></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="tag">&lt;parent&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.7.4<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;relativePath</span> <span class="tag">/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span>
+<span class="tag">&lt;/parent&gt;</span></code></pre>
+<div class="paragraph"><p>Alternativ kann man nur die aufeinander abgestimmten Abhängigkeiten verwenden
+(das erspart Versionsangaben). Siehe
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-maven-without-a-parent">
+Using Spring Boot without the Parent POM</a> in Referenz-Doku:</p></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="tag">&lt;dependencyManagement&gt;</span>
+    <span class="tag">&lt;dependencies&gt;</span>
+        <span class="tag">&lt;dependency&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>spring-boot-dependencies<span class="tag">&lt;/artifactId&gt;</span>
+            <span class="tag">&lt;version&gt;</span>2.7.4<span class="tag">&lt;/version&gt;</span>
+            <span class="tag">&lt;scope&gt;</span>import<span class="tag">&lt;/scope&gt;</span>
+            <span class="tag">&lt;type&gt;</span>pom<span class="tag">&lt;/type&gt;</span>
+        <span class="tag">&lt;/dependency&gt;</span>
+    <span class="tag">&lt;/dependencies&gt;</span>
+<span class="tag">&lt;/dependencyManagement&gt;</span></code></pre></section><section id="_spring_boot_maven_plugin"><h2>Spring-Boot Maven-Plugin</h2><div class="paragraph"><p>Man bindet es folgendermaßen ein:</p></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="tag">&lt;build&gt;</span>
+    <span class="tag">&lt;plugins&gt;</span>
+        <span class="tag">&lt;plugin&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+        <span class="tag">&lt;/plugin&gt;</span>
+    <span class="tag">&lt;/plugins&gt;</span>
+<span class="tag">&lt;/build&gt;</span></code></pre>
+<div class="paragraph"><p>Es bietet:</p></div>
+<div class="ulist"><ul><li><p>Erstellung ausführbarer "fat" JARs</p></li><li><p>Ausführung mit <code>mvn spring-boot:run</code></p></li></ul></div>
+<div class="paragraph"><p>Siehe auch <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-running-with-the-maven-plugin">
+Using the Maven Plugin</a> in der Referenz-Doku.</p></div></section><section id="_weitere_unterstützung_beim_build"><h2>Weitere Unterstützung beim Build</h2><div class="ulist"><ul><li><p>Erzeugung von <code>META-INF/build-info.properties.</code> Siehe
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-build-info">
+Generate Build Information</a>.</p></li><li><p>Erzeugung von <code>git.properties</code>. Siehe
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-git-info">
+Generate Git Information</a>.</p></li><li><p>Anpassung einzelner Bibliotheksversionen. Siehe
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-customize-dependency-versions">
+Customize Dependency Versions</a>.</p></li><li><p>Erstellung einer <strong>WAR</strong> Datei. Siehe
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file">
+Create a Deployable War File</a>.</p></li></ul></div>
+<div class="admonitionblock tip teacherBox"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Alle bisher genannten Features sind auch für <em>Gradle</em> verfügbar.</td></tr></table></div></section><section id="_springbootapplication"><h2>@SpringBootApplication</h2><div class="paragraph"><p>Meta-Annotation für:</p></div>
+<div class="title">org.springframework.boot.autoconfigure.SpringBootApplication</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@SpringBootConfiguration</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="annotation">@EnableAutoConfiguration</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="annotation">@ComponentScan</span>(excludeFilters = {
+        <span class="annotation">@Filter</span>(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="annotation">@Filter</span>(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Marker für Tests, sonst wie <code>@Configuration</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Auto-Konfiguration aktivieren</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Verarbeitet alle TypeExcludeFilter Beans (nützlich fürs Testen)</td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td>Auto-Config-Klassen ausschließen</td></tr></table></div>
+<div class="paragraph"><p>Wichtigster Parameter ist <code>exclude</code>, um einzelne Autokonfigurationen auszuschließen.<br>
+&#8594; <a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/autoconfigure/SpringBootApplication.html">Javadocs</a>.</p></div></section><section id="_application_klasse_standalone"><h2>Application Klasse (Standalone)</h2><div class="paragraph"><p>In der Regel ist eine Spring-Boot Applikation eine Config-Klasse mit einer <code>main</code> Methode:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@SpringBootApplication</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">MyBootApplication</span> {
+    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> log = <span class="predefined-type">LogManager</span>.getLogger(MyBootApplication.class);
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) {
+        SpringApplication.run(MyBootApplication.class, args);
+    }
+}</code></pre>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/SpringApplication.html">
+&#8594; Javadocs: SpringApplication</a></p></div></section><section id="_application_klasse_mit_angepassten_einstellungen"><h2>Application Klasse mit angepassten Einstellungen</h2><div class="paragraph"><p>Wenn man spezielle Einstellungen benötigt, kann man <code>SpringApplication</code> auch selbst erzeugen:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@SpringBootApplication</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">MyCustomizedBootApplication</span> {
+    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> log = <span class="predefined-type">LogManager</span>.getLogger(MyCustomizedBootApplication.class);
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) {
+        SpringApplication application = <span class="keyword">new</span> SpringApplication(MyCustomizedBootApplication.class);
+        customize(application);
+        application.run();
+    }
+
+    <span class="directive">private</span> <span class="directive">static</span> <span class="type">void</span> customize(SpringApplication application) {
+        application.addListeners(<span class="keyword">new</span> ApplicationListener&lt;ApplicationEvent&gt;() {
+
+            <span class="annotation">@Override</span>
+            <span class="directive">public</span> <span class="type">void</span> onApplicationEvent(ApplicationEvent event) {
+                log.info(() -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Application Event: </span><span class="delimiter">&quot;</span></span> + event);
+            }
+        });
+    }
+}</code></pre></section><section id="_application_klasse_war"><h2>Application Klasse (WAR)</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@SpringBootApplication</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">MyBootWebApplication</span> <span class="directive">extends</span> SpringBootServletInitializer {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        <span class="keyword">return</span> builder.sources(MyBootWebApplication.class); <i class="conum" data-value="1"></i><b>(1)</b>
+    }
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) { <i class="conum" data-value="2"></i><b>(2)</b>
+        SpringApplication.run(MyBootWebApplication.class, args);
+    }
+}</code></pre>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Zeigt, wie man eine Konfigurationsklasse hinzufügt. (Nicht notwendig, wenn <code>SpringBootServletInitializer</code> selbst eine
+Konfigurationsklasse ist.)</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Dank der <code>main</code> Methode ist für die Entwicklung kein Application-Server notwendig.</td></tr></table></div>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file">
+&#8594; Boot Reference: Create a Deployable War File</a><br>
+<a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/web/servlet/support/SpringBootServletInitializer.html">
+&#8594; Javadocs: SpringBootServletInitializer</a><br>
+<a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/builder/SpringApplicationBuilder.html">
+&#8594; Javadocs: SpringApplicationBuilder</a></p></div></section><section id="_commandlinerunner"><h2>CommandLineRunner</h2><div class="paragraph"><p>Beans, die das <code>CommandLineRunner</code> Interface implementieren werden unmittelbar nach Initialisierung
+des <code>ApplicationContext</code> ausgeführt.</p></div>
+<div class="paragraph"><p>Die Ausführungsreihenfolge kann man über die <code>@Order</code> Annotation oder das <code>Ordered</code> Interface beeinflussen.</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Bean</span>
+CommandLineRunner commandLineArgsInitializer() {
+    <span class="keyword">return</span> <span class="keyword">new</span> CommandLineRunner() {
+
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> run(<span class="predefined-type">String</span>... args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+            log.info(() -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Command-Line: </span><span class="delimiter">&quot;</span></span> + <span class="predefined-type">Arrays</span>.toString(args));
+        }
+    };
+}</code></pre>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/CommandLineRunner.html">&#8594; Javadocs</a></p></div></section><section id="_applicationrunner"><h2>ApplicationRunner</h2><div class="paragraph"><p><code>ApplicationRunner</code> unterscheidet sich von <code>CommandLineRunner</code> nur dadurch, dass aus den Befehlszeilenargumenten
+bereits die Optionen herausgefiltert sind.<br>
+Optionen sind Argumente der Form <code>--opt=wert</code>.</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Bean</span>
+ApplicationRunner interpretedArgsInitializer() {
+    <span class="keyword">return</span> <span class="keyword">new</span> ApplicationRunner() {
+
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> run(ApplicationArguments args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+            log.info(() -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Options: </span><span class="delimiter">&quot;</span></span> + args.getOptionNames().stream()
+                    .map(name -&gt; name + <span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span> + args.getOptionValues(name))
+                    .collect(Collectors.joining(<span class="string"><span class="delimiter">&quot;</span><span class="content">, </span><span class="delimiter">&quot;</span></span>)));
+        }
+    };
+}</code></pre>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/ApplicationRunner.html">&#8594; Javadocs</a><br>
+<a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/ApplicationArguments.html#getOptionValues-java.lang.String-">
+&#8594; Javadocs zu getOptionValues</a></p></div></section><section id="_spring_boot_tests"><h2>Spring Boot Tests</h2><div class="paragraph"><p><code>@SpringBootTest</code> ist Meta-Annotation für:</p></div>
+<pre class="CodeRay listingblock"><code>@BootstrapWith(SpringBootTestContextBootstrapper.class)
+@ExtendWith(SpringExtension.class)</code></pre>
+<div class="ulist"><ul><li><p>Für JUnit-4 ist zusätzlich <code>@RunWith(SpringRunner.class)</code> notwendig.</p></li><li><p>Sucht im gleichen Package nach <code>@SpringBootConfiguration</code> und verwendet diese.<br>
+(Deswegen sollte es nur eine Config-Klasse geben, die mit <code>@SpringBootConfiguration</code> annotiert ist.)</p></li></ul></div>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/api/org/springframework/boot/test/context/SpringBootTestContextBootstrapper.html">
+&#8594; Javadocs: SpringBootTestContextBootstrapper</a></p></div></section></section>
+<section><section id="_externe_konfiguration"><h2>Externe Konfiguration</h2><div class="paragraph heading"><p>Rangfolge für Einstellungen (Auszug):</p></div><div class="olist arabic"><ol class="arabic"><li><p>Befehlszeilenargumente (z. B. <code>--server.port=7777</code>)</p></li><li><p><code>ServletConfig</code> bzw. <code>ServletContext</code> Init-Parameter</p></li><li><p>JNDI Attribute von <code>java:comp/env</code></p></li><li><p>System-Properties (z. B. <code>-Dserver.port=7777</code>)</p></li><li><p>Umgebungsvariablen</p></li><li><p><code>application-{profile}.properties</code> im lokalen Verzeichnis</p></li><li><p><code>application-{profile}.properties</code> im JAR</p></li><li><p><code>application.properties</code> im lokalen Verzeichnis</p></li><li><p><code>application.properties</code> im JAR</p></li><li><p>Mit <code>@PropertySource</code> Annotationen an den <code>@Configuration</code> Klassen</p></li><li><p>Default Properties, die mit <code>SpringApplication.setDefaultProperties</code> angegeben wurden</p></li></ol></div><div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-application-property-files">
+&#8594; Reference: Externalized Configuration</a></p></div></section><section id="_application_properties_dateien"><h2>Application Properties Dateien</h2><div class="paragraph"><p>Spring Boot Applikationen suchen die <strong><code>application.properties</code></strong></p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>im <code>/config</code> Unterverzeichnis des aktuellen Verzeichnisses</p></li><li><p>im aktuellen Verzeichnis</p></li><li><p>in einem <code>/config</code> Package im Classpath</p></li><li><p>im Wurzelverzeichnis des Classpath</p></li></ol></div>
+<div class="paragraph"><p>Dieses Verhalten lässt sich über <code>spring.config.name</code> und <code>spring.config.location</code> ändern.</p></div>
+<div class="admonitionblock tip teacherBox"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Alternativ zu '.properties' Dateien kann man auch
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-yaml">
+&#8594; YAML</a> verwenden.</td></tr></table></div>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config">
+&#8594; Reference: Application Property Files</a></p></div></section></section>
+<section id="_spring_boot_einführung"><h2>Spring Boot Einführung</h2><div class="paragraph heading"><p>Fragen?</p></div>
+<div class="paragraph"><p><a href="lesson0202-jpa.html">&#8594; Weiter zu JPA</a></p></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

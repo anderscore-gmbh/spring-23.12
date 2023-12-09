@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::main})}">
+<body th:fragment="main">
+  <form th:object="${task}" class="form-horizontal" id="edit-task-form" method="post">
+    <div class="form-group has-feedback">
+      <input th:replace="~{fragments/inputField :: input ('Beschreibung:', 'description', 'text')}" />
+      <input th:replace="~{fragments/inputField :: input ('Fällig am:', 'dateDue', 'date')}" />
+      <input th:replace="~{fragments/selectField :: select ('Status:', 'state', ${states})}" />
+    </div>
+    <p th:text=*{{dateDue}}>5.5.5
+    <p>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button th:with="text=${task['new']} ? 'Aufgabe hinzufügen' : 'Aufgabe ändern'" class="btn btn-default" type="submit" th:text="${text}">Add
+          Task</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

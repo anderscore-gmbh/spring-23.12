@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2023-07-03T09:56:53.209Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="oLJ-CdkLx-8UrcDcXG1N" version="21.5.2">
+  <diagram name="Page-1" id="6ptJ9xugGlOpqdZGe2oz">
+    <mxGraphModel dx="1360" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hPbQp8_CCh2s0BE5Y1mO-2" value="&lt;div style=&quot;font-size: 15px;&quot;&gt;Git-Repository&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;mit Konfigurationen&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;/div&gt;" style="shape=datastore;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="520" y="220" width="130" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="hPbQp8_CCh2s0BE5Y1mO-3" value="Spring Config Server" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="320" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hPbQp8_CCh2s0BE5Y1mO-4" value="&lt;div style=&quot;font-size: 15px;&quot;&gt;Spring Application&lt;/div&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;(Client)&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hPbQp8_CCh2s0BE5Y1mO-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.583;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=15;" edge="1" parent="1" target="hPbQp8_CCh2s0BE5Y1mO-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="290" as="sourcePoint" />
+            <mxPoint x="475" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hPbQp8_CCh2s0BE5Y1mO-8" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" target="hPbQp8_CCh2s0BE5Y1mO-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="290" as="sourcePoint" />
+            <mxPoint x="300" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

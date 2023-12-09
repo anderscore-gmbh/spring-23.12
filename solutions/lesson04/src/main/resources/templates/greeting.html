@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Getting Started: Serving Web Content</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<p th:text="'Hello, ' + ${name} + '!'"/>
+
+<div sec:authorize="hasRole('USER')">Text visible to user, only.</div>
+<div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
+<div sec:authorize="isAuthenticated()">
+    Text visible only to authenticated users.
+    <dl>
+        <dt>Authenticated username:</dt>
+        <dd sec:authentication="name"></dd>
+        <dt>Authenticated user roles:</dt>
+        <dd sec:authentication="principal.authorities"></dd>
+    </dl>
+</div>
+<a href="/">home</a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Abmelden"/>
+</form>
+</body>
+</html>

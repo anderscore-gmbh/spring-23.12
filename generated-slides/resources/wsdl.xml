@@ -1,0 +1,58 @@
+<definitions name="Courses"
+          targetNamespace="http://anderscore.com/courses.wsdl"
+          xmlns="http://schemas.xmlsoap.org/wsdl/"
+          xmlns:tns="hhttp://anderscore.com/courses.wsdl"
+          xmlns:xsd1="http://anderscore.com/course.xsd"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+    <types>
+       <schema targetNamespace="http://anderscore.com/course.xsd"
+              xmlns="http://www.w3.org/2001/XMLSchema">
+           <element name="GetCoursesRequest">
+              <complexType>
+                  <all>
+                      <element name="title" type="string"/>
+                  </all>
+              </complexType>
+           </element>
+       </schema>
+    </types>
+
+ <!-- tag::content[] -->
+    <message name="GetCoursesInput">
+        <part name="body" element="xsd1:GetCoursesRequest"/>
+    </message>
+
+    <message name="GetCoursesOutput">
+        <part name="body" element="xsd1:TradePrice"/>
+    </message>
+
+    <portType name="CoursePortType">
+        <operation name="GetCourses">
+           <input message="tns:GetCoursesInput"/>
+           <output message="tns:GetCoursesOutput"/>
+        </operation>
+    </portType>
+
+    <binding name="CourseSoapBinding" type="tns:CoursePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetCourses">
+           <soap:operation soapAction="http://www.anderscore.com/GetCourses"/>
+           <input>
+               <soap:body use="literal"/>
+           </input>
+           <output>
+               <soap:body use="literal"/>
+           </output>
+        </operation>
+    </binding>
+
+    <service name="CourseService">
+        <documentation>Provides information regarding anderScore courses</documentation>
+        <port name="CoursePort" binding="tns:CourseSoapBinding">
+           <soap:address location="http://www.anderscore.com/ws/courses"/>
+        </port>
+    </service>
+<!-- end::content[] -->
+
+ </definitions>

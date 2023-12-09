@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lesson02-solutions-cbr-spring-boot-starter" />
+        <module name="lesson02-solutions-cbr" />
+        <module name="ContainerExample-solution" />
+        <module name="zugangskontroll-service-lesson05-solution" />
+        <module name="abrechnung-service-lesson05-solution" />
+        <module name="lesson02-solutions-cbr-spring-boot-autoconfigure" />
+        <module name="lesson02-solutions-backend-rest" />
+        <module name="lesson04-solutions" />
+        <module name="config-server" />
+        <module name="lesson02-solutions-backend-soap" />
+        <module name="zugangskontroll-service-solution" />
+        <module name="abrechnung-service-solution" />
+        <module name="lesson02-solutions-jpa" />
+        <module name="lesson02-solutions-frontend" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ContainerExample-solution" options="-parameters" />
+      <module name="abrechnung-service-lesson05-solution" options="-parameters" />
+      <module name="abrechnung-service-solution" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="lesson02-solutions-backend-rest" options="-parameters" />
+      <module name="lesson02-solutions-backend-soap" options="-parameters" />
+      <module name="lesson02-solutions-cbr" options="-parameters" />
+      <module name="lesson02-solutions-cbr-spring-boot-autoconfigure" options="-parameters" />
+      <module name="lesson02-solutions-cbr-spring-boot-starter" options="-parameters" />
+      <module name="lesson02-solutions-frontend" options="-parameters" />
+      <module name="lesson02-solutions-jpa" options="-parameters" />
+      <module name="lesson04-solutions" options="-parameters" />
+      <module name="zugangskontroll-service-lesson05-solution" options="-parameters" />
+      <module name="zugangskontroll-service-solution" options="-parameters" />
+    </option>
+  </component>
+</project>

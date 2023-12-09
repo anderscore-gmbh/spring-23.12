@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:as="http://www.anderscore.com/soap"
+           targetNamespace="http://www.anderscore.com/soap" elementFormDefault="qualified">
+
+    <xs:element name="getCourseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCourseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="course" type="as:course"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="course">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="tutor" type="xs:string"/>
+            <xs:element name="numDays" type="xs:int"/>
+            <xs:element name="level" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

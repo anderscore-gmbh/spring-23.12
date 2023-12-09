@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:as="http://www.anderscore.com/soap"
+           targetNamespace="http://www.anderscore.com/soap" elementFormDefault="qualified">
+
+    <xs:element name="createTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="task" type="as:taskTo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="task" type="as:taskTo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="taskTo">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="state" type="as:stateTo"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="stateTo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OPEN"/>
+            <xs:enumeration value="STARTED"/>
+            <xs:enumeration value="DONE"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

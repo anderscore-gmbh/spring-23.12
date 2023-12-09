@@ -1,0 +1,3 @@
+curl -X POST -H "Content-Type: application/json" -d '{"ticketId": 4711, "completed": true}' http://localhost:8080/payment
+curl http://localhost:8080/payment?ticketId=4711
+curl http://localhost:8181/exitGrant?ticketId=4711

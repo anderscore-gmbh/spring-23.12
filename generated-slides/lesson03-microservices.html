@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Lektion 3 - Microservices</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_lektion_3_microservices" data-state="no-title-footer"><h2>Lektion 3 - Microservices</h2></section>
+<section id="_modularisierung" class="columns"><h2>Modularisierung</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Technisch</strong></p><div class="ulist"><ul><li><p>Klasse, Package</p></li><li><p>Modul/Library</p></li><li><p>Deployment Unit</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Fachlich</strong></p><div class="ulist"><ul><li><p>Konzept</p></li><li><p>Produkt</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Organisatorisch</strong></p><div class="ulist"><ul><li><p>Team</p></li><li><p>Abteilung</p></li></ul></div></li></ul></div></div></div></section>
+<section id="_modularisierung_2"><h2>Modularisierung</h2><div class="paragraph heading"><p>Warum modularisieren wir?</p></div>
+<div class="ulist"><ul><li><p>Beherrschung der Komplexität</p></li><li><p>Parallelsierung der Entwicklung</p></li><li><p>Auffindbarkeit von Code</p></li><li><p>Erleichterung der Wartung</p></li></ul></div></section>
+<section id="_monolith" class="columns"><h2>Monolith</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p>Schwergewichtiges Software-Artefakt</p></li><li><p>Hohe Anzahl fachlicher Komponenten</p></li><li><p>Einheitliche technische Basis</p></li><li><p>Eine Deployment Unit</p></li><li><p>Ein Prozess zur Laufzeit</p></li><li><p><strong>Nicht</strong> grundsätzlich ein Anti-Pattern!</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/Monolith1.jpg" alt="Monolith1" height="400"></div></section>
+<section id="_probleme_eines_monolithen" class="columns"><h2>Probleme eines Monolithen</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p>Hohe (technische) Kopplung zwischen Komponenten</p></li><li><p>Lange Build Cycles</p></li><li><p>Einzelne Bestandteile nicht unabhängig skalierbar</p></li><li><p>Verzögerte Auslieferung neuer Features</p></li><li><p>Hoher Wartungsaufwand</p></li><li><p>Mangel an Agilität und Innovation</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/Monolith2.png" alt="Monolith2" height="600"></div></section>
+<section id="_conways_law"><h2>Conway&#8217;s Law</h2><div class="quoteblock"><blockquote><div class="paragraph"><p>Organizations which design systems […] are constrained to produce designs which are <strong>copies of the communication structures</strong> of these organizations.</p></div></blockquote><div class="attribution"><cite>1968</cite><br>&#8212; Melvin Edward Conway</div></div></section>
+<section id="_conways_law_2"><h2>Conway&#8217;s Law</h2><div class="ulist"><ul><li><p>Barrieren in der Kommunikation &#8594; Brüche in der Software</p></li><li><p>Klassische Aufteilung</p><div class="ulist"><ul><li><p>Fachseite</p></li><li><p>Entwickler</p></li><li><p>Datenbankspezialisten</p></li><li><p>Ops</p></li></ul></div></li><li><p>Konsequenzen</p><div class="ulist"><ul><li><p>Unrealistische Anforderungen</p></li><li><p>Keine Kontrolle über Daten</p></li><li><p>Wenig Details zu Fehlern</p></li></ul></div></li></ul></div></section>
+<section id="_wohin_geht_die_reise"><h2>Wohin geht die Reise?</h2><div class="imageblock" style=""><img src="images/lesson03/Microservices1.png" alt="Microservices1" height="800"></div></section>
+<section id="_microservices"><h2>Microservices</h2><div class="quoteblock"><blockquote><div class="paragraph"><p>Microservices sind ein <strong>Architekturmuster</strong> der Informationstechnik, bei dem komplexe Anwendungssoftware aus
+<strong>unabhängigen Prozessen</strong> komponiert wird, die untereinander mit <strong>sprachunabhängigen Programmierschnittstellen</strong> kommunizieren.
+Die Dienste sind weitgehend <strong>entkoppelt</strong> und erledigen eine <strong>kleine Aufgabe</strong>. So ermöglichen sie einen <strong>modularen Aufbau</strong> von
+Anwendungssoftware.</p></div></blockquote><div class="attribution">&#8212; wikipedia.de</div></div></section>
+<section id="_microservices_2"><h2>Microservices</h2><div class="imageblock" style=""><img src="images/lesson03/Microservices2.png" alt="Microservices2" height="600"></div></section>
+<section id="_merkmale"><h2>Merkmale</h2><div class="paragraph"><p><strong>Ein Microservice&#8230;&#8203;</strong></p></div>
+<div class="ulist"><ul><li><p>&#8230;&#8203;läuft in einem <strong>eigenen Prozess</strong>.</p></li><li><p>&#8230;&#8203;wird über das <strong>Netzwerk</strong> angesprochen.</p></li><li><p>&#8230;&#8203;kann <strong>unabhängig</strong> deployed, erweitert oder skaliert werden.</p></li><li><p>&#8230;&#8203;repräsentiert einen <strong>Bounded Context</strong> der Fachdomäne.</p></li><li><p>&#8230;&#8203;ist nicht an die <strong>Technologie</strong> anderer Services gebunden.</p></li><li><p>&#8230;&#8203;wird nur von <strong>einem Team</strong> entwickelt.</p></li><li><p>&#8230;&#8203;hat ein <strong>unabhängiges Datenmodell</strong>.</p></li></ul></div></section>
+<section id="_aufbau"><h2>Aufbau</h2><div class="imageblock" style=""><img src="images/lesson03/microservice_anatomy.png" alt="microservice anatomy" height="800"></div></section>
+<section id="_kommunikation"><h2>Kommunikation</h2><div class="imageblock" style=""><img src="images/lesson03/kommunikation_right.png" alt="kommunikation right" height="600"></div></section>
+<section id="_kommunikation_2"><h2>Kommunikation</h2><div class="imageblock" style=""><img src="images/lesson03/kommunikation_false.png" alt="kommunikation false" height="600"></div></section>
+<section id="_herausforderungen"><h2>Herausforderungen</h2><div class="ulist"><ul><li><p>Verteiltes System</p><div class="ulist"><ul><li><p>Orchestrierung</p></li><li><p>Resilienz</p></li><li><p>Konsistenz</p></li><li><p>Debugging</p></li><li><p>Monitoring und Logging</p></li></ul></div></li><li><p>Netzwerk</p><div class="ulist"><ul><li><p>Performance</p></li><li><p>Zuverlässigkeit</p></li></ul></div></li><li><p>Potentieller "Technologiezoo"</p></li></ul></div></section>
+<section id="_resilienz" class="columns"><h2>Resilienz</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Bulkhead</strong></p><div class="ulist"><ul><li><p>Angelehnt an Schiffsbau (Schotten)</p></li><li><p>Separierung einzelner Bereiche</p></li><li><p>Beispiel: Aufteilung des Thread Pools</p></li></ul></div></li><li><p><strong>Circuit Breaker</strong></p><div class="ulist"><ul><li><p>Angelehnt an Elektrotechnik (Sicherung)</p></li><li><p>Steuerung des Durchflusses</p><div class="ulist"><ul><li><p>Geschlossen: Alle Request durchlassen</p></li><li><p>Offen: Alle Requests abweisen (&#8594; Defaults)</p></li><li><p>Halb offen: Begrenzte Anzahl an Requests durchl.</p></li></ul></div></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="imageblock" style=""><img src="images/lesson03/Bulkhead.jpg" alt="Bulkhead"></div>
+<div class="imageblock" style=""><img src="images/lesson03/CircuitBreaker.jpg" alt="CircuitBreaker"></div></div></div></section>
+<section id="_konsistenz"><h2>Konsistenz</h2><div class="ulist"><ul><li><p><strong>Klassische Transaktionen (ACID)</strong></p><div class="ulist"><ul><li><p><strong>A</strong> tomicity: Atomare Durchführung von Änderungen</p></li><li><p><strong>C</strong> onsistency: Konsistenzerhaltung</p></li><li><p><strong>I</strong> solation: Isolation nebenläufiger Änderungen</p></li><li><p><strong>D</strong> urability: Festschreibung der Änderungen</p></li></ul></div></li><li><p><strong>Two Phase Commit (2PC, XA)</strong></p><div class="ulist"><ul><li><p>ACID für verteilte Systeme</p></li><li><p>Phase 1: Commits vorbereiten</p></li><li><p>Phase 2: Commits durchführen</p></li><li><p>Pet Helland: "Grown-ups don&#8217;t use distributed transactions"</p></li><li><p>Gregor Hohpe: "Starbucks does not use two phase commit"</p></li></ul></div></li></ul></div></section>
+<section id="_konsistenz_2" class="columns"><h2>Konsistenz</h2><div class="openblock"><div class="content"><div class="paragraph heading"><p>CAP Theorem</p></div>
+<div class="ulist"><ul><li><p><strong>C</strong> onsistency: <strong>Zeitliche</strong> Konsistenz</p></li><li><p><strong>A</strong> vailability: Verfügbarkeit</p></li><li><p><strong>P</strong> artition Tolerance: Toleranz gegenüber Netzwerkpartitionen</p></li><li><p>Nur 2 von 3 Eigenschaften möglich!</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/CAP.png" alt="CAP" width="600"></div></section>
+<section id="_konsistenz_3" class="columns"><h2>Konsistenz</h2><div class="openblock"><div class="content"><div class="paragraph heading"><p>CAP bei verteilten Systemen</p></div>
+<div class="ulist"><ul><li><p>Partitionstoleranz obligatorisch</p></li><li><p>Entscheidung: Verfügbarkeit oder Konsistenz</p></li><li><p>Beispiel: Shop vs. Geldautomat</p></li><li><p>Meist BASE statt ACID</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/CAP.png" alt="CAP" width="600"></div></section>
+<section id="_konsistenz_4" class="columns"><h2>Konsistenz</h2><div class="openblock"><div class="content"><div class="paragraph heading"><p>CAP bei Microservices</p></div>
+<div class="ulist"><ul><li><p><strong>Keine</strong> verteilten Transaktionen</p></li><li><p>Aggregate (DDD) bestimmt Konsistenzgrenze</p></li><li><p>Eventual Consistency</p></li><li><p>Fehlerbehandlung</p><div class="ulist"><ul><li><p>Stateful Retry (erfordert Idempotenz)</p></li><li><p><strong>Fachliche</strong> Kompensation</p></li></ul></div></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/Kompensation.png" alt="Kompensation" height="900"></div></section>
+<section id="_self_contained_system" class="columns"><h2>Self Contained System</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p>Eigenständige Anwendung</p><div class="ulist"><ul><li><p>GUI</p></li><li><p>Datenmodell</p></li><li><p>Fachlogik</p></li><li><p>Persistenz</p></li></ul></div></li><li><p>Lose Kopplung an andere Systeme</p><div class="ulist"><ul><li><p>Integration bevorzugt über UI</p></li><li><p>Datenaustausch nur über APIs</p></li><li><p>Möglichst asynchrone Kommunikation</p></li></ul></div></li><li><p>Entwicklung durch <strong>ein</strong> Team</p></li><li><p>Single Responsibility Prinzip</p></li><li><p>Kann aus Microservices bestehen</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/SCS.png" alt="SCS" height="500"></div></section>
+<section id="_architektur"><h2>Architektur</h2><div class="paragraph heading"><p>Makro-Architektur</p></div>
+<div class="ulist"><ul><li><p>Wie viele Services brauchen wir?</p></li><li><p>Wie groß darf ein Service sein?</p></li><li><p>Wie schneiden wir die Services?</p></li><li><p>Wie sollen die Schnittstellen aussehen?</p></li><li><p>Welche Technologiestacks erlauben wir?</p></li><li><p>Wie setzen wir Authentifizierung, Monitoring und Logging um?</p></li></ul></div></section>
+<section id="_architektur_2"><h2>Architektur</h2><div class="paragraph heading"><p>Mikro-Architektur</p></div>
+<div class="ulist"><ul><li><p>Wie sollte ein Service aufgebaut sein?</p></li><li><p>Welche Technologien nutzen wir im Detail?</p></li><li><p>Wie setzen wir Autorisierung um?</p></li></ul></div></section>
+<section id="_domain_driven_design"><h2>Domain Driven Design</h2><div class="ulist checklist"><ul class="checklist"><li><p><i class="icon-check"></i>Wie schneiden wir die Services?</p></li><li><p><i class="icon-check"></i>Wie sollte ein Service aufgebaut sein?</p></li><li><p><i class="icon-check"></i>Wie groß sollte ein Service sein?</p></li><li><p><i class="icon-check"></i>Wie viele Services brauchen wir?</p></li></ul></div></section>
+<section id="_domain_driven_design_2" class="columns"><h2>Domain Driven Design</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p>Herangehensweise zur <strong>fachlichen</strong> Strukturierung einer Anwendung</p></li><li><p>Strategic vs. Tactical Design</p></li><li><p>Domänenmodell</p><div class="ulist"><ul><li><p>Ubiquitious Language</p></li><li><p>Ausgangsbasis der Entwicklung</p></li></ul></div></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/DDD.jpg" alt="DDD" height="600"></div></section>
+<section id="_domain_driven_design_bounded_context"><h2>Domain Driven Design: Bounded Context</h2><div class="ulist"><ul><li><p>Grenze innerhalb einer Domäne</p><div class="ulist"><ul><li><p>Fachlichkeit</p></li><li><p>Datenmodell</p></li><li><p>Konsistenz</p></li><li><p>Organisation</p></li></ul></div></li><li><p>Identifizierung</p><div class="ulist"><ul><li><p>Clustering von Anforderungen (z.B. Use Cases)</p></li><li><p>Bestimmung von Abhängigkeiten</p></li></ul></div></li></ul></div></section>
+<section id="_domain_driven_design_stategic_design"><h2>Domain Driven Design: Stategic Design</h2><div class="paragraph heading"><p>Kommunikationsbeziehungen und Machtverhältnisse zwischen Bounded Contexts</p></div>
+<div class="ulist"><ul><li><p><strong>Separate Ways:</strong> Keine Integration</p></li><li><p><strong>Open Host Service:</strong> Einseitige Bereitstellung von Schnittstellen</p></li><li><p><strong>Conformist:</strong> Übernahme des fremden Modells</p></li><li><p><strong>Anti-Corruption Layer:</strong> Adapter zu fremdem Modell</p></li><li><p><strong>Customer-Supplier:</strong> Gleichberechtigte Aushandlung der Schnittstellen</p></li><li><p><strong>Shared Kernel:</strong> Gemeinsame Verwendung eines Teilmodells</p></li></ul></div></section>
+<section id="_domain_driven_design_context_map"><h2>Domain Driven Design: Context Map</h2><div class="paragraph heading"><p>Visualisierung der Beziehungen</p></div>
+<div class="imageblock" style=""><img src="images/lesson03/ContextMap.png" alt="ContextMap" height="400"></div></section>
+<section id="_domain_driven_design_tactical_design"><h2>Domain Driven Design: Tactical Design</h2><div class="imageblock" style=""><img src="images/lesson03/DDDElemente.png" alt="DDDElemente" height="600"></div></section>
+<section id="_domain_driven_design_übung"><h2>Domain Driven Design: Übung</h2><div class="paragraph"><p>Für den großen Parkhausbetreiber „JustParkIt“ soll ein System zur Ausgabe, Nutzung, Abrechnung und Rücknahme von Tickets und Dauerparkausweisen umgesetzt werden.
+Im Rahmen der Anforderungserhebung wurden bereits einige User Stories ermittelt.</p></div>
+<div class="paragraph"><p><strong>Aufgaben:</strong></p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Gruppieren Sie die User Stories nach fachlichen Domänen und benennen Sie die so entstandenen Bounded Contexts.</p></li><li><p>Identifizieren Sie die jeweils beteiligten Akteure sowie Abhängigkeiten zwischen den Kontexten.</p></li><li><p>Modellieren Sie einen Dauerparkausweis in den einzelnen Kontexten. Wo gibt es Gemeinsamkeiten, wo zeigen sich Unterschiede?</p></li><li><p>Entwickeln Sie eine Context Map und benennen Sie die Beziehungen (&#8594; Patterns) zwischen den Kontexten.</p></li></ol></div></section>
+<section id="_domain_driven_design_übung_2"><h2>Domain Driven Design: Übung</h2><div class="ulist"><ul><li><p><strong>US-01</strong>: Als Kunde möchte ich mir an der Schranke ein Ticket ziehen, um ins Parkhaus einfahren zu können.</p></li><li><p><strong>US-02</strong>: Als Kunde möchte ich an der Schranke meinen gültigen Dauerparkausweis nutzen, um ins Parkhaus einfahren zu können.</p></li><li><p><strong>US-03</strong>: Als Parkhausbetreiber möchte ich eine Übersicht aller aktuell gültigen Dauerparkausweise pro Parkhaus online erhalten, um bei Bedarf weitere Ausweise nachbestellen zu können.</p></li><li><p><strong>US-04</strong>: Als Kunde möchte ich mein bezahltes Ticket an der Schranke zurückgeben, um aus dem Parkhaus herausfahren zu können.</p></li><li><p><strong>US-05</strong>: Als Kunde möchte ich an der Schranke meinen Dauerparkausweis nutzen, um aus dem Parkhaus herausfahren zu können.</p></li></ul></div></section>
+<section id="_domain_driven_design_übung_3"><h2>Domain Driven Design: Übung</h2><div class="ulist"><ul><li><p><strong>US-06</strong>: Als Parkhausbetreiber möchte ich einen Dauerparkausweis sperren können, um säumigen Zahlern den Zugang zu den Parkhäusern zu verwehren.</p></li><li><p><strong>US-07</strong>: Als Kunde mit Dauerparkausweis möchte ich die im aktuellen Monat angefallenen Kosten online einsehen, um eine Übersicht über meine Ausgaben zu erhalten.</p></li><li><p><strong>US-08</strong>: Als Parkhausbetreiber möchte ich elektronische Zahlungen am Automaten an einen Zahlungsdienstleister weiterleiten, damit sich dieser um die Abwicklung kümmert.</p></li><li><p><strong>US-09</strong>: Als Pförtner möchte ich die Schranke mit einem auf dem Dauerparkausweis aufgedruckten Code öffnen können, falls der Chip auf dem Ausweis selbst nicht mehr lesbar ist.</p></li><li><p><strong>US-10</strong>: Als Kunde möchte ich einen Dauerparkausweis online für ein weiteres Parkhaus des Betreibers freischalten, um dort künftig mein Auto abstellen zu können.</p></li></ul></div></section>
+<section id="_domain_driven_design_übung_4"><h2>Domain Driven Design: Übung</h2><div class="ulist"><ul><li><p><strong>US-11</strong>: Als Parkhausbetreiber möchte ich online eine Statistik über die durchschnittliche Parkdauer an einem Standort erhalten, um meine Angebote besser zuschneiden zu können.</p></li><li><p><strong>US-12</strong>: Als Kunde möchte ich ein Ticket am Automaten bar bezahlen können, um anschließend aus dem Parkhaus herausfahren zu können.</p></li><li><p><strong>US-13</strong>: Als Kunde möchte ich ein Ticket am Automaten mit Kreditkarte bezahlen können, um anschließend aus dem Parkhaus herausfahren zu können.</p></li><li><p><strong>US-14</strong>: Als Kunde möchte ich die verschlossene Eingangstür zum Parkhaus mit meinem Ticket oder Dauerparkausweis öffnen können.</p></li><li><p><strong>US-15</strong>: Als Kunde möchte ich meinen Dauerparkausweis monatlich per Kreditkarte bezahlen, um nicht in Verzug zu geraten.</p></li><li><p><strong>US-16</strong>: Als Kunde möchte ich die hinterlegte eMail-Adresse zu meinem Dauerparkausweis ändern, um zeitnah über neue AGB benachrichtigt zu werden.</p></li></ul></div></section>
+<section id="_api_design"><h2>API Design</h2><div class="ulist checklist"><ul class="checklist"><li><p><i class="icon-check"></i>Wie sollen die Schnittstellen aussehen?</p></li></ul></div></section>
+<section id="_api_design_einflussfaktoren" class="columns"><h2>API Design: Einflussfaktoren</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Öffentlich vs. intern</strong></p><div class="ulist"><ul><li><p>Änderbarkeit</p></li><li><p>Technologien</p></li></ul></div></li><li><p><strong>Generisch vs. client-spezifisch</strong></p><div class="ulist"><ul><li><p>Wartungsaufwand</p></li><li><p>Verständlichkeit</p></li><li><p>Information Hiding</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Fein- vs. grobgranular</strong></p><div class="ulist"><ul><li><p>Datenmenge</p></li><li><p>Anzahl Calls</p></li><li><p>Kaskadierung</p></li></ul></div></li><li><p><strong>Blocking vs. non-blocking</strong></p><div class="ulist"><ul><li><p>Technologien</p></li><li><p>Prozessablauf</p></li></ul></div></li></ul></div></div></div></section>
+<section id="_api_design_prinzipien"><h2>API Design: Prinzipien</h2><div class="ulist"><ul><li><p>Domänenorientierung</p></li><li><p>Lose Kopplung</p></li><li><p>Idempotenz</p></li><li><p>Abwärtskompatibilität oder Versionierung</p></li></ul></div></section>
+<section id="_api_design_technologien" class="columns"><h2>API Design: Technologien</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>REST</strong></p><div class="ulist"><ul><li><p>Representational State Transfer</p></li><li><p>Architekturstil</p></li><li><p>Ressourcenorientiert</p></li><li><p>Hypermedia</p></li><li><p>OpenAPI</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>SOAP</strong></p><div class="ulist"><ul><li><p>Ursprünglich: Simple Object Access Protocol</p></li><li><p>Nachrichtenformat (XML)</p></li><li><p>Dokumenten- und funktionsorientiert</p></li><li><p>WS-* Erweiterungen</p></li><li><p>WSDL</p></li></ul></div></li></ul></div></div></div></section>
+<section id="_api_design_technologien_2" class="columns"><h2>API Design: Technologien</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Binäres RPC</strong></p><div class="ulist"><ul><li><p>Funktionsorientiert</p></li><li><p>Hohe Performance</p></li><li><p>Technologien: gRPC, Apache Thrift</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Messaging</strong></p><div class="ulist"><ul><li><p>Austausch von Nachrichten über Broker</p></li><li><p>Lose Kopplung</p></li><li><p>Technologien: Apache ActiveMQ, Apache Kafka</p></li></ul></div></li></ul></div></div></div></section>
+<section id="_api_design_microservice_api_patterns"><h2>API Design: Microservice API Patterns</h2><div class="quoteblock"><blockquote><div class="paragraph"><p>Our Microservice API Patterns (MAP) distill <strong>proven solutions</strong> to <strong>recurring service interface design and specification problems</strong>
+such as finding well-fitting service granularities, promoting independence among services, or managing the evolution of a microservice API.</p></div></blockquote><div class="attribution">&#8212; microservice-api-patterns.org</div></div></section>
+<section id="_api_design_microservice_api_patterns_2"><h2>API Design: Microservice API Patterns</h2><div class="ulist"><ul><li><p><a href="https://microservice-api-patterns.org" class="bare">https://microservice-api-patterns.org</a></p></li><li><p>Aktuell (immernoch) in Entwicklung befindlich</p></li><li><p>Fragestellungen</p><div class="ulist"><ul><li><p>Wie viele Schnittstellen sollten als API verfügbar sein?</p></li><li><p>Wie kann eine möglichst lose Kopplung erreicht werden?</p></li><li><p>Welche Daten sollten ausgetauscht werden und wie oft?</p></li><li><p>Wie sollten Nachrichten aussehen?</p></li></ul></div></li></ul></div></section>
+<section id="_api_design_microservice_api_patterns_3"><h2>API Design: Microservice API Patterns</h2><div class="imageblock" style=""><img src="images/lesson03/MAP.png" alt="MAP" height="900"></div></section>
+<section id="_api_design_api_description_foundation"><h2>API Design: API Description (Foundation)</h2><div class="ulist"><ul><li><p>Kontext</p><div class="ulist"><ul><li><p>Bereitstellung einer neuen API</p></li><li><p>Verwendung nicht allgemein bekannt</p></li></ul></div></li><li><p>Problem</p><div class="ulist"><ul><li><p>Wie kann die Nutzung der API explizit dokumentiert werden?</p></li><li><p>Wie kann die Dokumentation mit anderen Spezifikationen verbunden werden?</p></li></ul></div></li><li><p>Lösung</p><div class="ulist"><ul><li><p>Bereitstellung einer strukturierten API Beschreibung</p></li><li><p>Umsetzung: OpenAPI (REST), JSON API (REST), WSDL (SOAP)</p></li></ul></div></li></ul></div></section>
+<section id="_api_design_pagination_structure"><h2>API Design: Pagination (Structure)</h2><div class="ulist"><ul><li><p>Kontext</p><div class="ulist"><ul><li><p>Bei Abruf eines Service werden viele Daten übermittelt</p></li><li><p>Client benötigt nur einen Teil davon</p></li></ul></div></li><li><p>Problem</p><div class="ulist"><ul><li><p>Wie kann der Abruf so eingeschränkt werden, dass der Client nur einen Teil der Daten erhält?</p></li></ul></div></li><li><p>Lösung</p><div class="ulist"><ul><li><p>Auslieferung der Daten in Chunks</p></li><li><p>Übermittlung eines Links zu weiteren Daten</p></li><li><p>Umsetzung: Hypermedia (REST)</p></li></ul></div></li></ul></div></section>
+<section id="_api_design_api_key_quality"><h2>API Design: API Key (Quality)</h2><div class="ulist"><ul><li><p>Kontext</p><div class="ulist"><ul><li><p>Service wird per Aufruf bezahlt</p></li><li><p>Verwendung eines Service muss einem Benutzer zugeordnet werden können</p></li><li><p>Einsatz eines vollwertigen IAMs zu komplex</p></li></ul></div></li><li><p>Problem</p><div class="ulist"><ul><li><p>Wie kann ein Service Benutzer erkennen?</p></li></ul></div></li><li><p>Lösung</p><div class="ulist"><ul><li><p>Übermittlung eines API Keys (Token) durch den Benutzer</p></li><li><p>Umsetzung: HTTP Header, Cookie, Query Parameter</p></li></ul></div></li></ul></div></section>
+<section id="_api_design_version_identifier_evolution"><h2>API Design: Version Identifier (Evolution)</h2><div class="ulist"><ul><li><p>Kontext</p><div class="ulist"><ul><li><p>API erfährt Breaking Changes</p></li><li><p>Alte Clients müssen weiterhin unterstützt werden</p></li></ul></div></li><li><p>Problem</p><div class="ulist"><ul><li><p>Wie können alte und neue API zeitgleich existieren?</p></li></ul></div></li><li><p>Lösung</p><div class="ulist"><ul><li><p>Versionierung der API</p></li><li><p>Umsetzung: URI, Payload</p></li></ul></div></li></ul></div></section>
+<section id="_api_design_openapi"><h2>API Design: OpenAPI</h2><div class="ulist"><ul><li><p>Spezifikation zur Beschreibung von REST APIs</p></li><li><p>Vorläufer: Swagger</p></li><li><p>Contract First vs. Code First</p></li><li><p>YAML oder JSON</p></li><li><p>Java Annotations</p></li></ul></div></section>
+<section id="_api_design_openapi_2"><h2>API Design: OpenAPI</h2><div class="paragraph heading"><p>YAML</p></div>
+<pre class="CodeRay listingblock"><code class="yaml language-yaml">    <span class="key">openapi</span>: <span class="string"><span class="content">3.0.0</span></span>
+    <span class="key">info</span>:
+      <span class="key">title</span>: <span class="string"><span class="content">Sample Resource</span></span>
+      <span class="key">description</span>: <span class="string"><span class="content">Sample API to demonstrate OpenAPI annotations.</span></span>
+      <span class="key">version</span>: <span class="string"><span class="content">1.0</span></span>
+    <span class="key">servers</span>:
+      - <span class="string"><span class="content">url: http://api.anderscore.com.com/v1</span></span>
+        <span class="key">description</span>: <span class="string"><span class="content">anderScore public API</span></span>
+      - <span class="string"><span class="content">url: http://staging-api.anderscore.com</span></span>
+        <span class="key">description</span>: <span class="string"><span class="content">anderScore staging environment</span></span>
+    <span class="key">paths</span>:
+      <span class="key">/users</span>:
+        <span class="key">get</span>:
+          <span class="key">summary</span>: <span class="string"><span class="content">Get all users.</span></span>
+          <span class="key">description</span>: <span class="string"><span class="content">Get all persisted anderScore users.</span></span>
+          <span class="key">responses</span>:
+            <span class="key"><span class="delimiter">'</span><span class="content">200</span><span class="delimiter">'</span></span>:    <span class="comment"># status code</span>
+              <span class="key">description</span>: <span class="string"><span class="content">A JSON array of user names</span></span>
+              <span class="key">content</span>:
+                <span class="key">application/json</span>:
+                  <span class="key">schema</span>:
+                    <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+                    <span class="key">items</span>:
+                      <span class="key">type</span>: <span class="string"><span class="content">string</span></span></code></pre></section>
+<section id="_api_design_openapi_3"><h2>API Design: OpenAPI</h2><div class="paragraph heading"><p>Annotations</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@OpenAPIDefinition</span> (info =
+    <span class="annotation">@Info</span>(
+              title = <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample Resource</span><span class="delimiter">&quot;</span></span>,
+              version = <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>,
+              description = <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample API to demonstrate OpenAPI annotations</span><span class="delimiter">&quot;</span></span>,
+              license = <span class="annotation">@License</span>(name = <span class="string"><span class="delimiter">&quot;</span><span class="content">Apache 2.0</span><span class="delimiter">&quot;</span></span>, url = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://foo.bar</span><span class="delimiter">&quot;</span></span>),
+              contact = <span class="annotation">@Contact</span>(url = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com</span><span class="delimiter">&quot;</span></span>, name = <span class="string"><span class="delimiter">&quot;</span><span class="content">Daniel Krämer</span><span class="delimiter">&quot;</span></span>, email = <span class="string"><span class="delimiter">&quot;</span><span class="content">daniel.kraemer@anderscore.com</span><span class="delimiter">&quot;</span></span>)
+      )
+)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SampleResource</span> {
+
+    <span class="annotation">@GET</span>
+    <span class="annotation">@Operation</span>(summary = <span class="string"><span class="delimiter">&quot;</span><span class="content">Get all users</span><span class="delimiter">&quot;</span></span>, description = <span class="string"><span class="delimiter">&quot;</span><span class="content">Get all persisted anderScore users</span><span class="delimiter">&quot;</span></span>)
+    <span class="directive">public</span> Response getUsers() {
+        <span class="comment">// ...</span>
+    }
+}</code></pre></section>
+<section id="_der_weg_zur_makro_architektur"><h2>Der Weg zur Makro-Architektur</h2><div class="olist arabic"><ol class="arabic"><li><p>Fachlicher Schnitt der Microservices nach Domain Driven Design</p><div class="ulist"><ul><li><p>Ermittlung der Bounded Contexts (Strategic Design)</p></li><li><p>Ableiten der Context Map</p></li></ul></div></li><li><p>Bestimmung der Qualitätsanforderungen und Einflussfaktoren</p></li><li><p>Auswahl geeigneter Technologien</p></li><li><p>Definition der APIs</p><div class="ulist"><ul><li><p>Orientierung an Use Cases und DDD Services</p></li><li><p>Verwendung von Patterns</p></li></ul></div></li><li><p>Dokumentation</p></li></ol></div></section>
+<section id="_übung"><h2>Übung</h2><div class="olist arabic"><ol class="arabic"><li><p>Implementieren Sie den <code>AbrechnungService</code>:</p><div class="ulist"><ul><li><p>Erstellen Sie einen REST Microservice mit dem Spring Boot Initializr.</p></li><li><p>Stellen Sie eine API bereit, mit der ein Parkticket vom Automaten als bezahlt deklariert werden kann.</p></li><li><p>Sehen Sie eine API vor, mit welcher sich die erfolgte Bezahlung eines Tickets überprüfen lässt.</p></li></ul></div></li><li><p>Erstellen Sie den <code>ZugangskontrollService</code></p><div class="ulist"><ul><li><p>Generieren Sie einen weiteren Microservice.</p></li><li><p>Bieten Sie der Schranke eine API zum Prüfen eines Tickets an. Das Ergebnis kann "EXIT GRANTED" oder "EXIT DENIED" lauten.</p></li><li><p>Fragen Sie zur Ermittlung des Ergebnisses die Bezahlung beim <code>AbrechnungService</code> ab.</p></li><li><p>Was passiert, wenn der <code>AbrechnungService</code> nicht verfügbar ist? Wie gehen Sie damit um?</p></li></ul></div></li><li><p>Testen Sie ihre Anwendung mit cURL oder Postman.</p></li><li><p>Bonus: Dokumentieren Sie die APIs mit OpenAPI.</p></li><li><p>Bonus: Implementieren Sie auch den Rest der Parkhausanwendung!</p></li></ol></div></section>
+<section id="_übung_2"><h2>Übung</h2><div class="paragraph heading"><p>Context Map</p></div>
+<div class="imageblock" style=""><img src="images/lesson03/ContextMapParkhaus.png" alt="ContextMapParkhaus" height="400"></div></section>
+<section id="_mikro_architektur"><h2>Mikro-Architektur</h2><div class="ulist"><ul><li><p>Architektur einzelner Services</p></li><li><p>Verantwortung des jeweiligen Teams</p></li><li><p>Vorgaben des Architekten</p><div class="ulist"><ul><li><p>Erlaubte Technologien und Frameworks</p></li><li><p>Schnittstellen</p></li></ul></div></li><li><p>Mögliche Herangehensweise: Domain Driven Design (Tactical Design)</p></li></ul></div></section>
+<section id="_mikro_architektur_2" class="columns"><h2>Mikro-Architektur</h2><div class="openblock"><div class="content"><div class="paragraph heading"><p>Hexagonale Architektur</p></div>
+<div class="ulist"><ul><li><p>Synonyme: Ports and Adapters, Zwiebelarchitektur</p></li><li><p>Strikte Trennung von Fachlichkeit und Technik</p></li><li><p>Dependency Inversion (DIP)</p></li><li><p><strong>Domain</strong>: Daten und Geschäftslogik</p></li><li><p><strong>Service</strong>: Orchestrierung der Geschäftslogik</p></li><li><p><strong>Infrastruktur</strong>: Externe Kommunikation</p></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/HexagonaleArchitektur.png" alt="HexagonaleArchitektur" width="500"></div></section>
+<section id="_mikro_architektur_3" class="columns"><h2>Mikro-Architektur</h2><div class="openblock"><div class="content"><div class="paragraph heading"><p>Hexagonale Architektur</p></div>
+<div class="ulist"><ul><li><p>Ports</p><div class="ulist"><ul><li><p>Anknüpfungspunkte</p></li><li><p>Definition durch innere Schichten</p></li></ul></div></li><li><p>Adapters</p><div class="ulist"><ul><li><p>Konterpart der Ports</p></li><li><p>Implementierung durch äußere Schichten</p></li><li><p>Aktiv vs. passiv</p></li></ul></div></li></ul></div></div></div>
+<div class="imageblock" style=""><img src="images/lesson03/HexagonaleArchitektur.png" alt="HexagonaleArchitektur" width="500"></div></section>
+<section id="_ausblick_microservices_im_unternehmenseinsatz"><h2>Ausblick: Microservices im Unternehmenseinsatz</h2><div class="ulist"><ul><li><p>Stack</p><div class="ulist"><ul><li><p>Spring Boot oder MicroProfile (z.B. Quarkus)</p></li><li><p>REST + OAuth oder Apache Kafka</p></li></ul></div></li><li><p>Resilienz</p><div class="ulist"><ul><li><p>Circuit Breaker</p></li><li><p>Client-side Load Balancing</p></li></ul></div></li><li><p>Paketierung und Deployment</p><div class="ulist"><ul><li><p>Executable jar</p></li><li><p>Docker</p></li><li><p>Kubernetes oder Docker Swarm</p></li></ul></div></li><li><p>Zentrales Monitoring und Logging</p><div class="ulist"><ul><li><p>Prometheus, Grafana</p></li><li><p>ElasticSearch, LogStash, Kibana</p></li></ul></div></li></ul></div></section>
+<section id="_zusammenfassung_microservices"><h2>Zusammenfassung Microservices</h2><div class="ulist"><ul><li><p>Form der Modularisierung</p></li><li><p>Herausforderungen eines verteilten Systems!</p></li><li><p>Schnitt mittels Domain Driven Design</p></li><li><p>Abgrenzung mittels Bounded Contexts und Context Map</p></li><li><p>Vielseitige Integrationsmöglichkeiten</p></li><li><p>Microservice API Patterns</p></li></ul></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

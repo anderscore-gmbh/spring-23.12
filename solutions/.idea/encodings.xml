@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-backend-rest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-backend-soap/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-backend-soap/target/generated-sources/jaxb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-cbr-spring-boot-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-cbr-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-cbr/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-frontend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/lesson02-solutions-jpa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson02/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson03/abrechnung-service-solution/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson03/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson03/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson03/zugangskontroll-service-solution/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson04/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson05/abrechnung-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson05/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson05/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson05/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson05/zugangskontroll-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson06/ContainerExample/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson06/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lesson06/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

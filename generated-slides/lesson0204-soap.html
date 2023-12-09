@@ -1,0 +1,472 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SOAP</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_soap" data-state="no-title-footer"><h2>SOAP</h2><div class="paragraph center"><p>Was ist das?</p></div></section>
+<section id="_grundlagen"><h2>Grundlagen</h2><div class="ulist"><ul><li><p>Ursprünglich: <strong>Simple Object Access Protocol</strong></p></li><li><p>Standardisiert vom W3C</p></li><li><p>Format zum maschinellen Austausch von Nachrichten (XML) über ein Netzwerk</p></li><li><p>Meist HTTP als Transportprotokoll</p></li><li><p>Explizite Beschreibung über WSDL</p></li><li><p>Erweiterung durch WS-* Spezifikationen</p></li></ul></div></section>
+<section id="_aufbau_einer_nachricht" class="columns"><h2>Aufbau einer Nachricht</h2><div class="imageblock" style=""><img src="images/lesson02/Envelope.png" alt="Envelope" width="400"></div>
+<div class="openblock"><div class="content"><div class="paragraph"><p><strong>Envelope:</strong></p></div>
+<div class="ulist"><ul><li><p>"Umschlag" einer Nachricht</p></li><li><p>Namespace: <code>xmlns:soap="http://www.w3.org/2003/05/soap-envelope"</code></p></li></ul></div>
+<div class="paragraph"><p><strong>Header:</strong></p></div>
+<div class="ulist"><ul><li><p>Optional</p></li><li><p>Meta-Informationen: Empfänger, Hops, Verschlüsselung, etc.</p></li></ul></div>
+<div class="paragraph"><p><strong>Body:</strong></p></div>
+<div class="ulist"><ul><li><p>Nutzdaten (Payload)</p></li><li><p>Prozeduraufruf (RPC Style)</p></li><li><p>Übermittlung von <strong>Daten (Document Style)</strong></p></li></ul></div></div></div></section>
+<section id="_nachrichtenaustausch" class="columns"><h2>Nachrichtenaustausch</h2><div class="openblock"><div class="content"><div class="paragraph"><p><strong>Request:</strong></p></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="tag">&lt;soap:Envelope</span> <span class="attribute-name">xmlns:soap</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2003/05/soap-envelope</span><span class="delimiter">&quot;</span></span>
+               <span class="attribute-name">xmlns:as</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;soap:Header</span><span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;soap:Body&gt;</span>
+        <span class="tag">&lt;as:getCoursesRequest&gt;</span>
+            <span class="tag">&lt;as:title&gt;</span>Spring<span class="tag">&lt;/as:title&gt;</span>
+        <span class="tag">&lt;/as:getCoursesRequest&gt;</span>
+    <span class="tag">&lt;/soap:Body&gt;</span>
+
+<span class="tag">&lt;/soap:Envelope&gt;</span></code></pre></div></div>
+<div class="openblock"><div class="content"><div class="paragraph"><p><strong>Response:</strong></p></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="tag">&lt;soap:Envelope</span> <span class="attribute-name">xmlns:soap</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2003/05/soap-envelope</span><span class="delimiter">&quot;</span></span>
+               <span class="attribute-name">xmlns:as</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;soap:Header</span><span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;soap:Body&gt;</span>
+
+        <span class="tag">&lt;as:getCoursesResponse&gt;</span>
+            <span class="tag">&lt;as:course&gt;</span>
+                <span class="tag">&lt;as:title&gt;</span>Spring Power Workshop<span class="tag">&lt;/as:title&gt;</span>
+                <span class="tag">&lt;as:tutor&gt;</span>Daniel Krämer<span class="tag">&lt;/as:tutor&gt;</span>
+                <span class="tag">&lt;as:numDays&gt;</span>5<span class="tag">&lt;/as:numDays&gt;</span>
+                <span class="tag">&lt;as:level&gt;</span>Advanced<span class="tag">&lt;/as:level&gt;</span>
+            <span class="tag">&lt;/as:course&gt;</span>
+        <span class="tag">&lt;/as:getCoursesResponse&gt;</span>
+
+    <span class="tag">&lt;/soap:Body&gt;</span>
+
+<span class="tag">&lt;/soap:Envelope&gt;</span></code></pre></div></div></section>
+<section id="_wsdl"><h2>WSDL</h2><div class="ulist"><ul><li><p><strong>Web Service Description Language</strong></p></li><li><p>Beschreibung eines SOAP Web Service in XML</p></li><li><p>Auslieferung durch Service selbst</p></li><li><p>Komponenten</p><div class="ulist"><ul><li><p><strong>Types:</strong> spezifische Datenstrukturen</p></li><li><p><strong>PortTypes, Interfaces:</strong> angebotene Prozeduren</p></li><li><p><strong>Bindings:</strong> Interfaces unter einem bestimmten Protokoll (z.B. HTTP)</p></li><li><p><strong>Port bzw. Endpoint:</strong> konkrete Adresse (URI) eines Bindings</p></li><li><p><strong>Service:</strong> Zusammenstellung von Endpoints</p></li></ul></div></li></ul></div></section>
+<section id="_wsdl_2"><h2>WSDL</h2><pre class="CodeRay listingblock"><code class="xml language-xml">    <span class="tag">&lt;message</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">GetCoursesInput</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;part</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">body</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">element</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xsd1:GetCoursesRequest</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/message&gt;</span>
+
+    <span class="tag">&lt;message</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">GetCoursesOutput</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;part</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">body</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">element</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xsd1:TradePrice</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/message&gt;</span>
+
+    <span class="tag">&lt;portType</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">CoursePortType</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;operation</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">GetCourses</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+           <span class="tag">&lt;input</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tns:GetCoursesInput</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+           <span class="tag">&lt;output</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tns:GetCoursesOutput</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/operation&gt;</span>
+    <span class="tag">&lt;/portType&gt;</span>
+
+    <span class="tag">&lt;binding</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">CourseSoapBinding</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tns:CoursePortType</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;soap:binding</span> <span class="attribute-name">style</span>=<span class="string"><span class="delimiter">&quot;</span><span class="key">document</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">transport</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://schemas.xmlsoap.org/soap/http</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;operation</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">GetCourses</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+           <span class="tag">&lt;soap:operation</span> <span class="attribute-name">soapAction</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/GetCourses</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+           <span class="tag">&lt;input&gt;</span>
+               <span class="tag">&lt;soap:body</span> <span class="attribute-name">use</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">literal</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+           <span class="tag">&lt;/input&gt;</span>
+           <span class="tag">&lt;output&gt;</span>
+               <span class="tag">&lt;soap:body</span> <span class="attribute-name">use</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">literal</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+           <span class="tag">&lt;/output&gt;</span>
+        <span class="tag">&lt;/operation&gt;</span>
+    <span class="tag">&lt;/binding&gt;</span>
+
+    <span class="tag">&lt;service</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">CourseService</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;documentation&gt;</span>Provides information regarding anderScore courses<span class="tag">&lt;/documentation&gt;</span>
+        <span class="tag">&lt;port</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">CoursePort</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tns:CourseSoapBinding</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+           <span class="tag">&lt;soap:address</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/ws/courses</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/port&gt;</span>
+    <span class="tag">&lt;/service&gt;</span></code></pre></section>
+<section id="_ws"><h2>WS-*</h2><div class="ulist"><ul><li><p>Erweiterte Spezifikationen für SOAP Web Services</p></li><li><p>Zusammensetzbar und interoperabel</p></li><li><p>Nutzung des SOAP Headers</p></li><li><p>Wichtige Realisierungen</p><div class="ulist"><ul><li><p>WS-Security</p></li><li><p>WS-Addressing</p></li><li><p>WS-Discovery</p></li></ul></div></li></ul></div></section>
+<section id="_abgrenzung_zu_rest" class="columns"><h2>Abgrenzung zu REST</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Eigenschaften SOAP</strong></p><div class="ulist"><ul><li><p>Nachrichtenformat</p></li><li><p>Explizite Schnittstellenbeschreibung</p></li><li><p>RPC Style und Document Style</p></li><li><p>XML</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Eigenschaften REST</strong></p><div class="ulist"><ul><li><p>Architekturstil</p></li><li><p>Implizite Schnittstellenbeschreibung</p></li><li><p>Ressourcenorientiert</p></li><li><p>Beliebige Datentypen</p></li></ul></div></li></ul></div></div></div></section>
+<section id="_abgrenzung_zu_rest_2" class="columns"><h2>Abgrenzung zu REST</h2><div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Einsatzszenarien SOAP</strong></p><div class="ulist"><ul><li><p>Maschinenlesb. Schnittstellenbeschreibung</p></li><li><p>Ausnutzung der WS-* Standards</p></li><li><p>Integration von Altsystemen</p></li><li><p>Fokus auf XML</p></li></ul></div></li></ul></div></div></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><strong>Einsatzszenarien REST</strong></p><div class="ulist"><ul><li><p>Zugriff verschiedenster Systeme</p></li><li><p>Anbindung clientseitiger Web Frontends</p></li><li><p>Nutzung vorhandener Caches</p></li><li><p>Starke Ressoucenorientierung</p></li><li><p>Übertragung anderer Formate als XML</p></li></ul></div></li></ul></div></div></div></section>
+<section id="_soap_2"><h2>SOAP</h2><div class="paragraph heading"><p>Fragen?</p></div></section>
+<section id="_spring_ws"><h2>Spring WS</h2><div class="ulist"><ul><li><p><strong>Alternative Vorgehensweisen</strong></p><div class="ulist"><ul><li><p>Contract First: WSDL &#8594; Java-Klassen</p></li><li><p>Code First: Java-Klassen &#8594; WSDL</p></li></ul></div></li><li><p><strong>Spring WS</strong></p><div class="ulist"><ul><li><p>Contract First mittels <code>xjc</code></p></li><li><p>XML Schema (XSD) &#8594; WSDL + Klassen</p></li></ul></div></li></ul></div></section>
+<section id="_xml_schema_xsd"><h2>XML Schema (XSD)</h2><div class="paragraph"><p>Definition verwendeter Datenstrukturen</p></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="tag">&lt;xs:schema</span> <span class="attribute-name">xmlns:xs</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:as</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">targetNamespace</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">elementFormDefault</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">qualified</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">getCourseRequest</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;xs:complexType&gt;</span>
+            <span class="tag">&lt;xs:sequence&gt;</span>
+                <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xs:string</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/xs:sequence&gt;</span>
+        <span class="tag">&lt;/xs:complexType&gt;</span>
+    <span class="tag">&lt;/xs:element&gt;</span>
+
+    <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">getCourseResponse</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;xs:complexType&gt;</span>
+            <span class="tag">&lt;xs:sequence&gt;</span>
+                <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">course</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">as:course</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/xs:sequence&gt;</span>
+        <span class="tag">&lt;/xs:complexType&gt;</span>
+    <span class="tag">&lt;/xs:element&gt;</span>
+
+    <span class="tag">&lt;xs:complexType</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">course</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;xs:sequence&gt;</span>
+            <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xs:string</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tutor</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xs:string</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">numDays</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xs:int</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;xs:element</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">level</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">xs:string</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/xs:sequence&gt;</span>
+    <span class="tag">&lt;/xs:complexType&gt;</span>
+<span class="tag">&lt;/xs:schema&gt;</span></code></pre></section>
+<section id="_jaxb_maven_plugin"><h2>JAXB Maven Plugin</h2><div class="ulist"><ul><li><p>Automatische Generierung benötigter Klassen</p></li><li><p>Verwendung von xjc (JDK)</p></li><li><p>Aufruf: <code>mvn jaxb2:xjc</code></p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="tag">&lt;plugin&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.codehaus.mojo<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>jaxb2-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.5.0<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;executions&gt;</span>
+        <span class="tag">&lt;execution&gt;</span>
+            <span class="tag">&lt;id&gt;</span>xjc<span class="tag">&lt;/id&gt;</span>
+            <span class="tag">&lt;goals&gt;</span>
+                <span class="tag">&lt;goal&gt;</span>xjc<span class="tag">&lt;/goal&gt;</span>
+            <span class="tag">&lt;/goals&gt;</span>
+       <span class="tag">&lt;/execution&gt;</span>
+    <span class="tag">&lt;/executions&gt;</span>
+    <span class="tag">&lt;configuration&gt;</span>
+        <span class="tag">&lt;sources&gt;</span>
+            <span class="tag">&lt;source&gt;</span>${project.basedir}/src/main/resources/xsd/<span class="tag">&lt;/source&gt;</span>
+        <span class="tag">&lt;/sources&gt;</span>
+    <span class="tag">&lt;/configuration&gt;</span>
+<span class="tag">&lt;/plugin&gt;</span></code></pre></section>
+<section id="_endpoints"><h2>Endpoints</h2><div class="ulist"><ul><li><p>Stellen Handler für SOAP Requests zur Verfügung</p></li><li><p>SOAP Schnittstellen zum System</p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Endpoint</span> <span class="comment">// Registriert Klasse bei Spring WS</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">CourseEndpoint</span> {
+
+  <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> NAMESPACE_URI = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="delimiter">&quot;</span></span>;
+
+  <span class="annotation">@Autowired</span>
+  <span class="directive">private</span> CourseService courseService;
+
+  <span class="annotation">@PayloadRoot</span>(namespace = NAMESPACE_URI, localPart = <span class="string"><span class="delimiter">&quot;</span><span class="content">GetCourseRequest</span><span class="delimiter">&quot;</span></span>) <span class="comment">// Zuordnung SOAP Request -&gt; Handler</span>
+  <span class="annotation">@ResponsePayload</span> <span class="comment">// Marshalling des Response Bodies</span>
+  <span class="directive">public</span> GetCourseResponse getCountry(<span class="annotation">@RequestPayload</span> GetCourseRequest request) { <span class="comment">// Unmarshalling des Request Bodies</span>
+    Course course = courseService.findByTitle(request.getTitle());
+
+    GetCourseResponse response = <span class="keyword">new</span> GetCourseResponse();
+    response.setCourse(course);
+
+    <span class="keyword">return</span> response;
+  }
+}</code></pre></section>
+<section id="_spring_config"><h2>Spring Config</h2><div class="ulist"><ul><li><p>Aktivierung und Konfiguration von Spring WS</p></li><li><p>Einbindung der XML Schemata</p></li><li><p>Konfiguration der Endpoints (bei Spring Boot automatisch)</p></li></ul></div></section>
+<section id="_spring_config_2"><h2>Spring Config</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@EnableWs</span> <span class="comment">// (1) Aktivierung von Spring WS</span>
+<span class="annotation">@Configuration</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SoapConfig</span> <span class="directive">extends</span> WsConfigurerAdapter {
+
+  <span class="comment">// (2) Registrierung eines Servlets zur Verarbeitung von SOAP Requests</span>
+  <span class="annotation">@Bean</span>
+  <span class="directive">public</span> ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
+    MessageDispatcherServlet servlet = <span class="keyword">new</span> MessageDispatcherServlet();
+    servlet.setApplicationContext(applicationContext);
+    servlet.setTransformWsdlLocations(<span class="predefined-constant">true</span>);
+    <span class="keyword">return</span> <span class="keyword">new</span> ServletRegistrationBean(servlet, <span class="string"><span class="delimiter">&quot;</span><span class="content">/ws/*</span><span class="delimiter">&quot;</span></span>);
+  }
+
+  <span class="comment">// (3) Bereitstellung des XML Schemas</span>
+  <span class="annotation">@Bean</span>
+  <span class="directive">public</span> XsdSchema courseSchema() {
+    <span class="keyword">return</span> <span class="keyword">new</span> SimpleXsdSchema(<span class="keyword">new</span> ClassPathResource(<span class="string"><span class="delimiter">&quot;</span><span class="content">courseSchema.xsd</span><span class="delimiter">&quot;</span></span>));
+  }
+
+  <span class="comment">// (4) Automatische Generierung einer WSDL</span>
+  <span class="annotation">@Bean</span>(name = <span class="string"><span class="delimiter">&quot;</span><span class="content">courses</span><span class="delimiter">&quot;</span></span>)
+  <span class="directive">public</span> DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema courseSchema) {
+    DefaultWsdl11Definition wsdl11Definition = <span class="keyword">new</span> DefaultWsdl11Definition();
+    wsdl11Definition.setPortTypeName(<span class="string"><span class="delimiter">&quot;</span><span class="content">CoursesPort</span><span class="delimiter">&quot;</span></span>);
+    wsdl11Definition.setLocationUri(<span class="string"><span class="delimiter">&quot;</span><span class="content">/ws</span><span class="delimiter">&quot;</span></span>);
+    wsdl11Definition.setTargetNamespace(<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="delimiter">&quot;</span></span>);
+    wsdl11Definition.setSchema(courseSchema);
+    <span class="keyword">return</span> wsdl11Definition;
+  }
+}</code></pre></section>
+<section id="_testen_der_endpoints"><h2>Testen der Endpoints</h2><div class="ulist"><ul><li><p>Commandline</p></li></ul></div>
+<div class="paragraph center"><p><code>curl --header "content-type: text/xml" -d @soapRequest.xml <a href="http://localhost:8080/ws" class="bare">http://localhost:8080/ws</a></code></p></div>
+<div class="ulist"><ul><li><p>soapUI</p></li></ul></div>
+<div class="imageblock" style=""><img src="images/lesson02/soapUI.png" alt="soapUI" width="600"></div></section>
+<section id="_spring_boot_web_services_starter"><h2>Spring Boot Web Services Starter</h2><div class="ulist"><ul><li><p>Starter für <strong>SOAP</strong> Web Services</p></li><li><p>Inkludiert <code>spring-boot-starter-web</code>, <code>jaxws-api</code> und <code>spring-ws-core</code></p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>spring-boot-starter-web-services<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;exclusions&gt;</span>
+        <span class="tag">&lt;exclusion&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/artifactId&gt;</span>
+        <span class="tag">&lt;/exclusion&gt;</span>
+    <span class="tag">&lt;/exclusions&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre></section>
+<section id="_jaxb"><h2>JAXB</h2><div class="ulist"><ul><li><p>Java Architecture for XML Binding</p></li><li><p>Marshalling und Unmarshalling von XML</p></li><li><p>Muss seit Java 9 explizit eingebunden werden</p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="tag">&lt;profiles&gt;</span>
+    <span class="tag">&lt;profile&gt;</span>
+        <span class="tag">&lt;id&gt;</span>java11<span class="tag">&lt;/id&gt;</span>
+        <span class="tag">&lt;activation&gt;</span>
+            <span class="tag">&lt;jdk&gt;</span>[11,)<span class="tag">&lt;/jdk&gt;</span>
+        <span class="tag">&lt;/activation&gt;</span>
+
+        <span class="tag">&lt;dependencies&gt;</span>
+            <span class="tag">&lt;dependency&gt;</span>
+                <span class="tag">&lt;groupId&gt;</span>org.glassfish.jaxb<span class="tag">&lt;/groupId&gt;</span>
+                <span class="tag">&lt;artifactId&gt;</span>jaxb-runtime<span class="tag">&lt;/artifactId&gt;</span>
+            <span class="tag">&lt;/dependency&gt;</span>
+        <span class="tag">&lt;/dependencies&gt;</span>
+    <span class="tag">&lt;/profile&gt;</span>
+<span class="tag">&lt;/profiles&gt;</span></code></pre></section>
+<section id="_maven_jaxb_plugin"><h2>Maven JAXB Plugin</h2><div class="ulist"><ul><li><p>Generierung benötigter Klassen aus WSDL</p></li><li><p>Achtung: Spezifisch für konkrete Endpoints!</p></li><li><p>Aufruf: <code>mvn generate</code></p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
+        <span class="tag">&lt;groupId&gt;</span>org.jvnet.jaxb2.maven2<span class="tag">&lt;/groupId&gt;</span>
+        <span class="tag">&lt;artifactId&gt;</span>maven-jaxb2-plugin<span class="tag">&lt;/artifactId&gt;</span>
+        <span class="tag">&lt;version&gt;</span>0.14.0<span class="tag">&lt;/version&gt;</span>
+        <span class="tag">&lt;executions&gt;</span>
+            <span class="tag">&lt;execution&gt;</span>
+                <span class="tag">&lt;goals&gt;</span>
+                    <span class="tag">&lt;goal&gt;</span>generate<span class="tag">&lt;/goal&gt;</span>
+                <span class="tag">&lt;/goals&gt;</span>
+            <span class="tag">&lt;/execution&gt;</span>
+        <span class="tag">&lt;/executions&gt;</span>
+        <span class="tag">&lt;configuration&gt;</span>
+            <span class="tag">&lt;schemaLanguage&gt;</span>WSDL<span class="tag">&lt;/schemaLanguage&gt;</span>
+            <span class="tag">&lt;generatePackage&gt;</span>com.anderscore.soap<span class="tag">&lt;/generatePackage&gt;</span>
+            <span class="tag">&lt;schemas&gt;</span>
+                <span class="tag">&lt;schema&gt;</span>
+                    <span class="tag">&lt;url&gt;</span>http://localhost:8080/ws/courses.wsdl<span class="tag">&lt;/url&gt;</span>
+                <span class="tag">&lt;/schema&gt;</span>
+            <span class="tag">&lt;/schemas&gt;</span>
+        <span class="tag">&lt;/configuration&gt;</span>
+<span class="tag">&lt;/plugin&gt;</span></code></pre></section>
+<section id="_implementierung_des_clients"><h2>Implementierung des Clients</h2><div class="ulist"><ul><li><p>Marshalling der Daten</p></li><li><p>Versenden eines SOAP/HTTP Requests</p></li><li><p>Unmarshalling der Response</p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="java language-java">  <span class="directive">public</span> Course getCourse(<span class="predefined-type">String</span> title) {
+    GetCourseRequest request = <span class="keyword">new</span> GetCourseRequest();
+    request.setTitle(title);
+
+    log.info(<span class="string"><span class="delimiter">&quot;</span><span class="content">Requesting course with title </span><span class="delimiter">&quot;</span></span> + title);
+
+    GetCourseResponse response = (GetCourseResponse) getWebServiceTemplate()
+        .marshalSendAndReceive(<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/ws/courses</span><span class="delimiter">&quot;</span></span>, request,
+            <span class="keyword">new</span> SoapActionCallback(
+                <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.anderscore.com/soap/GetCourseRequest</span><span class="delimiter">&quot;</span></span>));
+
+    <span class="keyword">return</span> response.getCourse();
+  }</code></pre></section>
+<section id="_spring_config_3"><h2>Spring Config</h2><div class="paragraph"><p>Konfiguration des Clients (inkl. XML Marshalling)</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">  <span class="comment">// (1) Bereitstellung eines (Un-)Marshallers zur Verarbeitung von SOAP Request und Response</span>
+  <span class="annotation">@Bean</span>
+  <span class="directive">public</span> Jaxb2Marshaller marshaller() {
+    Jaxb2Marshaller marshaller = <span class="keyword">new</span> Jaxb2Marshaller();
+    marshaller.setContextPath(<span class="string"><span class="delimiter">&quot;</span><span class="content">com.anderscore.soap</span><span class="delimiter">&quot;</span></span>);
+
+    <span class="keyword">return</span> marshaller;
+  }
+
+  <span class="comment">// (2) Definition des Clients</span>
+  <span class="annotation">@Bean</span>
+  <span class="directive">public</span> CourseClient courseClient(Jaxb2Marshaller marshaller) {
+    CourseClient client = <span class="keyword">new</span> CourseClient();
+    client.setDefaultUri(<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/ws</span><span class="delimiter">&quot;</span></span>);
+    client.setMarshaller(marshaller);
+    client.setUnmarshaller(marshaller);
+
+    <span class="keyword">return</span> client;
+  }</code></pre></section>
+<section id="_aufgabe_5_soap_web_service_implementieren"><h2>Aufgabe 5: SOAP Web Service implementieren</h2><div class="olist arabic"><ol class="arabic"><li><p>Importieren Sie das Projekt <code>lesson02-boot-backend-soap</code> in ihre IDE.</p></li><li><p>Schauen Sie sich das vorbereitete XML Schema <code>tasks.xsd</code> an. Was wird hier definiert?</p></li><li><p>Führen Sie <code>mvn jaxb2:xjc</code> aus, um die benötigten Klassen aus dem XML Schema zu generieren und so die Compile Errors zu beseitigen.</p></li><li><p>Implementieren Sie die Methodenrümpfe der Klasse <code>TaskToMapperImpl</code>. Wozu benötigen wir neben der <code>TaskEntity</code> überhaupt noch ein <code>TaskTo</code>?</p></li><li><p>Implementieren Sie die Methodenrümpfe des <code>TaskEndpoints</code>. Denken Sie auch an die fehlenden Annotationen.</p></li><li><p>Ergänzen Sie die fehlenden Beans in der <code>SoapConfig</code>.</p></li><li><p>Starten Sie die Anwendung und testen Sie diese mittels curl (Inhalt: <code>getTaskRequest.xml</code>) oder soapUI.</p></li></ol></div></section>
+<section id="_soap_web_services_testen"><h2>SOAP Web Services testen</h2><div class="ulist"><ul><li><p>Spring WS Test</p><div class="ulist"><ul><li><p><code>MockWebServiceClient</code>: Abfragen eines SOAP Web Service</p></li><li><p><code>RequestCreator</code>: Erstellen eines SOAP Requests</p></li><li><p><code>ResponseMatcher</code>: Prüfen der SOAP Response</p></li></ul></div></li></ul></div>
+<pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.springframework.ws<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>spring-ws-test<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.7.4<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;scope&gt;</span>test<span class="tag">&lt;/scope&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre></section>
+<section id="_implementieren_eines_integration_tests"><h2>Implementieren eines Integration Tests</h2><pre class="CodeRay listingblock"><code class="java language-java">    <span class="annotation">@Test</span>
+    <span class="directive">public</span> <span class="type">void</span> testGetCourse_Exists() <span class="directive">throws</span> <span class="exception">IOException</span> {
+        <span class="predefined-type">Source</span> requestPayload = <span class="keyword">new</span> StringSource(
+                <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;as:getCourseRequest xmlns:as=</span><span class="char">\&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="char">\&quot;</span><span class="content">&gt;</span><span class="delimiter">&quot;</span></span> +
+                        <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;as:id&gt;4711&lt;/as:id&gt;</span><span class="delimiter">&quot;</span></span> +
+                        <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;/as:getCourseRequest&gt;</span><span class="delimiter">&quot;</span></span>);
+
+        <span class="predefined-type">Source</span> responsePayload = <span class="keyword">new</span> StringSource(
+                <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;ns2:getCourseResponse xmlns:ns2=</span><span class="char">\&quot;</span><span class="content">http://www.anderscore.com/soap</span><span class="char">\&quot;</span><span class="content">&gt;</span><span class="delimiter">&quot;</span></span> +
+                        <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;ns2:course&gt;&lt;ns2:id&gt;4711&lt;/ns2:id&gt;&lt;ns2:title&gt;Spring&lt;/ns2:description&gt;&lt;/ns2:task&gt;</span><span class="delimiter">&quot;</span></span> +
+                        <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;/ns2:getCourseResponse&gt;</span><span class="delimiter">&quot;</span></span>);
+
+        Resource xsdSchema = <span class="keyword">new</span> ClassPathResource(<span class="string"><span class="delimiter">&quot;</span><span class="content">xsd/courses.xsd</span><span class="delimiter">&quot;</span></span>);
+
+        mockClient
+                .sendRequest(withPayload(requestPayload))
+                .andExpect(noFault())
+                .andExpect(payload(responsePayload))
+                .andExpect(validPayload(xsdSchema));
+    }</code></pre></section>
+<section id="_aufgabe_6_soap_web_service_implementieren"><h2>Aufgabe 6: SOAP Web Service implementieren</h2><div class="olist arabic"><ol class="arabic"><li><p>Überprüfen Sie die einzelnen Operationen des Service über den <code>TaskEndpointMockTest</code>.</p></li><li><p>Überprüfen Sie im <code>TaskEndpointIntegrationTest</code>, ob Sie einen Task anlegen und danach auch wieder abrufen können.</p></li></ol></div></section>
+<section id="_soap_3"><h2>SOAP</h2><div class="paragraph heading"><p>Fragen?</p></div>
+<div class="paragraph"><p><a href="lesson0205-view.html">&#8594; Weiter zu Web-Frontend mit Spring</a></p></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

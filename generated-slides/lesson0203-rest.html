@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>REST</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_rest" data-state="no-title-footer"><h2>REST</h2><div class="paragraph center"><p>Was ist das?</p></div></section>
+<section><section id="_rest_grundlagen"><h2>REST Grundlagen</h2><div class="ulist"><ul><li><p>Steht für <strong>Representational State Transfer</strong></p></li><li><p>Begriff: Doktorarbeit von Roy Fielding aus dem Jahr 2000</p></li><li><p>Technologie für Maschine zu Maschine Kommunikation</p></li><li><p>Fußt auf den Prinzipien des Web (Web für Maschinen)</p></li><li><p>Eine REST-API muss 5 Bedingungen erfüllen</p></li></ul></div></section><section id="_1_client_server"><h2>1. Client-Server</h2><div class="ulist"><ul><li><p>Strikte Trennung der Systeme</p></li><li><p>Verbindung kann unterbrochen sein</p></li></ul></div></section><section id="_2_zustandslos"><h2>2. Zustandslos</h2><div class="ulist"><ul><li><p>Keine Sitzungsinformation auf dem Server<br>
+(Andernfalls nur REST-artig)</p></li><li><p>Zustand (Sitzung) wird auf Client vorgehalten</p></li><li><p>Nachrichten sind selbstbeschreibend</p></li><li><p>Jede Anfrage muss alle notwendigen Informationen enthalten,
+damit der Server diese verarbeiten kann (inkl. Sitzungsinformationen)</p></li><li><p>Jede Antwort muss alle Informationen enthalten, die der Client
+benötigt, um die Sitzung zu aktualisieren</p></li></ul></div></section><section id="_3_cachebar"><h2>3. Cachebar</h2><div class="ulist"><ul><li><p>Antworten müssen Informationen enthalten,
+ob und wie lange gecached werden kann</p></li><li><p>Client kann nicht davon Ausgehen, dass Antwort direkt vom Server kommt</p></li></ul></div></section><section id="_4_schichtenarchitektur"><h2>4. Schichtenarchitektur</h2><div class="ulist"><ul><li><p>Zwischen Client und Server kann diverse Middleware liegen</p></li><li><p>&#8658; Erhöht Skalierbarkeit und Ausfallsicherheit</p></li></ul></div></section><section id="_5_einheitliche_schnittstelle"><h2>5. Einheitliche Schnittstelle</h2><div class="ulist"><ul><li><p>Einhaltung der HTTP-Spezifikation</p></li><li><p>Ein Vertrag für alle Belange</p></li></ul></div>
+<div class="paragraph"><p><br></p></div>
+<div class="paragraph"><p>Richtlinien der einheitlichen Schnittstelle:</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Ressourcen basiert (URIs zur Identifizierung, repräsentationsunabhängig)</p></li><li><p>Bearbeitung der Ressourcen über deren Repräsentation</p></li><li><p>Selbstbeschreibende Nachrichten (jede Nachricht enthält explizt alles, was zu
+deren Verarbeitung notwendig ist, z. B. Typ, Cachbarkeit)</p></li><li><p><em>Hypermedia as the Engine of Application State</em> (HATEOS)</p></li></ol></div></section><section id="_hateoas"><h2>HATEOAS</h2><div class="ulist"><ul><li><p>Client-Request enthält alle notwendigen Zustandsinformationen, die der Server benötigt,
+um den Request zu bearbeiten. Der Server weiß (speichert) nichts zu dem Client.</p></li><li><p>Der Server muss in seiner Antwort jeglichen Zustand an den Client übertragen, der
+für den nächsten Schritt notwendig ist.</p></li><li><p>Der Client übertägt die Zustandsinformation in Form von URLs, Request-Parametern,
+Request-Headern und dem Request-Inhalt (Body). Der Server überträgt Zustand mittels
+dem Inhalt der Antwort (Body), den Headern und dem Response-Code.</p></li><li><p>Daneben versteht man unter HATEOAS auch, dass Antworten im Inhalt oder im Header (<em>Location</em>, <em>Link</em>)
+die Links zu den zurückgegeben Objekten und ggf. zu weiterführenden Objekten enthalten.</p></li></ul></div></section><section id="_6_ausführbarer_code_auf_anforderung_optional"><h2>6. Ausführbarer Code auf Anforderung (optional)</h2><div class="paragraph"><p>Server kann Funktionalität auf den Client übertragen (z. B. JavaScript-Code)</p></div></section><section id="_resourcen_basiert"><h2>Resourcen basiert</h2><div class="ulist"><ul><li><p>Resourcen (Dinge) werden über URIs identifiziert<br>
+(es kann mehrere URIs geben, die auf die gleiche Ressource zeigen)</p></li><li><p>Resourcen sind unabhängig von deren Repräsenation (verschiedene Repräsenationen möglich)</p></li><li><p>Aktionen werden über HTTP-Verben (GET, POST, PUT, DELETE) angegeben</p></li><li><p>Repräsenationen (JSON, XML, HTML, PDF, etc.) werden über den Content-Type (MIME) angegeben</p></li><li><p>&#8658; URLs werden zum Adressieren von Ressourcen verwendet</p></li></ul></div>
+<div class="paragraph"><p><br></p></div>
+<table class="tableblock frame-all grid-all" style="width:50%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">REST URLs</th><th class="tableblock halign-left valign-top">SOAP-RPC URLs</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Dinge</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Aktionen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Substantive</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Verben</p></td></tr></table></section><section id="_repräsentationen"><h2>Repräsentationen</h2><div class="ulist"><ul><li><p>Die Repräsentationen sind das, was tatsächlich zwischen Client und Server übertragen wird</p></li><li><p>Sie geben den Ressourcen Zustand (oder einen Teil davon) wieder</p></li><li><p>Umfassen neben Nutzdaten auch Metadaten (Typinformationen)</p></li><li><p>Typischerweise JSON oder XML, kann aber bliebiges Format sein (z. B. PDF, HTML, &#8230;&#8203;)</p></li></ul></div></section><section id="_vorteile"><h2>Vorteile</h2><div class="ulist"><ul><li><p>Skalierbarkeit</p></li><li><p>Einfachheit</p></li><li><p>Wartbarkeit</p></li><li><p>Sichtbarkeit</p></li><li><p>Portierbarkeit</p></li><li><p>Zuverlässigkeit</p></li></ul></div>
+<div class="paragraph"><p><a href="https://www.restapitutorial.com/lessons/whatisrest.html">
+&#8594; www.restapitutorial.com: What is REST?</a></p></div></section><section id="_http_verben"><h2>HTTP Verben</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:14.2857%"><col style="width:28.5714%"><col style="width:57.1429%"></colgroup><tbody><tr><th class="tableblock halign-left valign-top"><p class="tableblock header">GET</p></th><td class="tableblock halign-left valign-top"><p class="tableblock">idempotent und sicher</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Eine (Menge von) Ressource(n) über ihre URI abrufen</p></td></tr><tr><th class="tableblock halign-left valign-top"><p class="tableblock header">POST</p></th><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"><p class="tableblock">Erstellt eine Ressource</p></td></tr><tr><th class="tableblock halign-left valign-top"><p class="tableblock header">PUT</p></th><td class="tableblock halign-left valign-top"><p class="tableblock">idempotent</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Eine (Menge von) Ressource(n) anhand ihrer URI ändern (vollständig ersetzen)</p></td></tr><tr><th class="tableblock halign-left valign-top"><p class="tableblock header">PATCH</p></th><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"><p class="tableblock">Eine Ressource ändern (nur einzelne Attribute)</p></td></tr><tr><th class="tableblock halign-left valign-top"><p class="tableblock header">DELETE</p></th><td class="tableblock halign-left valign-top"><p class="tableblock">idempotent</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Entfernt eine Ressource anhand ihrer URI</p></td></tr></table>
+<div class="paragraph"><p><a href="https://www.restapitutorial.com/lessons/httpmethods.html">
+&#8594; HTTP-Methods für REST</a><br>
+<a href="https://www.tutorialspoint.com/http/http_methods.htm">
+&#8594; HTTP-Methods allgemein</a></p></div>
+<aside class="notes"><div class="ulist"><ul><li><p><strong>Sicher</strong> heißt: Die Operation ändert nichts.</p></li><li><p><strong>GET</strong> Parameter können für Filter verwendet werden.</p></li><li><p><strong>PUT</strong> kann auch zum Anlegen verwendet werden, wenn der Identifier (die URI) bereits vorher bekannt ist.
+Die URI muss die zu ändernde(n) Resource(n) eindeutig identifizieren (nicht der Nachrichteninhalt).</p></li><li><p><strong>POST</strong> kann für alle anderen Operationen verwendet werden, die zu keiner der genannten Kategorieen passt.</p></li><li><p><strong>DELETE</strong> ist zwar idempotnent, kann aber dennoch verschiedene Resposes liefern: 204 (wurde gelöscht)
+und 404 (nicht mehr vorhanden)</p></li></ul></div></aside></section><section id="_richtlinien_für_rest_uris"><h2>Richtlinien für REST-URIs</h2><div class="ulist"><ul><li><p>IDs sind immer Bestandteil der URL (Parameter nur zum Filtern)</p></li><li><p>Nur Substantive (Verben sind ein <em>Bad Smell</em>)</p></li><li><p>Plural</p></li><li><p>Nur Kleinbuchstaben und '-' zur Trennung</p></li><li><p><em>/users</em> für eine Menge und <em>/users/123</em> für einzelne Ressource</p></li></ul></div>
+<div class="paragraph"><p>Beispiel: <code>account/payment</code> statt <code>account/pay</code></p></div></section><section id="_wichtigste_http_antwortcodes"><h2>Wichtigste HTTP Antwortcodes</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:66.6667%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Erfolg (normale Antwort)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">201 CREATED</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Erfolgreich erstellt (Antwort auf POST)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">204 NO CONTENT</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Erfolg, aber kein Inhalt (Antwort auf DELETE)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">400 BAD REQUEST</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Anfrage kann nicht verarbeitet werden (Validierungsfehler)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">401 UNAUTHORIZED</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Notwendige Authentifizerung fehlt (z.B. kein Token vorhanden)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">403 FORBIDDEN</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Berechtigung nicht ausreichend</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">404 NOT FOUND</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Ressource existiert nicht</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">405 METHOD NOT ALLOWED</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">HTTP-Methode für die entsprechende URI nicht anwendbar</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">409 CONFLICT</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Bearbeitung der Anfrage würde zu Inkonsistenzen führen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">410 GONE</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Die Ressource wurde gelöscht (wenn das bekannt ist, sonst 404)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">415 UNSUPPORTED MEDIA TYPE</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Format der übertragenen Daten nicht untersützt</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">500 INTERNAL SERVER ERROR</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Unerwarteter Fehler auf Server</p></td></tr></table>
+<div class="paragraph"><p><a href="https://www.restapitutorial.com/lessons/httpstatuscodes.html">
+&#8594; HTTP Status Codes</a><br></p></div>
+<aside class="notes"><div class="dlist"><dl><dt class="hdlist1">405 METHOD NOT ALLOWED</dt><dd><p>Beispielsweise bei einem POST auf <em>/users/123</em> statt auf <em>/users</em>. Die Antwort muss einen <em>Allow</em> Header mit den
+unterstützten Methoden enthalten, z. B. <code>Allow: GET, PUT</code></p></dd><dt class="hdlist1">409 CONFLICT</dt><dd><p>Beispielsweise doppelte Einträge</p></dd></dl></div></aside></section><section id="_fragen"><h2>Fragen?</h2><div class="ulist"><div class="title">Auch interessant:</div><ul><li><p>JSON-API</p></li></ul></div></section></section>
+<section><section id="_webanwendungen_mit_java"><h2>Webanwendungen mit Java</h2><div class="ulist"><ul><li><p>Servlet API seit 1996 (aktuell: seit 2021 Jakarta Servlet 6.0 als Teil von JakartaEE 10)</p></li><li><p>Servlets können aus Java Server Pages (JSPs) erzeugt werden</p></li><li><p>Werden als WAR deployed</p></li><li><p>Ausführbar auf Servlet Container (z.B. Tomcat) oder Application Server (z.B. GlassFish)</p></li></ul></div></section><section id="_einfaches_servlet"><h2>Einfaches Servlet</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">HelloServlet</span> <span class="directive">extends</span> HttpServlet {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> <span class="type">void</span> doGet(HttpServletRequest req, HttpServletResponse resp)
+            <span class="directive">throws</span> ServletException, <span class="exception">IOException</span> {
+        <span class="predefined-type">String</span> name = req.getParameter(<span class="string"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>);
+        resp.setContentType(<span class="string"><span class="delimiter">&quot;</span><span class="content">text/plain</span><span class="delimiter">&quot;</span></span>);
+        resp.getWriter().println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello </span><span class="delimiter">&quot;</span></span> + name + <span class="string"><span class="delimiter">&quot;</span><span class="content">!</span><span class="delimiter">&quot;</span></span>);
+    }
+}</code></pre></section><section id="_zugehörige_web_infweb_xml"><h2>Zugehörige WEB-INF/web.xml</h2><pre class="CodeRay listingblock"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;web-app</span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+         <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://xmlns.jcp.org/xml/ns/javaee</span><span class="delimiter">&quot;</span></span>
+         <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://xmlns.jcp.org/xml/ns/javaee</span>
+                             <span class="content">http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd</span><span class="delimiter">&quot;</span></span>
+         <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;servlet&gt;</span>
+    <span class="tag">&lt;servlet-name&gt;</span>Hello Servlet<span class="tag">&lt;/servlet-name&gt;</span>
+    <span class="tag">&lt;servlet-class&gt;</span>hello.HelloServlet<span class="tag">&lt;/servlet-class&gt;</span>
+    <span class="tag">&lt;load-on-startup&gt;</span>1<span class="tag">&lt;/load-on-startup&gt;</span>
+  <span class="tag">&lt;/servlet&gt;</span>
+  <span class="tag">&lt;servlet-mapping&gt;</span>
+    <span class="tag">&lt;servlet-name&gt;</span>Hello Servlet<span class="tag">&lt;/servlet-name&gt;</span>
+    <span class="tag">&lt;url-pattern&gt;</span>/hello<span class="tag">&lt;/url-pattern&gt;</span>
+  <span class="tag">&lt;/servlet-mapping&gt;</span>
+<span class="tag">&lt;/web-app&gt;</span></code></pre></section><section id="_servlet_ohne_web_xml"><h2>Servlet ohne web.xml</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@WebServlet</span>(urlPatterns = <span class="string"><span class="delimiter">&quot;</span><span class="content">/hello</span><span class="delimiter">&quot;</span></span>, loadOnStartup = <span class="integer">1</span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">HelloServlet</span> <span class="directive">extends</span> HttpServlet {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> <span class="type">void</span> doGet(HttpServletRequest req, HttpServletResponse resp)
+            <span class="directive">throws</span> ServletException, <span class="exception">IOException</span> {
+        <span class="predefined-type">String</span> name = req.getParameter(<span class="string"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>);
+        resp.setContentType(<span class="string"><span class="delimiter">&quot;</span><span class="content">text/plain</span><span class="delimiter">&quot;</span></span>);
+        resp.getWriter().println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello </span><span class="delimiter">&quot;</span></span> + name + <span class="string"><span class="delimiter">&quot;</span><span class="content">!</span><span class="delimiter">&quot;</span></span>);
+    }
+}</code></pre>
+<div class="paragraph"><p>seit Servlet API 3.0</p></div></section></section>
+<section><section id="_spring_web_mvc"><h2>Spring Web-MVC</h2><div class="ulist"><ul><li><p>Web Framework, das auf Servlet API basiert</p></li><li><p>Setzt Model-View-Controller Pattern um</p></li><li><p>Verwendet zentrales <code>DispatcherServlet</code></p></li></ul></div><div class="paragraph"><p><br></p></div><div class="paragraph"><div class="title">Problem:</div><p>Das <code>DispatcherServlet</code> muss über den <code>ApplicationContext</code> konfigurierbar sein</p></div></section><section id="_applicationcontext_bei_web_applikationen"><h2>ApplicationContext bei Web-Applikationen</h2><div class="imageblock" style=""><img src="images/web-application-context-hierarchy.svg" alt="web application context hierarchy" width="100%" height="391"></div></section><section id="_webapplicationcontext"><h2>WebApplicationContext</h2><div class="imageblock" style=""><img src="images/web-application-context.svg" alt="web application context" width="700" height="600"></div></section><section id="_kontext_hierarchie"><h2>Kontext-Hierarchie</h2><div class="imageblock" style=""><img src="images/context-hierarchie.svg" alt="context hierarchie" width="1200" height="720"></div></section><section id="_initialisierung_des_dispatcherservlet"><h2>Initialisierung des DispatcherServlet</h2><div class="dlist"><dl><dt class="hdlist1"><code>spring-web-5.3.6.jar!/META-INF/services/javax.servlet.ServletContainerInitializer</code></dt><dd><div class="ulist"><ul><li><p>wird von Servlet-Container geladen (<a href="https://download.oracle.com/otn-pub/jcp/servlet-3_1-fr-spec/servlet-3_1-final.pdf">&#8594; Servlet-Spec 3.1, Abschnitt 8.2.4</a>)</p></li><li><p>ist eine Textdatei, die auf einen <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ServiceLoader.html#developing-service-providers">Service Provider</a> verweist</p></li><li><p>diese Textdatei enthält:</p></li></ul></div></dd><dt class="hdlist1"><code>org.springframework.web.SpringServletContainerInitializer</code></dt><dd><div class="ulist"><ul><li><p>führt alle <code>org.springframework.web.WebApplicationInitializer</code> aus, u. a. Subklassen von:</p></li></ul></div></dd><dt class="hdlist1"><code>org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer</code></dt><dd><div class="ulist"><ul><li><p>erzeugt <code>AnnotationConfigWebApplicationContext</code></p></li><li><p>registriert <code>DispatcherServlet</code> beim <code>ServletContext</code></p></li></ul></div></dd></dl></div></section><section id="_beispiel_für_einen_webapplicationinitializer"><h2>Beispiel für einen WebApplicationInitializer</h2><div class="title">HelloWebAppInitializer.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">HelloWebAppInitializer</span>
+        <span class="directive">extends</span> AbstractAnnotationConfigDispatcherServletInitializer {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> <span class="predefined-type">Class</span>&lt;?&gt;<span class="type">[]</span> getRootConfigClasses() {
+        <span class="comment">// Config-Klassen für Root-ApplicationContext</span>
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="predefined-type">Class</span><span class="type">[]</span>{};
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> <span class="predefined-type">Class</span>&lt;?&gt;<span class="type">[]</span> getServletConfigClasses() {
+        <span class="comment">// Config-Klassen für Servlet-ApplicationContext</span>
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="predefined-type">Class</span><span class="type">[]</span> {HelloConfig.class};
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> <span class="predefined-type">String</span><span class="type">[]</span> getServletMappings() {
+        <span class="comment">// Servlet-Mappings für das DispatcherServlet</span>
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="predefined-type">String</span><span class="type">[]</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span>};
+    }
+}</code></pre></section><section id="_dispatcherservlet_bei_rest_service"><h2>DispatcherServlet bei REST-Service</h2><div class="imageblock" style=""><img src="images/mvcrest-seq.svg" alt="mvcrest seq" width="1200" height="720"></div></section><section id="_konfiguration_ohne_spring_boot"><h2>Konfiguration ohne Spring-Boot</h2><div class="title">HelloConfig.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Configuration</span>
+<span class="annotation">@ComponentScan</span>
+<span class="annotation">@EnableWebMvc</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">HelloConfig</span> <span class="directive">implements</span> WebMvcConfigurer { <i class="conum" data-value="2"></i><b>(2)</b>
+
+}</code></pre>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Standardkonfiguration für MVC-Applikationen</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Das <code>WebMvcConfigurer</code> Interface bietet viele Methoden zur Anpassung der Konfiguration</td></tr></table></div></section></section>
+<section><section id="_rest_mit_spring_web_mvc"><h2>REST mit Spring Web-MVC</h2><div class="paragraph"><p>REST-Endpunkte werden mit Controller-Klassen implementiert. Das sind normale Java-Klassen
+mit entsprechenden Annotationen:</p></div><div class="title">HelloController.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@RestController</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">HelloController</span> {
+
+    <span class="annotation">@GetMapping</span>(path=<span class="string"><span class="delimiter">&quot;</span><span class="content">/hello</span><span class="delimiter">&quot;</span></span>, produces = <span class="string"><span class="delimiter">&quot;</span><span class="content">text/html</span><span class="delimiter">&quot;</span></span>)
+    <span class="directive">public</span> <span class="predefined-type">String</span> hello(<span class="annotation">@RequestParam</span> <span class="predefined-type">String</span> name) {
+        <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello </span><span class="delimiter">&quot;</span></span> + name + <span class="string"><span class="delimiter">&quot;</span><span class="content">!</span><span class="delimiter">&quot;</span></span>;
+    }
+}</code></pre></section><section id="_wichtige_annotationen_für_controller"><h2>Wichtige Annotationen für Controller</h2><div class="dlist"><dl><dt class="hdlist1"><code>@Controller</code> bzw. <code>@RestController</code></dt><dd><p>Markiert eine Klasse als Controller<br>
+<code>@RestController</code> ist Meta-Annotation für <code>@Controller</code> + <code>@ResponseBody</code></p></dd><dt class="hdlist1"><code>@RequestMapping</code> bzw. <code>@GetMapping</code> (analog für <code>Post</code>, <code>Put</code>, <code>Delete</code> und <code>Patch</code>)</dt><dd><p>Markiert eine Methode als Request-Handler<br>
+<code>@GetMapping</code> ist Meta-Annotation für <code>@RequestMapping(method = RequestMethod.GET)</code></p></dd><dt class="hdlist1"><code>@PathVariable</code></dt><dd><p>Ein <code>{variable}</code> innerhalb eines Pfade definiert eine Variable und deren Wert
+mittels <code>@PathVariable</code> der Handler-Methode übergeben werden kann.</p></dd></dl></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@GetMapping</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">/owners/{ownerId}/pets/{petId}</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> Pet findPet(<span class="annotation">@PathVariable</span> <span class="predefined-type">Long</span> ownerId, <span class="annotation">@PathVariable</span> <span class="predefined-type">Long</span> petId) { ... }</code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@GetMapping</span>(path = <span class="string"><span class="delimiter">&quot;</span><span class="content">/pets/{petId}</span><span class="delimiter">&quot;</span></span>, produces = <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json;charset=UTF-8</span><span class="delimiter">&quot;</span></span>)
+<span class="comment">// statt &quot;application/json;charset=UTF-8&quot; geht auch org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE</span></code></pre></section><section id="_request_mapping"><h2>Request-Mapping</h2><div class="ulist"><ul><li><p>Die Zuordnung von Requests zu Handler-Methoden erfolgt über den <code>path</code> Wert der
+entsprechenden <code>@RequestMapping</code> Annotation.</p></li><li><p>Neben den Platzhaltern von Path-Variablen <code>{var}</code> können auch <code>?</code>, <code><strong></code> und <code></strong>*</code> verwendet werden.</p></li><li><p>Implizit wird <code>.*</code> angehängt, so dass auf <code>/person</code> auch <code>/person.pdf</code> und <code>/person.xml</code> passen.</p></li><li><p>Mit <code>params</code> oder <code>header</code> kann zugleich noch auf das Vorhanden sein eines bestimmten
+Parameters bzw. Headers geprüft werden:</p><div class="ulist"><ul><li><p><code>@GetMapping(path = "/pets", params = "myParam")</code> Parameter muss vorhanden sein</p></li><li><p><code>@GetMapping(path = "/pets", params = "!myParam")</code> Parameter darf nicht vorhanden sein</p></li><li><p><code>@GetMapping(path = "/pets", params = "myParam=myValue")</code> Parameter muss genau den angegeben Wert haben</p></li></ul></div></li></ul></div></section></section>
+<section id="_rest_apis_testen"><h2>REST-APIs testen</h2><div class="paragraph heading"><p><strong>curl</strong> (über <strong>Git Bash</strong> aufrufbar)</p></div>
+<div class="paragraph"><p>Liste aller Tasks:</p></div>
+<div class="literalblock"><div class="content"><pre>curl http://localhost:8080/tasks</pre></div></div>
+<div class="paragraph"><p>Einen Task hinzufügen:</p></div>
+<div class="literalblock"><div class="content"><pre>curl -d '{"description": "curl lernen", "state":"STARTED", "dateDue":"2019-05-25T10:15:00Z"}' \
+     -H "Content-Type: application/json" -X POST http://localhost:8080/tasks</pre></div></div>
+<div class="paragraph"><p>Task löschen (mit <code>-v</code> werden u. a. Status-Code und Header ausgegeben):</p></div>
+<div class="literalblock"><div class="content"><pre>curl -v -X DELETE http://localhost:8080/tasks/2</pre></div></div>
+<div class="paragraph heading"><p>Alternativen:</p></div>
+<div class="ulist"><ul><li><p><a href="https://www.getpostman.com/">&#8594; Postman</a></p></li><li><p><a href="https://addons.mozilla.org/de/firefox/addon/restclient/">&#8594; RESTClient (Browser-Plugin)</a></p></li></ul></div></section>
+<section id="_aufgabe_3_rest_controller_implementieren_teil_1"><h2>Aufgabe 3: REST-Controller implementieren (Teil 1)</h2><div class="olist arabic"><ol class="arabic"><li><p>Implementieren Sie die fehlenden Methodenrümpfe (CRUD) im <code>TaskController</code> und ergänzen Sie notwendige Annotationen.</p></li><li><p>Starten Sie den Server und legen Sie manuell Daten über die REST-API an.
+Prüfen Sie auch den Datenbankinhalt.</p></li><li><p>Experimentieren Sie!</p></li></ol></div></section>
+<section><section id="_weitere_annotationen_für_parameter_von_handler_methoden"><h2>Weitere Annotationen für Parameter von Handler-Methoden</h2><div class="ulist"><ul><li><p><code>@RequestParam</code> (default)</p></li><li><p><code>@RequestHeader</code></p></li><li><p><code>@CookieValue</code></p></li><li><p><code>@SessionAttribute</code></p></li><li><p><code>@RequestBody</code></p><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@PostMapping</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">/accounts</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">void</span> handle(<span class="annotation">@RequestBody</span> Account account) { ... }</code></pre></li><li><p><code>@Valid</code> (Standard Bean Validation)</p><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@PostMapping</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">/accounts</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">void</span> handle(<span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> Account account) { ... }</code></pre></li></ul></div><div class="paragraph"><p><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-controller">
+&#8594; Spring Reference: Annotated Controllers</a></p></div></section><section id="_optionale_handler_methoden_parameter"><h2>Optionale Handler-Methoden Parameter</h2><div class="ulist"><ul><li><p><code>HttpServletRequest</code></p></li><li><p><code>HttpServletResponse</code></p></li><li><p><code>java.security.Principal</code></p></li><li><p><code>Locale</code></p></li><li><p><code>TimeZone</code> oder <code>ZoneId</code></p></li><li><p><code>HttpEntity&lt;B&gt;</code> (Zum Zugriff auf Header und Body)</p></li><li><p><code>Errors</code>, <code>BindingResult</code> (Zugriff auf Fehler bei Validierung oder Data Binding)</p></li><li><p><code>UriComponentsBuilder</code> (Um URLs relativ zur aktuellen URL zu erstellen)</p><div class="title">DemoController.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@GetMapping</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">/uri/{id}</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="predefined-type">String</span> uri(<span class="annotation">@PathVariable</span> <span class="type">int</span> id, UriComponentsBuilder uriBuilder) {
+    <span class="predefined-type">String</span> uri = uriBuilder.path(<span class="string"><span class="delimiter">&quot;</span><span class="content">/uri/{id}</span><span class="delimiter">&quot;</span></span>).build().expand(id).encode().toUriString();
+    <span class="keyword">return</span> uri;
+}</code></pre></li></ul></div></section><section id="_handler_methoden_rückgabewerte"><h2>Handler-Methoden Rückgabewerte</h2><div class="paragraph"><p>Ein Handler kann beliebige Objekte zurückgeben, die mittels Data-Binding in den
+entsprechenden <em>content_type</em> konvertiert werden.</p></div>
+<div class="ulist"><ul><li><p><code>@ResponseBody</code> (in <code>@RestController</code> enthalten)</p></li><li><p><code>@GetMapping(path="/json", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)</code> (<em>content_type</em> angeben)</p></li><li><p><code>@ResponseStatus(HttpStatus.CREATED)</code> (default ist <code>HttpStatus.OK</code>)</p></li><li><p><code>ResponseEntity&lt;B&gt;</code> (bietet fluent-API für Status, Header, Body, Cache-Control, etc.)</p><pre class="CodeRay listingblock"><code class="java language-java"><span class="keyword">return</span> ResponseEntity.status(status).body(body);</code></pre></li></ul></div></section></section>
+<section><section id="_error_handling"><h2>Error Handling</h2><div class="olist arabic"><ol class="arabic"><li><p>Exception annotieren (Message ist fix):</p><div class="title">BadException.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@ResponseStatus</span>(code = HttpStatus.BAD_REQUEST, reason=<span class="string"><span class="delimiter">&quot;</span><span class="content">Sample Exception</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">BadException</span> <span class="directive">extends</span> <span class="exception">RuntimeException</span> {
+}</code></pre></li><li><p>ResponseStatusException (seit Spring 5):</p><pre class="CodeRay listingblock"><code class="java language-java"><span class="keyword">throw</span> <span class="keyword">new</span> ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, <span class="string"><span class="delimiter">&quot;</span><span class="content">Easy aufgrufen mit name=</span><span class="delimiter">&quot;</span></span> + name);</code></pre></li><li><p>Handler-Methode im Controller für die entsprechenden Exceptions:</p><div class="title">DemoController.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@ExceptionHandler</span>({ WorseException.class })
+<span class="directive">public</span> ResponseEntity&lt;RestApiError&gt; handleWorse(WorseException ex) {
+    HttpStatus status = HttpStatus.GONE;
+    RestApiError body = <span class="keyword">new</span> RestApiError(status.value(), ex.getMessage());
+    <span class="keyword">return</span> ResponseEntity.status(status).body(body);
+}</code></pre></li></ol></div></section><section id="_zentralisierte_fehlerbehandlung_mit_controlleradvice"><h2>Zentralisierte Fehlerbehandlung mit <code>@ControllerAdvice</code></h2><div class="title">RestExceptionHandler.java (lesson02-spring-rest)</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@ControllerAdvice</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">RestExceptionHandler</span> <span class="directive">extends</span> ResponseEntityExceptionHandler {
+
+    <span class="annotation">@ExceptionHandler</span>(WorstException.class)
+    <span class="annotation">@ResponseStatus</span>(HttpStatus.CONFLICT)
+    <span class="annotation">@ResponseBody</span>
+    <span class="directive">public</span> RestApiError handleWorst(WorstException ex) {
+        logger.warn(<span class="string"><span class="delimiter">&quot;</span><span class="content">Worst: </span><span class="delimiter">&quot;</span></span> + ex.getMessage());
+        <span class="keyword">return</span> error(HttpStatus.CONFLICT, ex);
+    }
+
+    <span class="annotation">@ExceptionHandler</span>({ <span class="exception">NullPointerException</span>.class, <span class="exception">IllegalArgumentException</span>.class, <span class="exception">IllegalStateException</span>.class })
+    <span class="directive">public</span> ResponseEntity&lt;<span class="predefined-type">Object</span>&gt; handleIntenalServerError(<span class="exception">RuntimeException</span> ex, WebRequest request) {
+        logger.error(<span class="string"><span class="delimiter">&quot;</span><span class="content">Internal Server Error</span><span class="delimiter">&quot;</span></span>, ex);
+
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+        RestApiError error = error(status, ex);
+        <span class="keyword">return</span> handleExceptionInternal(ex, error, <span class="keyword">new</span> HttpHeaders(), status, request);
+    }
+
+    <span class="directive">private</span> RestApiError error(HttpStatus httpStatus, <span class="exception">Exception</span> ex) {
+        <span class="predefined-type">String</span> message = ex.getMessage() == <span class="predefined-constant">null</span> ? ex.getClass().getSimpleName() : ex.getMessage();
+        <span class="keyword">return</span> <span class="keyword">new</span> RestApiError(httpStatus.value(), message);
+    }
+}</code></pre></section></section>
+<section><section id="_unit_tests"><h2>Unit-Tests</h2><div class="paragraph heading"><p>Test mit <strong>MockMvc</strong></p></div><div class="title">TaskControllerTest.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@SpringBootTest</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">spring.datasource.url=</span><span class="delimiter">&quot;</span></span>)
+<span class="annotation">@AutoConfigureMockMvc</span>
+<span class="annotation">@Disabled</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">Implement TaskController first</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">TaskControllerTest</span> {
+    <span class="annotation">@Autowired</span>
+    <span class="directive">private</span> MockMvc mockMvc;
+
+    <span class="annotation">@Test</span>
+    <span class="directive">public</span> <span class="type">void</span> testEmptyRepository() <span class="directive">throws</span> <span class="exception">Exception</span> {
+        mockMvc.perform(get(<span class="string"><span class="delimiter">&quot;</span><span class="content">/tasks/</span><span class="delimiter">&quot;</span></span>)).andDo(print()).andExpect(status().isOk()).andExpect(content().json(<span class="string"><span class="delimiter">&quot;</span><span class="content">[]</span><span class="delimiter">&quot;</span></span>));
+    }
+}</code></pre></section><section id="_test_mit_testresttemplate"><h2>Test mit <strong>TestRestTemplate</strong></h2><div class="title">TaskControllerHttpRequestTest.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@SpringBootTest</span>(properties = <span class="string"><span class="delimiter">&quot;</span><span class="content">spring.datasource.url=</span><span class="delimiter">&quot;</span></span>, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">TaskControllerHttpRequestTest</span> {
+
+    <span class="annotation">@LocalServerPort</span>
+    <span class="directive">private</span> <span class="type">int</span> port;
+
+    <span class="annotation">@Autowired</span>
+    <span class="directive">private</span> TestRestTemplate restTemplate;
+
+    <span class="annotation">@Test</span>
+    <span class="directive">public</span> <span class="type">void</span> testGet() <span class="directive">throws</span> <span class="exception">Exception</span> {
+        TaskEntity task = restTemplate.getForObject(<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:</span><span class="delimiter">&quot;</span></span> + port + <span class="string"><span class="delimiter">&quot;</span><span class="content">/tasks/42</span><span class="delimiter">&quot;</span></span>, TaskEntity.class);
+    }
+}</code></pre></section></section>
+<section id="_aufgabe_4_rest_controller_implementieren_teil_2"><h2>Aufgabe 4: REST-Controller implementieren (Teil 2)</h2><div class="olist arabic"><ol class="arabic"><li><p>Lösen Sie die restlichen TODOs (Error Handling, Location Header) im <code>TaskController</code>.</p></li><li><p>Führen Sie die Tests <code>TaskControllerTest</code>, <code>TaskControllerHttpRequestTest</code> und <code>TaskControllerMockTest</code> aus.
+Worin unterscheiden sich diese?</p></li><li><p>Debuggen Sie Ihre Anwendung. Wer ruft die Controller-Methoden auf? Was genau geschieht im DispatcherServlet?</p></li></ol></div></section>
+<section id="_rest_2"><h2>REST</h2><div class="paragraph heading"><p>Fragen?</p></div>
+<div class="paragraph"><p><a href="lesson0204-soap.html">&#8594; Weiter zu SOAP</a></p></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

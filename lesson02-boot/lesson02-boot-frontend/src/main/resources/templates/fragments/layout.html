@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout (template)">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<base href="/" />
+<title>Aufgaben</title>
+<meta name="description" content="" />
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 th:text="#{tasks}">Aufgaben</h1>
+    <div th:replace="${template}">Inhalt</div>
+  </div>
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/webjars/popper.js/umd/popper.min.js"></script>
+</body>
+</html>

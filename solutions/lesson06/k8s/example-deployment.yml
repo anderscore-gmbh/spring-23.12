@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 2 # Erstellt zwei Pods mit dem Container
+  selector:
+    matchLabels:
+      app: example-pods
+  template:
+    metadata:
+      labels:
+        app: example-pods
+    spec:
+      containers:
+        - name: example-app
+          image: example-image
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Never # Nutzt lokale Images

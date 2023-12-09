@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::main})}">
+<body th:fragment="main">
+  <table class="table table-bordered table-hover">
+    <colgroup>
+      <col style="width: 30em">
+      <col style="width: 10ex">
+      <col style="width: 10ex">
+      <col style="width: 4ex">
+    </colgroup>
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Beschreibung</th>
+        <th scope="col">Fällig am</th>
+        <th scope="col">Status</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+      <tr th:each="task: ${tasks}">
+        <td><a th:text="${task.description}" th:href="@{tasks/{taskId}/edit (taskId=${task.id})}">Entwicklungsumgebung einrichten</a></td>
+        <td th:text="${#dates.format(task.dateDue, 'dd.MM.yyyy')}">20.05.2019</td>
+        <td th:text="#{'task.' + ${task.state}}">DONE</td>
+        <td>
+            <a th:href="@{tasks/{taskId}/delete (taskId=${task.id})}"><i class="material-icons">delete_forever</i></a>
+            <a th:href="@{tasks/{taskId}/updateStatus (taskId=${task.id})}"><i class="material-icons">edit</i></a>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="2">Erfahrungen mit Thymeleaf sammeln</a></td>
+        <td>23.05.2019</td>
+        <td>OPEN</td>
+        <td><a href="2/delete"><i class="material-icons">delete_forever</i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a type="button" class="btn btn-primary" th:href="@{tasks/new}">Neue Aufgabe...</a>
+</body>
+</html>

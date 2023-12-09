@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>OAuth2</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_oauth2" data-state="no-title-footer"><h2>OAuth2</h2><div class="paragraph center"><p>Was wissen Sie dazu?</p></div></section>
+<section><section id="_oauth2_2"><h2>OAuth2</h2><div class="paragraph heading"><p>The OAuth 2.0 Authorization Framework</p></div><div class="quoteblock"><blockquote><div class="paragraph"><p>The OAuth 2.0 authorization framework enables a third-party
+application to obtain limited access to an HTTP service, either on
+behalf of a resource owner by orchestrating an approval interaction
+between the resource owner and the HTTP service, or by allowing the
+third-party application to obtain access on its own behalf.</p></div></blockquote><div class="attribution">&#8212; <a href="https://tools.ietf.org/html/rfc6749">&#8594; RFC6749</a></div></div><div class="admonitionblock note teacherBox"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content"><em>"Authorization Framework"</em>, nicht <em>Authentication</em></td></tr></table></div><div class="paragraph"><p>Siehe auch: <a href="https://oauth.net/2/" class="bare">https://oauth.net/2/</a></p></div></section><section id="_hintergründe"><h2>Hintergründe</h2><div class="ulist"><ul><li><p>OAuth ist zwischen Nov. 2006 und Okt. 2007 entstanden,
+hauptsächlich von Twitter, ma.gnolia, Yahoo und Google entwickelt.</p></li><li><p>Ziel war es, ein standardisiertes Protokoll zu spezifizieren,
+mit dem ein Nutzer einer Webanwendung erlauben kann, in seinem Namen auf ein API
+zuzugreifen, ohne dass die Clientwebanwendung Kenntnisse
+über Nutzername und Passwort des Nutzers beim API-Anbieter haben muss.</p></li><li><p>OAuth2 ist seit Okt. 2012 ein Standard und ist gegenüber der
+Vorversion einfacher und flexibler.</p></li><li><p>OAuth2 wird oft nur zur Authentifizierung verwendet.</p></li></ul></div></section><section id="_oauth_rollen"><h2>OAuth Rollen</h2><div class="dlist"><dl><dt class="hdlist1">Resource Owner</dt><dd><p>Person, die entscheidet, wer auf ihre Daten zugreifen darf, z. B. ein Nutzer von Google-Drive.</p></dd><dt class="hdlist1">Resource Server</dt><dd><p>Server, der die geschützten Ressourcen hosted, z. B. die Webanwendung hinter Google-Drive.</p></dd><dt class="hdlist1">Client</dt><dd><p>Eine Anwendung, die auf die Ressourcen auf dem <em>Resource Server</em>
+zugreifen möchte, z. B. auf das Google-Drive des
+<em>Resource Owner</em>.</p></dd><dt class="hdlist1">Authorization Server</dt><dd><p>Dienst, der dem <em>Client</em> ein Zugangstoken ausstellt, mit dem er auf die
+Ressourcen zugreifen kann, nachdem der <em>Ressource Owner</em> ihn dafür
+autorisiert hat.</p></dd></dl></div>
+<div class="admonitionblock note teacherBox"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">Zwischen <em>Resource Server</em> und <em>Authorization Server</em> besteht ein Vertrauensverhältnis.</td></tr></table></div></section><section id="_authorization_code_flow"><h2>Authorization Code Flow</h2><div class="imageblock" style=""><img src="images/oauth2-protokoll.svg" alt="oauth2 protokoll" width="1200" height="680"></div>
+<div class="paragraph"><p><a href="https://tools.ietf.org/html/rfc6749#section-4.1">&#8594; RFC6749: 4.1. Authorization Code Grant</a></p></div></section><section id="_login_mit_oauth2"><h2>Login mit OAuth2</h2><div class="paragraph"><p>Notwendige Abhängigkeiten:</p></div>
+<div class="literalblock"><div class="content"><pre>compile 'org.springframework.security:spring-security-oauth2-client'
+compile 'org.springframework.security:spring-security-oauth2-jose'</pre></div></div>
+<div class="paragraph"><p>Anpassungen im <code>WebSecurityConfigurerAdapter</code>:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">protected</span> <span class="type">void</span> configure(HttpSecurity http) <span class="directive">throws</span> <span class="exception">Exception</span> {
+...
+.and().oauth2Login();</code></pre></section><section id="_oauth2_konfiguration"><h2>OAuth2 Konfiguration</h2><div class="title">application-outh2.properties</div><pre class="CodeRay listingblock"><code>spring.security.oauth2.client.registration.google.client-id=${client-id}
+spring.security.oauth2.client.registration.google.client-secret=${client-secret}</code></pre>
+<div class="paragraph"><p><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-security-oauth2-common-providers">
+&#8594; Spring Security Reference: 28.3 OAuth2</a></p></div></section></section>
+<section id="_anmeldedaten_mit_google_cloud_api"><h2>Anmeldedaten mit Google-Cloud API</h2><div class="imageblock" style=""><img src="images/Google-Cloud-Anmeldedaten.png" alt="Google Cloud Anmeldedaten" height="700"></div>
+<div class="paragraph"><p><a href="https://console.cloud.google.com/apis/dashboard" class="bare">https://console.cloud.google.com/apis/dashboard</a></p></div></section>
+<section id="_google_oauth_2_0_client_id"><h2>Google OAuth 2.0-Client-ID</h2><div class="imageblock" style=""><img src="images/Google-OAuth2-ClientID.png" alt="Google OAuth2 ClientID" height="800"></div></section>
+<section id="_aufgabe_3_webanwendung_mit_oauth2_login"><h2>Aufgabe 3: Webanwendung mit OAuth2 Login</h2><div class="olist arabic"><ol class="arabic"><li><p>Ergänzen Sie die <code>application.properties</code> um die notwendigen Konfigurationseinträge für OAuth2.
+Zugangsdaten für den notwendigen Google-API Account erhalten Sie von Ihrem Trainer. Alternativ
+können Sie auch Ihren eigenen Account verwenden.</p></li><li><p>Fügen Sie die notwendigen Abhängigkeiten <code>spring-security-oauth2-client</code> und
+<code>spring-security-oauth2-jose</code> hinzu, ändern Sie die <code>SecurityConfig</code>
+von <code>formLogin()</code> auf <code>oauth2Login()</code> und testen Sie die Anwendung.</p></li><li><p>Was passiert genau bei der Anmeldung mit OAuth2? Nutzen Sie zum Nachvollziehen die Entwicklerwerkzeuge
+Ihres Browsers. Alternativ (oder zusätzlich) können Sie auch das Security-Debugging von Spring
+in der <code>SecurityConfig</code> einschalten:</p><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Override</span>
+<span class="directive">public</span> <span class="type">void</span> configure(WebSecurity web) <span class="directive">throws</span> <span class="exception">Exception</span> {
+    web.debug(<span class="predefined-constant">true</span>);
+}</code></pre></li></ol></div></section>
+<section id="_oauth2_3"><h2>OAuth2</h2><div class="paragraph heading"><p>Fragen?</p></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

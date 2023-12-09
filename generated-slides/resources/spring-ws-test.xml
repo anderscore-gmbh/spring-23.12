@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<dependency>
+    <groupId>org.springframework.ws</groupId>
+    <artifactId>spring-ws-test</artifactId>
+    <version>2.7.4</version>
+    <scope>test</scope>
+</dependency>

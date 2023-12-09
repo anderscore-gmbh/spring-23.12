@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.anderscore.trainings</groupId>
+    <artifactId>spring-boot-microservices</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>slides</module>
+        <module>lesson01-intro</module>
+        <module>lesson02-boot</module>
+        <module>lesson03-microservices</module>
+        <module>lesson04-security</module>
+        <module>lesson05-cloud</module>
+        <module>solutions</module>
+        <module>lesson06-container</module>
+    </modules>
+</project>

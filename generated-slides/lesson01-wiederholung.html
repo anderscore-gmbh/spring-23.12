@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Lektion 1 - Wiederholung Spring</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="_lektion_1_wiederholung_spring" data-state="no-title-footer"><h2>Lektion 1 - Wiederholung Spring</h2></section>
+<section id="_was_ist_spring"><h2>Was ist Spring?</h2><div class="paragraph heading"><p>Spring &#8230;&#8203;</p></div>
+<div class="ulist"><ul><li><p>ist ein Framework (mehr als eine Bibliothek, kein Application Server)</p></li><li><p>benötigt nur JDK und einige Bibliotheken (jars)</p></li><li><p>kann fast überall integriert werden</p></li><li><p>kann fast alles integrieren</p></li></ul></div></section>
+<section id="_spring_ökosystem"><h2>Spring-Ökosystem</h2><div class="paragraph center"><p><span class="image"><img src="images/spring-ecosystem.jpg" alt="spring ecosystem"></span></p></div></section>
+<section id="_module"><h2>Module</h2><div class="paragraph center"><p><span class="image"><img src="images/spring-overview.png" alt="spring overview" height="800"></span></p></div></section>
+<section id="_wie_hat_alles_begonnen" class="columns"><h2>Wie hat alles begonnen?</h2><div class="openblock"><div class="content"><div class="paragraph"><p>Prinzipien:</p></div>
+<div class="ulist"><ul><li><p>Dependency Injection (DI)</p></li><li><p>Aspektorientierte Programmierung (AOP)</p></li><li><p>Template-Method Pattern</p></li></ul></div></div></div>
+<div class="paragraph"><p><span class="image" style="float: right"><img src="images/book_rod_johnson.jpg" alt="book rod johnson"></span></p></div></section>
+<section id="_hintergrund"><h2>Hintergrund</h2><div class="ulist"><ul><li><p>Initiatoren: Rod Johnson, Jürgen Höller</p></li><li><p>Apache 2.0 Lizenz</p></li><li><p>Herausgeber: Pivotal Software Inc.</p></li><li><p>Projekt Lead: Jürgen Höller</p></li><li><p>Projektseite: <a href="https://spring.io/projects/spring-framework" class="bare">https://spring.io/projects/spring-framework</a></p></li><li><p>Sourcen: <a href="https://github.com/spring-projects/spring-framework" class="bare">https://github.com/spring-projects/spring-framework</a></p></li></ul></div></section>
+<section id="_dependency_injection"><h2>Dependency Injection</h2><div class="paragraph heading"><p>Herausforderung</p></div>
+<div class="imageblock" style="text-align: center"><img src="images/di-context.svg" alt="di context" width="1200" height="600"></div></section>
+<section id="_dependency_injection_2"><h2>Dependency Injection</h2><div class="paragraph heading"><p>Lösung</p></div>
+<div class="paragraph"><p>Setzen der Abhängigkeiten durch externe Komponente!</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">private</span> FxUserProvider userProvider;
+<span class="directive">private</span> JdbcPreferencesRepository preferencesRepository;
+<span class="directive">private</span> PreferencesServiceImpl preferencesService;
+
+<span class="directive">private</span> <span class="type">void</span> plumb() {
+    userProvider = <span class="keyword">new</span> FxUserProvider();
+    preferencesRepository = <span class="keyword">new</span> JdbcPreferencesRepository();
+    preferencesService = <span class="keyword">new</span> PreferencesServiceImpl();
+    preferencesService.setUserProvider(userProvider);
+    preferencesService.setPreferencesRepository(preferencesRepository);
+}</code></pre></section>
+<section id="_vorteile_von_spring"><h2>Vorteile von Spring</h2><div class="ulist"><ul><li><p>Einfachheit (Verwendung von POJOs)</p></li><li><p>Testbarkeit</p></li><li><p>Verbreitungsgrad</p></li><li><p>Einfache Integration</p></li><li><p>Viele fertige Bausteine</p></li><li><p>Lego-Prinzip</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Lego-Prinzip heißt:</p></div>
+<div class="ulist"><ul><li><p>Es gibt für alles definierte Schnittstellen</p></li><li><p>Technologien sind als Bausteine mit diesen Schnittstellen verpackt</p></li><li><p>Als Entwickler stöpselt man nur noch diese Bausteine zusammen</p></li></ul></div></aside></section>
+<section><section id="_applicationcontext"><h2>ApplicationContext</h2><div class="ulist"><ul><li><p>Der <code>ApplicationContext</code> ist ein Container für Service-Objekte, den sogenannten <strong>Beans</strong>.</p></li><li><p>Er speichert diese Objekte bzw. deren <strong>Factories</strong>
+in einer Registry unter einem <strong>eindeutigen Namen</strong>, vergleichbar mit einer HashMap.</p></li><li><p>Beim Erzeugen von Objekten
+nutzt er diese Registry um <strong>Abhängigkeiten aufzulösen</strong>.</p></li></ul></div><div class="admonitionblock tip teacherBox"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Nutzen den Debugger um sich den <code>ApplicationContext</code> zur Laufzeit anzusehen.</td></tr></table></div></section><section id="_möglichkeiten_einen_applicationcontext_zu_erzeugen"><h2>Möglichkeiten einen ApplicationContext zu erzeugen</h2><div class="paragraph"><p>Es gibt diverse Klassen, die das ApplicationContext-Interface implementieren, die wichtigsten sind:</p></div>
+<div class="ulist"><ul><li><p><code>ClassPathXmlApplicationContext</code> für XML-Config</p></li><li><p><code>AnnotationConfigApplicationContext</code> für Java-Config</p></li><li><p><code>StaticApplicationContext</code> für Tests</p></li></ul></div>
+<div class="paragraph"><p>Am flexibelsten ist der <code>GenericApplicationContext</code>, der über verschiedene <code>AbstractBeanDefinitionReader</code>
+unterschiedliche Formate für die Context-Definition unterstützt.</p></div></section><section id="_applicationcontext_für_webapps"><h2>ApplicationContext für Webapps</h2><div class="paragraph"><p>Für Webapplikationen gibt es spezielle ApplicationContext Klassen:</p></div>
+<div class="ulist"><ul><li><p><code>XmlWebApplicationContext</code> für XML-Config bei Webapps</p></li><li><p><code>AnnotationConfigWebApplicationContext</code> für Java-Config bei Webapps</p></li><li><p><code>GenericWebApplicationContext</code> ist das Gegenstück zu <code>GenericApplicationContext</code> für Webapps</p></li></ul></div></section></section>
+<section><section id="_lebenszyklus_einer_bean"><h2>Lebenszyklus einer Bean</h2><div class="paragraph heading"><p>Möglichkeiten, den Lebenszyklus einer Bean zu beeinflussen</p></div><div class="ulist"><ul><li><p>Interfaces <code>InitializingBean</code>, <code>DisposableBean</code> und <code>Lifecycle</code></p></li><li><p>JSR-250 Annotationen <code>@PostConstruct</code> und <code>@PreDestroy</code></p></li><li><p>Explizite Angabe der <em>init-method</em> oder <em>destroy-method</em> per Konfiguration</p></li><li><p>public close/shutdown, abschaltbar über <code>@Bean(destroyMethod="")</code></p></li></ul></div></section><section id="_initdestroy_über_lifecycle_interfaces"><h2>Init/Destroy über Lifecycle-Interfaces</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MyService</span> <span class="directive">implements</span> InitializingBean, DisposableBean {
+    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> log = LoggerFactory.getLogger(MyService.class);
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> afterPropertiesSet() <span class="directive">throws</span> <span class="exception">Exception</span> {
+        log.info(<span class="string"><span class="delimiter">&quot;</span><span class="content">service created</span><span class="delimiter">&quot;</span></span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> destroy() <span class="directive">throws</span> <span class="exception">Exception</span> {
+        log.info(<span class="string"><span class="delimiter">&quot;</span><span class="content">service destroyed</span><span class="delimiter">&quot;</span></span>);
+        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">service destroyed</span><span class="delimiter">&quot;</span></span>); <span class="comment">// falls Logging schon beendet wurde</span>
+    }
+}</code></pre></section></section>
+<section id="_applicationcontext_konfiguration"><h2>ApplicationContext Konfiguration</h2><div class="paragraph heading"><p>Möglichkeiten den ApplicationContext zu konfigurieren:</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>XML</p></li><li><p>Annotationen</p></li><li><p>Java-Methoden</p></li><li><p>Lambda Ausdrücke (seit Spring 5)</p></li><li><p>&#8230;&#8203; und jede Kombination davon!</p></li></ol></div></section>
+<section><section id="_java_basierte_konfiguration"><h2>Java-basierte Konfiguration</h2><div class="ulist"><ul><li><p>Java-Klasse zur Konfiguration des ApplicationContext</p></li><li><p>Kein Medienbruch (Refactoring, Compiler erkennt Fehler)</p></li><li><p>Weniger Boilerplate als bei XML</p></li><li><p>Trennung von Implementierung und Verdrahtung erfordert Disziplin</p></li></ul></div></section><section id="_grundgerüst"><h2>Grundgerüst</h2><div class="title">CarConfig.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Configuration</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">CarConfig</span> {
+
+    <span class="comment">// Bean mit Namen 'firstCar'</span>
+    <span class="annotation">@Bean</span>
+    Car firstCar() {
+        <span class="keyword">return</span> <span class="keyword">new</span> Car();
+    }
+
+    <span class="comment">// Bean mit Name 'firstCar2' und Aliasen 'bobbyCar' und 'car2'</span>
+    <span class="annotation">@Bean</span>({<span class="string"><span class="delimiter">&quot;</span><span class="content">firstCar2</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">bobbyCar</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">car2</span><span class="delimiter">&quot;</span></span>})
+    Car firstCar2() {
+        <span class="keyword">return</span> <span class="keyword">new</span> Car();
+    }
+}</code></pre></section><section id="_zusammenstöpseln_von_beans"><h2>Zusammenstöpseln von Beans</h2><div class="title">CarConfig.java</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="comment">// Ist Singleton, d. h. gibt es nur einmal!</span>
+<span class="annotation">@Bean</span>
+Engine engine() {
+    <span class="keyword">return</span> <span class="keyword">new</span> Engine(<span class="string"><span class="delimiter">&quot;</span><span class="content">diesel</span><span class="delimiter">&quot;</span></span>, <span class="integer">48</span>);
+}
+
+<span class="annotation">@Bean</span>
+Car realCar() {
+    Car car = <span class="keyword">new</span> Car();
+    car.setColor(<span class="string"><span class="delimiter">&quot;</span><span class="content">yellow</span><span class="delimiter">&quot;</span></span>);
+    car.setEngine(engine()); <span class="comment">// Verdrahtung über Methode (Cache!)</span>
+    <span class="keyword">return</span> car;
+}
+
+<span class="annotation">@Bean</span>
+Car realCar2(Engine engine) { <span class="comment">// Verdrahtung über Parameter</span>
+    Car car = <span class="keyword">new</span> Car();
+    car.setEngine(engine);
+    <span class="keyword">return</span> car;
+}</code></pre>
+<div class="paragraph"><p>Bgzl. Auflösung von Mehrdeutigkeiten siehe
+<a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/javaconfig-methods-inter-dependency.html">
+Dependency injection in @Bean method parameters</a>.</p></div></section></section>
+<section id="_annotationen_für_java_config_ohne_autowiring"><h2>Annotationen für Java-Config (ohne Autowiring)</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:66.6667%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Annotation</th><th class="tableblock halign-left valign-top">Beschreibung</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Configuration</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Markiert eine Klasse als Konfigurationsklasse</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Bean</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Makiert eine Methode als Bean-Factory</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Lazy</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Bean wird nur bei Bedarf initialisiert</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Nullable (bei Bean-Methode)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Bean darf <code>null</code> sein</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Scope</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Legt den Scope einer Bean fest</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Import</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Abhängigkeiten aus anderer Config-Klasse importieren</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@ImportResource</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Abhängigkeiten aus XML-Datei importieren</p></td></tr></table></section>
+<section><section id="_autowiring"><h2>Autowiring</h2><div class="paragraph heading"><p>Motivation</p></div><div class="ulist"><ul><li><p>Verdrahten von Beans erfordert viel Boilerplate (unübersichtlich, pflegeintensiv)</p></li><li><p>Oft ist Verdrahtung eindeutig</p></li><li><p>Per Reflection machbar</p></li></ul></div></section><section id="_annotationen_für_autowiring"><h2>Annotationen für Autowiring</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:66.6667%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Annotation</th><th class="tableblock halign-left valign-top">Beschreibung</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Autowired</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Befüllt Property über Autowiring</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Nullable (bei Abhängigkeit)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Abhängigkeit darf <code>null</code> sein</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Required (deprecated)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Abhängigkeit notwendig (nur bei Setter sinnvoll)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Primary</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Legt die bevorzugte Bean fest</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Qualifier</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Makiert eine Bean oder eine Abhängigkeit</p></td></tr></table></section><section id="_field_autowiring"><h2>Field Autowiring</h2><div class="paragraph"><p>Es gibt 3 Arten von Autowiring. Am häufigsten wird diese Variante verwendet:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Autowired</span>
+<span class="directive">private</span> Engine engine;
+<span class="annotation">@Autowired</span>
+<span class="directive">private</span> <span class="predefined-type">List</span>&lt;Feature&gt; features;</code></pre></section><section id="_setter_autowiring"><h2>Setter Autowiring</h2><div class="paragraph"><p>Eher selten:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Autowired</span>
+<span class="directive">public</span> <span class="type">void</span> setEngine(Engine engine) {
+    <span class="local-variable">this</span>.engine = engine;
+}
+
+<span class="annotation">@Autowired</span>
+<span class="directive">public</span> <span class="type">void</span> setFeatures(<span class="predefined-type">List</span>&lt;Feature&gt; features) {
+    <span class="local-variable">this</span>.features = features;
+}</code></pre></section><section id="_konstruktor_autowiring"><h2>Konstruktor Autowiring</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">private</span> <span class="directive">final</span> Engine engine;
+<span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">List</span>&lt;Feature&gt; features;
+
+<span class="annotation">@Autowired</span>
+<span class="directive">public</span> CarConstructorWiring(Engine engine, <span class="predefined-type">List</span>&lt;Feature&gt; features) {
+    <span class="local-variable">this</span>.engine = engine;
+    <span class="local-variable">this</span>.features = features;
+}</code></pre>
+<div class="paragraph"><p>Nur sinnvoll in Kombination mit annotationsbasierter Konfiguration.<br>
+Für Muss-Parameter in Kombination mit <code>final</code> empfohlen.</p></div></section><section id="_verwendung_von_primary"><h2>Verwendung von @Primary</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Bean</span>
+<span class="annotation">@Primary</span>
+Engine gasEngine() {
+    <span class="keyword">return</span> <span class="keyword">new</span> Engine(<span class="string"><span class="delimiter">&quot;</span><span class="content">gas</span><span class="delimiter">&quot;</span></span>, <span class="integer">68</span>);
+}
+
+<span class="annotation">@Bean</span>
+Engine dieselEngine() {
+    <span class="keyword">return</span> <span class="keyword">new</span> Engine(<span class="string"><span class="delimiter">&quot;</span><span class="content">diesel</span><span class="delimiter">&quot;</span></span>, <span class="integer">72</span>);
+}
+
+<span class="annotation">@Bean</span>
+Car car(Engine engine) {
+   var car = <span class="keyword">new</span> Car();
+   car.setEngine(engine);
+   <span class="keyword">return</span> car;
+}</code></pre>
+<div class="paragraph"><p>Wird häufig für Tests verwendet.</p></div></section></section>
+<section><section id="_annotationsbasierte_konfiguration"><h2>Annotationsbasierte Konfiguration</h2><div class="paragraph heading"><p>Aktivieren der annotationsbasierten Konfiguration</p></div><div class="title">Java-Config</div><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Configuration</span>
+<span class="annotation">@ComponentScan</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">org.example</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SomeConfig</span> {
+    <span class="comment">// ...</span>
+}</code></pre></section><section id="_annotationen_für_annotationsbasierten_konfiguration"><h2>Annotationen für annotationsbasierten Konfiguration</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:66.6667%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Annotation</th><th class="tableblock halign-left valign-top">Beschreibung</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@ComponentScan</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Festlegung der Packages, die für annotationsbasierte Konfiguration herangezogen werden</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Component (@Service, @Repository, @Controller)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Markiert eine Klasse als Bean</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">@Value</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Wertangabe mit den Features der XML-Config</p></td></tr></table></section></section>
+<section><section id="_externe_konfiguration"><h2>Externe Konfiguration</h2><div class="paragraph heading"><p>Motivation</p></div><div class="paragraph"><p>Manche Konfigurationswerte sind</p></div><div class="ulist"><ul><li><p>zum Entwicklungszeitpunkt noch nicht bekannt,</p></li><li><p>sind abhängig von der Laufzeitumgebung oder</p></li><li><p>müssen nachträglich änderbar sein.</p></li></ul></div><div class="paragraph"><p>Im Java-Umfeld werden dafür meistens Properties-Dateien verwendet.<br>
+Diese enthalten einfache Key-Value Paare:</p></div><div class="literalblock"><div class="content"><pre>server.port=8081
+debug: true</pre></div></div><div class="admonitionblock note teacherBox"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">Man kann entweder '=' oder ': ' als Trenner zwischen Schlüssel und Wert verwenden.</td></tr></table></div></section><section id="_propertysource"><h2>@PropertySource</h2><div class="paragraph"><p>Bei Spring bindet man eine Properties-Datei über die <code>@PropertySource</code> Annotation ein:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Configuration</span>
+<span class="annotation">@PropertySource</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:app.properties</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">MyJavaConfig</span> {
+    <span class="comment">//...</span>
+}</code></pre></section><section id="_zugriff_auf_property_werte"><h2>Zugriff auf Property-Werte</h2><div class="paragraph"><p>Platzhalter der Form <code>${key}</code> werden in Annotationsparameter durch die
+entsprechenden Property-Werte ersetzt.
+Häufig wird das in Kombination mit der <code>@Value</code> Annotation verwendet:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Value</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">${server.port}</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">private</span> <span class="type">int</span> serverPort;
+
+<span class="annotation">@Value</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:${server.port}/</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">private</span> <span class="predefined-type">String</span> serverUrl;
+
+<span class="annotation">@Bean</span>
+SomeService someService(<span class="annotation">@Value</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">${debug}</span><span class="delimiter">&quot;</span></span>) <span class="type">boolean</span> debug) {</code></pre></section></section>
+<section><section id="_profile"><h2>Profile</h2><div class="paragraph heading"><p>Einsatz von @Profile</p></div><div class="ulist"><ul><li><p>Unterschiedliche Umgebungen (Produktion, Entwicklung) erfordern unterschiedliche Konfiguration.</p></li><li><p>Profile kommen zum Einsatz, wenn Einstellungen (Konfigurationswerte) nicht ausreichen.</p></li><li><p>Mit der Annotation <code>@Profile("profilname")</code> legt man fest, dass eine Konfiguration nur gelten
+soll, wenn das entsprechende Profil aktiviert ist.</p></li><li><p>Die <code>@Profile</code> Annotation kann man sowohl auf eine ganze (Konfigurations-)Klassen als auch auf
+einzelne Bean-Methoden anwenden.</p></li><li><p>Profile lassen sich mit <code>&amp;</code> (und), <code>|</code> (oder), <code>!</code> (Negation) und Klammern verknüpfen:</p><pre class="CodeRay listingblock"><code class="java language-java"><span class="annotation">@Profile</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">production &amp; (us-east | eu-central)</span><span class="delimiter">&quot;</span></span>)</code></pre></li></ul></div><div class="paragraph"><p><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-definition-profiles-java">
+&#8594; Reference: Using @Profile</a></p></div></section><section id="_profile_aktivieren"><h2>Profile aktivieren</h2><div class="paragraph"><p>Man kann mehrere Profile gleichzeitig aktiveren, entweder programmatisch:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">ctx.getEnvironment().setActiveProfiles(<span class="string"><span class="delimiter">&quot;</span><span class="content">profile1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">profile2</span><span class="delimiter">&quot;</span></span>);</code></pre>
+<div class="paragraph"><p>Oder über die <code>spring.profiles.active</code> Property, z. B. mit:</p></div>
+<div class="literalblock"><div class="content"><pre>-Dspring.profiles.active="profile1,profile2"</pre></div></div>
+<div class="paragraph"><p>Wenn kein Profil aktiviert wurde, dann ist immer das <strong><code>default</code></strong> Profil aktiv.</p></div></section></section>
+<section id="_wiederholung_spring"><h2>Wiederholung Spring</h2><div class="paragraph heading"><p>Fragen?</p></div>
+<div class="paragraph"><p><a href="index.html">&#8594; Zurück zur Agenda</a></p></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('GfU', 'Jan Lühr', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
